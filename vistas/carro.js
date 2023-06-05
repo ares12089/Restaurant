@@ -1,2 +1,4 @@
-var xd ? 
-var lol String
+let = 2;
+let = 4;
+
+
