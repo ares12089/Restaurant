@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/gerente">
-
-
-    <title>Gestion Gerente</title>
+    <link rel="stylesheet" href="css/cajero.css">
+    <title>Document</title>
 </head>
 <body>
-    <h1> hola gerente</h1>
+
+    <h1>BIENVENIDO CAJERO</h1>
+    
 </body>
 </html>

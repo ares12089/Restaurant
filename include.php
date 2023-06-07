@@ -1,5 +1,7 @@
 <?php
 
+//dejen este include afuera de las carpetas no lo muevan
+
 include "lib\barcode.php";
 
 $generator = new barcode_generator();
@@ -11,3 +13,5 @@ $svg = $generator->render_svg("qr", "menu.html", "");
 echo $svg;
 
 ?>
+
+
