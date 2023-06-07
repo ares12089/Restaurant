@@ -6,7 +6,7 @@ $generator = new barcode_generator();
 
 header('Content-Type: image/svg+xml');
 
-$svg = $generator->render_svg("qr", "menu.php", "");
+$svg = $generator->render_svg("qr", "menu.html", "");
 
 echo $svg;
 
