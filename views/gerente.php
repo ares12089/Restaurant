@@ -9,10 +9,11 @@ if (isset($_SESSION['usuario'])) {
     exit();
 }
 
-$servername = "localhost";
+$servername = "containers-us-west-131.railway.app";
 $username = "root";
-$password = "";
-$dbname = "rol";
+$password = "IgBg231bFKr62oMeSByp";
+$dbname = "railway";
+$port = "7141";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
