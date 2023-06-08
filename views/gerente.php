@@ -3,7 +3,7 @@
 session_start();
 if (isset($_SESSION['usuario'])) {
     $nombreUsuario = $_SESSION['usuario'];
-    echo "<header><h2>Bienvenido $nombreUsuario(admin)</h2></header>";
+    echo "<header><h2>Bienvenido $nombreUsuario que bueno verte otra vez</h2></header>";
 } else {
     header("Location: ../index.html");
     exit();
@@ -47,6 +47,9 @@ $conn->close();
 
 //--------------------------------VISTA GERENTE-------------------------------------//
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
