@@ -7,7 +7,7 @@ $_SESSION['usuario']=$usuario;
 // CAMBIAR EL NOMBRE SI ES NECESARIO
 
 //nombre de la base de datos
-$conexion=mysqli_connect("localhost","root","","rol");
+$conexion=mysqli_connect("containers-us-west-131.railway.app","root","IgBg231bFKr62oMeSByp","railway");
 
 $consulta="SELECT*FROM usuarios where usuario='$usuario' and contraseña='$contraseña'";
 $resultado=mysqli_query($conexion,$consulta);
