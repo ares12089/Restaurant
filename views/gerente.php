@@ -9,11 +9,10 @@ if (isset($_SESSION['usuario'])) {
     exit();
 }
 
-$servername = "containers-us-west-131.railway.app";
+$servername = "localhost";
 $username = "root";
-$password = "IgBg231bFKr62oMeSByp";
-$dbname = "railway";
-$port = "7141";
+$password = "";
+$dbname = "rol";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -24,17 +23,14 @@ if ($conn->connect_error) {
 // Verificar si se envió el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos del formulario
-// Obtener los datos del formulario
-$nombre = $_POST["nombre"];
-$usuario = $_POST["usuario"];
-$contraseña = $_POST["contraseña"];
-$id_cargo = $_POST["id_cargo"];
-
+    $nombre = $_POST["nombre"];
+    $usuario = $_POST["usuario"];
+    $contraseña = $_POST["contraseña"];
+    $id_cargo = $_POST["id_cargo"];
 
     // Insertar los datos en la base de datos
     $sql = "INSERT INTO usuarios (nombre, usuario, contraseña, id_cargo)
-    VALUES ('$nombre', '$usuario', '$contraseña', '$id_cargo')";
-
+            VALUES ('$nombre', '$usuario', '$contraseña', '$id_cargo')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Usuario agregado correctamente";
@@ -66,14 +62,9 @@ $conn->close();
         <label for="contraseña">Contraseña:</label>
         <input type="password" id="contraseña" name="contraseña" required><br><br>
 
-        <label for="id_cargo">ID Cargo:</label>        
-        <select id="id_cargo" name="id_cargo" required>
-    <option value="">Seleccionar cargo</option>
-    <option value="1">gerente</option>
-    <option value="2">cajero</option>
-    <option value="3">chef</option>
-        </select>
-        
+        <label for="id_cargo">ID Cargo:</label>
+        <input type="number" id="id_cargo" name="id_cargo" required><br><br>
+
         <input type="submit" value="Agregar Usuario">
     </form>
 

@@ -7,13 +7,7 @@ $_SESSION['usuario']=$usuario;
 // CAMBIAR EL NOMBRE SI ES NECESARIO
 
 //nombre de la base de datos
-$servername = "containers-us-west-131.railway.app";
-$username = "root";
-$password = "IgBg231bFKr62oMeSByp";
-$dbname = "railway";
-$port = "7141";
-
-$conexion=mysqli_connect($servername,$username,$password,$dbname);
+$conexion=mysqli_connect("localhost","root","","rol");
 
 $consulta="SELECT*FROM usuarios where usuario='$usuario' and contraseña='$contraseña'";
 $resultado=mysqli_query($conexion,$consulta);
