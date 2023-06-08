@@ -16,15 +16,15 @@ $filas=mysqli_fetch_array($resultado);
 
 //roles
 if($filas['id_cargo']==1){ //gerente
-    header("location:views/gerente.php");
+    header("location:../views/gerente.php");
 
 }else
 if($filas['id_cargo']==2){ //cajero
-header("location:views/cajero.php");
+header("location:../views/cajero.php");
 
 }else
 if($filas['id_cargo']==3){ //chef
-header("location:views/chef.php");
+header("location:../views/chef.php");
 }
 
 
