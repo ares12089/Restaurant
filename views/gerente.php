@@ -23,14 +23,17 @@ if ($conn->connect_error) {
 // Verificar si se envió el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos del formulario
-    $nombre = $_POST["nombre"];
-    $usuario = $_POST["usuario"];
-    $contraseña = $_POST["contraseña"];
-    $id_cargo = $_POST["id_cargo"];
+// Obtener los datos del formulario
+$nombre = $_POST["nombre"];
+$usuario = $_POST["usuario"];
+$contraseña = $_POST["contraseña"];
+$id_cargo = $_POST["id_cargo"];
+
 
     // Insertar los datos en la base de datos
     $sql = "INSERT INTO usuarios (nombre, usuario, contraseña, id_cargo)
-            VALUES ('$nombre', '$usuario', '$contraseña', '$id_cargo')";
+    VALUES ('$nombre', '$usuario', '$contraseña', '$id_cargo')";
+
 
     if ($conn->query($sql) === TRUE) {
         echo "Usuario agregado correctamente";
@@ -62,9 +65,14 @@ $conn->close();
         <label for="contraseña">Contraseña:</label>
         <input type="password" id="contraseña" name="contraseña" required><br><br>
 
-        <label for="id_cargo">ID Cargo:</label>
-        <input type="number" id="id_cargo" name="id_cargo" required><br><br>
-
+        <label for="id_cargo">ID Cargo:</label>        
+        <select id="id_cargo" name="id_cargo" required>
+    <option value="">Seleccionar cargo</option>
+    <option value="1">gerente</option>
+    <option value="2">cajero</option>
+    <option value="3">chef</option>
+        </select>
+        
         <input type="submit" value="Agregar Usuario">
     </form>
 
