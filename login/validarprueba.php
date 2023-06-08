@@ -4,6 +4,7 @@ $contraseña=$_POST['contraseña'];
 session_start();
 $_SESSION['usuario']=$usuario;
 
+// CAMBIAR EL NOMBRE SI ES NECESARIO
 
 //nombre de la base de datos
 $conexion=mysqli_connect("localhost","root","","rol");
