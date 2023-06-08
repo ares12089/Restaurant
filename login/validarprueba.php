@@ -37,5 +37,6 @@ else{
     <h1 class="bad">ERROR EN LA AUTENTIFICACION</h1>
     <?php
 }
+
 mysqli_free_result($resultado);
 mysqli_close($conexion);

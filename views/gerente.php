@@ -1,4 +1,14 @@
 <?php
+// recoge el nombre de usuario y lo imprime en la pantalla
+session_start();
+if (isset($_SESSION['usuario'])) {
+    $nombreUsuario = $_SESSION['usuario'];
+    echo "<header><h2>Bienvenido $nombreUsuario(admin)</h2></header>";
+} else {
+    header("Location: ../index.html");
+    exit();
+}
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -28,19 +38,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error al agregar el usuario: " . $conn->error;
     }
 }
+
 $conn->close();
 //----------------------------------------------------------------------------------//
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Agregar Usuario</title>
+    <title>VISTA ADMIN</title>
     <link rel="stylesheet" href="../css/addusuario.css">
 </head>
 <body>
-    <h2>Agregar Usuario</h2>
+
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <h2>Agregar Usuario</h2>
+
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required><br><br>
 
