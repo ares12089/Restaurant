@@ -56,19 +56,26 @@ $conn->close();
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     <h2>Agregar Usuario</h2>
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br><br>
+        <section id="campos">
 
-        <label for="usuario">Usuario:</label>
-        <input type="text" id="usuario" name="usuario" required><br><br>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
 
-        <label for="contraseña">Contraseña:</label>
-        <input type="password" id="contraseña" name="contraseña" required><br><br>
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" required><br><br>
 
-        <label for="id_cargo">ID Cargo:</label>
-        <input type="number" id="id_cargo" name="id_cargo" required><br><br>
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña" required><br><br>
 
-        <input type="submit" value="Agregar Usuario">
+            <label for="id_cargo">Cargo:</label>
+            <option value="">>--Selecione--<</option>
+            <option value="chef">Chef</option>
+            <option value="Cajero">Cajero</option>
+
+            </select>
+
+        </section>
+
     </form>
 
     <button type="submit" onclick="window.location.href='../index.html'">Volver al inicio de sesión</button>
@@ -76,3 +83,4 @@ $conn->close();
 
 </body>
 </html>
+
