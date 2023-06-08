@@ -1,5 +1,4 @@
 <?php
-// Conexión a la base de datos
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -29,14 +28,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error al agregar el usuario: " . $conn->error;
     }
 }
-
 $conn->close();
+//----------------------------------------------------------------------------------//
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Agregar Usuario</title>
+    <link rel="stylesheet" href="../css/addusuario.css">
 </head>
 <body>
     <h2>Agregar Usuario</h2>
@@ -55,5 +55,8 @@ $conn->close();
 
         <input type="submit" value="Agregar Usuario">
     </form>
+
+    <button type="submit" onclick="window.location.href='../index.html'">Volver al inicio de sesión</button>
+
 </body>
 </html>
