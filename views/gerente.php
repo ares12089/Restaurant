@@ -40,7 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
-//----------------------------------------------------------------------------------//
+
+
+//--------------------------------VISTA GERENTE-------------------------------------//
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,8 +64,8 @@ $conn->close();
         <label for="contraseña">Contraseña:</label>
         <input type="password" id="contraseña" name="contraseña" required><br><br>
 
-        <label for="id_cargo">ID Cargo:</label>
-        <input type="number" id="id_cargo" name="id_cargo" required><br><br>
+        <label for="id_cargo">Cargo:</label>
+        <input type="option" id="id_cargo" name="id_cargo" required><br><br>
 
         <input type="submit" value="Agregar Usuario">
     </form>

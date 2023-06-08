@@ -8,6 +8,13 @@
 </head>
 <body>
 
+
+
+
+
+
+
+
     <?php 
   
     // (no borrar )recoge el nombre de usuario y lo imprime en la pantalla
