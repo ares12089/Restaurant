@@ -1,23 +1,21 @@
 <?php
 
-
-
 //base de datos temporal para ver si daba la vista de gerente agregada por daniel
-$conexion = new mysqli("localhost", "root", "", "xd");
-$conexion->set_charset("utf8");
+//$conexion = new mysqli("localhost", "root", "", "rol");
+//$conexion->set_charset("utf8");
 
 
 
-//$host = "containers-us-west-131.railway.app";
-//$user = "root";
-//$password = "IgBg231bFKr62oMeSByp";
-//$dbname = "railway";
-//$port = 7141;
+$host = "containers-us-west-131.railway.app";
+$user = "root";
+$password = "IgBg231bFKr62oMeSByp";
+$dbname = "railway";
+$port = 7141;
 
-//$conn = new mysqli($host, $user, $password, $dbname, $port);
+$conn = new mysqli($host, $user, $password, $dbname, $port);
 
-//if ($conn->connect_error) {
-//    die("Conexión fallida: " . $conn->connect_error);
-//}
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
 
 ?>
