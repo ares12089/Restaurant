@@ -10,10 +10,16 @@ if(!empty($_POST["btnregistrar"])){
         $contraseña=$_POST["contraseña"];
         $cargo=$_POST["cargo"];
 
-
+        $sql=$conexion->query(" INSERT INTO usuarios(nombre,usuario,contraseña,id_cargo)VALUES(' $nombre', '$usuario', '$contraseña', '$cargo')  ");
+        if ($sql==1) {
+            echo '<div class="alert alert-success"><i class="fa-solid fa-circle-check" style="color: #000000;"></i>Persona Regisrado Correctamente</div>';
+        } else {
+            echo '<div class="alert alert-danger"><i class="fa-solid fa-circle-exclamation" style="color: #000000;"></i>Error Al Registrar Persona</div>';
+        }
+        
 
     }else{
-        echo "Algunos de los campos esta vacio";
+        echo '<div class="alert alert-warning"><i class="fa-solid fa-triangle-exclamation" style="color: #000000;"></i>Algunos de los campos esta vacio</div>';
     }
 
 }
