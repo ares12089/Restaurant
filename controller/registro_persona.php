@@ -12,14 +12,14 @@ if(!empty($_POST["btnregistrar"])){
 
         $sql=$conexion->query(" INSERT INTO usuarios(nombre,usuario,contraseña,id_cargo)VALUES(' $nombre', '$usuario', '$contraseña', '$cargo')  ");
         if ($sql==1) {
-            echo '<div class="alert alert-success"><i class="fa-solid fa-circle-check" style="color: #000000;"></i>Persona Regisrado Correctamente</div>';
+            echo '<div class="alert alert-success"><i class="fa-solid fa-circle-check me-2" style="color: #000000;"></i>Persona Regisrado Correctamente</div>';
         } else {
-            echo '<div class="alert alert-danger"><i class="fa-solid fa-circle-exclamation" style="color: #000000;"></i>Error Al Registrar Persona</div>';
+            echo '<div class="alert alert-danger"><i class="fa-solid fa-circle-exclamation me-2" style="color: #000000;"></i>Error Al Registrar Persona</div>';
         }
         
 
     }else{
-        echo '<div class="alert alert-warning"><i class="fa-solid fa-triangle-exclamation" style="color: #000000;"></i>Algunos de los campos esta vacio</div>';
+        echo '<div class="alert alert-warning"><i class="fa-solid fa-triangle-exclamation me-2" style="color: #000000;"></i>Algunos de los campos esta vacio</div>';
     }
 
 }

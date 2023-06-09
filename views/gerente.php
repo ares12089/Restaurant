@@ -11,47 +11,47 @@
 <body>
     
 
-    <h1 class="text-center p-3"><i class="fa-solid fa-user-tie"></i>GERENTE</h1>
+    <h1 class="text-center p-3"><i class="fa-solid fa-user-tie me-2"></i>GERENTE</h1>
 <div class="container-fluid row">
             <form class="col-4 p-3" method="POST">
-                <h3 class="text-center text-secondary"><i class="fa-solid fa-users"></i>REGISTRO DE EMPLEADOS</h3>
+                <h3 class="text-center text-secondary"><i class="fa-solid fa-users me-2"></i>REGISTRO DE EMPLEADOS</h3>
                 <?php 
                 include "../controller/registro_persona.php";
                 include "../module/conexion.php";
                 ?>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user"></i>Nombre Completo</label>
+                    <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Nombre Completo</label>
                     <input type="text" class="form-control" name="nombre">
                 </div>
 
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user"></i>Usuario</label>
+                    <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Usuario</label>
                     <input type="text" class="form-control" name="usuario">
                 </div>
 
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-key"></i>Contraseña</label>
+                    <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-key me-2"></i>Contraseña</label>
                     <input type="text" class="form-control" name="contrasena">
                 </div>
 
                 <div class="mb-3">
-                <label for="disabledSelect" class="form-label" name="cargo"><i class="fa-solid fa-user-tag"></i>Establesca cargo</label>
+                <label for="disabledSelect" class="form-label" name="cargo"><i class="fa-solid fa-user-tag me-2"></i>Establesca cargo</label>
                 <select id="disabledSelect" class="form-select">
                     <option>Chef</option>
                     <option>Cajero</option>
                 </select>
                 </div>
-                    <button type="submit" class="btn btn-success" name="btnregistrar" value="ok"><i class="fa-solid fa-user-plus"></i>Registrar</button>
+                    <button type="submit" class="btn btn-success" name="btnregistrar" value="ok"><i class="fa-solid fa-user-plus me-2"></i>Registrar</button>
             </form>
         <div class="col-8 p-4">
             <table class="table">
                     <thead class="bg-info">
                         <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Nombre Completo</th>
-                        <th scope="col">Usuario</th>
-                        <th scope="col">Contraseña</th>
-                        <th scope="col">Cargo</th>
+                        <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>ID</th>
+                        <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Nombre Completo</th>
+                        <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Usuario</th>
+                        <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Contraseña</th>
+                        <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Cargo</th>
                         <th scope="col"></th>
                         </tr>
                     </thead>
@@ -65,14 +65,14 @@
                     while($datos=$sql->fetch_object()){ ?>
 
                         <tr>
-                        <td><i class="fa-solid fa-id-card"></i><?= $datos->id ?></td>
-                        <td><i class="fa-solid fa-circle-user"></i><?= $datos->nombre ?></td>
-                        <td><i class="fa-solid fa-circle-user"></i><?= $datos->usuario ?></td>
-                        <td><i class="fa-solid fa-user-lock"></i><?= $datos->contraseña ?></td>
-                        <td><i class="fa-solid fa-user-tag"></i><?= $datos->id_cargo ?></td>
+                        <td><i class="fa-solid fa-id-card me-2"></i><?= $datos->id ?></td>
+                        <td><i class="fa-solid fa-circle-user me-2"></i><?= $datos->nombre ?></td>
+                        <td><i class="fa-solid fa-circle-user me-2"></i><?= $datos->usuario ?></td>
+                        <td><i class="fa-solid fa-user-lock me-2"></i><?= $datos->contraseña ?></td>
+                        <td><i class="fa-solid fa-user-tag me-2"></i><?= $datos->id_cargo ?></td>
                         <td>
-                            <a href="" class="btn btn-small btn-warning"><i class="fa-solid fa-user-pen"></i>Editar</a>
-                            <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-user-xmark"></i>Eliminar</a>
+                            <a href="" class="btn btn-small btn-warning"><i class="fa-solid fa-user-pen me-2"></i>Editar</a>
+                            <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-user-xmark me-2"></i>Eliminar</a>
                         </td>
                         </tr>
 
