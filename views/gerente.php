@@ -76,7 +76,7 @@
                 </div>
                     <button type="submit" class="btn btn-success" name="btnregistrar" value="ok"><i class="fa-solid fa-user-plus me-2"></i>Registrar</button>
             </form>
-        <div class="col-10 p-5">
+        <div class="col-4 p-5" method="POST" style="margin-left: -1cm;">
             <table class="table w-100">
                     <thead class="bg-info">
                         <tr>
