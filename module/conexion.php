@@ -1,6 +1,6 @@
 <?php
 
-$conexion = new mysqli("localhost", "root", "", "xd");
+$conexion = new mysqli("localhost", "root", "", "rol2");
 $conexion->set_charset("utf8");
 
 ?>
