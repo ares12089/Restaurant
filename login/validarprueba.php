@@ -1,42 +1,57 @@
 <?php
-$usuario=$_POST['usuario'];
-$contraseña=$_POST['contraseña'];
-session_start();
-$_SESSION['usuario']=$usuario;
+// Obtener los datos del formulario
+$user = $_POST['user'];
+$pass = $_POST['pass'];
 
-// CAMBIAR EL NOMBRE SI ES NECESARIO
+// Conectarse a la base de datos
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "rol2";
 
-//nombre de la base de datos
-$conexion=mysqli_connect("containers-us-west-131.railway.app","root","IgBg231bFKr62oMeSByp","railway",7141);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-$consulta="SELECT*FROM usuarios where usuario='$usuario' and contraseña='$contraseña'";
-$resultado=mysqli_query($conexion,$consulta);
-
-$filas=mysqli_fetch_array($resultado);
-
-
-//roles
-if($filas['id_cargo']==1){ //gerente
-    header("location:../views/gerente.php");
-
-}else
-if($filas['id_cargo']==2){ //cajero
-header("location:../views/cajero.php");
-
-}else
-if($filas['id_cargo']==3){ //chef
-header("location:../views/chef.php");
+// Verificar la conexión
+if ($conn->connect_error) {
+    die("Error de conexión a la base de datos: " . $conn->connect_error);
 }
 
+// Consulta SQL para verificar las credenciales del usuario
+$sql = "SELECT c.descripcion AS cargo
+        FROM usuarios u
+        INNER JOIN cargo c ON u.id_cargo = c.id
+        WHERE u.usuario = '$user' AND u.contraseña = '$pass'";
 
-else{
-    ?>
-    <?php
-    include("index.html");
-    ?>
-    <h1 class="bad">ERROR EN LA AUTENTIFICACION</h1>
-    <?php
+$result = $conn->query($sql);
+
+if ($result->num_rows == 1) {
+    // Usuario autenticado correctamente
+
+    // Obtener el cargo del usuario
+    $row = $result->fetch_assoc();
+    $cargo = $row['cargo'];
+
+    // Redireccionar a la página correspondiente según el cargo
+    switch ($cargo) {
+        case 'Gerente':
+            header("Location:../views/gerente.php");
+            break;
+        case 'Cajero':
+            header("Location:../views/cajero.php");
+            break;
+        case 'Chef':
+            header("Location:../view/chef.php");
+            break;
+        default:
+            // Cargo no reconocido
+            echo "Cargo no válido";
+            break;
+    }
+} else {
+    // Autenticación fallida
+    echo "Usuario o contraseña incorrectos";
 }
 
-mysqli_free_result($resultado);
-mysqli_close($conexion);
+// Cerrar la conexión a la base de datos
+$conn->close();
+?>
