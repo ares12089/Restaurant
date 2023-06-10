@@ -40,7 +40,7 @@ if ($result->num_rows == 1) {
             header("Location:../views/cajero.php");
             break;
         case 'Chef':
-            header("Location:../view/chef.php");
+            header("Location:../views/chef.php");
             break;
         default:
             // Cargo no reconocido

@@ -9,27 +9,7 @@
 <body>
 
 
-
-
-
-
-
-
-    <?php 
-  
-    // (no borrar )recoge el nombre de usuario y lo imprime en la pantalla
-    session_start();
-    if (isset($_SESSION['usuario'])) {
-        $nombreUsuario = $_SESSION['usuario'];
-        echo "<header><h2>Bienvenido $nombreUsuario(cajero)</h2></header>";
-    } else {
-        header("Location: ../index.html");
-        exit();
-    }  
-    ?>
-    
-    <button type="submit" onclick="window.location.href='../index.html'">Volver al inicio de sesión</button>
-
+<h1>sadasdasd</h1>
 
 </body>
 </html>
