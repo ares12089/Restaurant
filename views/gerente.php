@@ -76,7 +76,7 @@
                 </div>
                     <button type="submit" class="btn btn-success" name="btnregistrar" value="ok"><i class="fa-solid fa-user-plus me-2"></i>Registrar</button>
             </form>
-        <div class="col-4 p-5" method="POST" style="margin-left: -1cm;">
+        <div class="col-9 p-5" method="POST" style="margin-left: -2cm;">
             <table class="table w-100">
                     <thead class="bg-info">
                         <tr>
@@ -109,8 +109,8 @@
                         <td><?= $datos->correo ?></td>
                         <td><i class="fa-solid fa-user-tag me-2"></i><?= $datos->id_cargo ?></td>
                         <td>
-                        <a href="" class="btn btn-sm btn-warning" style="font-size: 0.9rem;"><i class="fa-solid fa-user-pen me-2"></i></a>
-                        <a href="" class="btn btn-sm btn-danger" style="font-size: 0.9rem;"><i class="fa-solid fa-user-xmark me-2"></i></a>
+                        <a href="" class="btn btn-sm btn-warning" style="font-size: 0.9rem;"><i class="fa-solid fa-user-pen me-2"> </i></a>
+                        <a href="" class="btn btn-sm btn-danger" style="font-size: 0.9rem;"><i class="fa-solid fa-user-xmark me-2"> </i></a>
                         </td>
                         </tr>
 
