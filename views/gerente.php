@@ -12,30 +12,102 @@
     
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <!-- Contenido del Navbar -->
-    <div class="d-flex justify-content-center align-items-center">
-  <a class="navbar-brand" href="#"><i class="fa-solid fa-door-open me-2" style="color: #000000;"></i>BIENVENIDO</a>
-  <h1 class="p-3">
-    <i class="fa-solid fa-user-tie me-2"></i>GERENTE
-  </h1>
+  <style>
+  .sidebar {
+    position: fixed;
+    right: -100cm;
+    top: 50px;
+    width: 250px;
+    height: 100vh;
+    background-color: #f9f9f9;
+    transition: right 0.3s ease;
+  }
+
+  .sidebar.open {
+    right: 0;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px;
+  }
+
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+
+  .sidebar a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .menu-button {
+    position: fixed;
+    left: 34cm;
+    top: -1,3cm;
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+  }
+</style>
+
+<div class="sidebar" id="sidebar">
+<li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
+<li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
+<li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
+<li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
+<div class="text-center" style="margin-top: -120px;">
+  <img src="<?php echo '../img/wallhaven-y86k3l.jpg'; ?>" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
 </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
+  <ul>
+  <div style="text-align: center;">
+  <li><h4>MENU<i class="fa-solid fa-martini-glass-citrus ms-2" style="color: #000000;"></i></h4></li>
+    </div>
+    <li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
+    <li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
+    <div style="text-align: center; font-family: 'Times New Roman', Times, serif;">
+    <a href="menu.php">AGREGAR PLATOS<i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i></a>
+    </div>
+    <li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
+    <li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
+    <li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
+    <li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
+    <li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
+
+    <div style="display: flex; justify-content: center;">
+    <a href="#" class="btn btn-small" style="background-color: #f9f9f9;">
+        <span class="me-1">Cerrar Sesión</span>
+        <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>
+    </a>
+    </div>
+
+
+  </ul>
+</div>
+<div class="menu-button" onclick="toggleSidebar()">&#9776;</div>
+<script>
+  function toggleSidebar() {
+    var sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("open");
+  }
+</script>
+
+    <div class="d-flex justify-content-center align-items-center">
+      <a class="navbar-brand" href="#"><i class="fa-solid fa-door-open me-2" style="color: #000000;"></i>BIENVENIDO</a>
+    </div>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-        <!-- Elementos del Navbar -->
         <li class="nav-item">
-            <a href="#" class="btn btn-small btn-danger position-absolute top-0 end-0 mt-4 me-3 d-flex align-items-center" style="margin-top: 10px;">
-                <span class="me-1">Cerrar Sesión</span>
-                <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>
-            </a>
         </li>
-
       </ul>
     </div>
   </div>
 </nav>
+
 
 <div class="container-fluid row">
 
@@ -85,13 +157,13 @@
                     <input type="text" class="form-control" name="correo">
                 </div>
 
-                <div class="mb-3">
+                <!--<div class="mb-3">
                 <label for="disabledSelect" class="form-label" name="cargo"><i class="fa-solid fa-user-tag me-2"></i>Establesca cargo</label>
                 <select id="disabledSelect" class="form-select">
                     <option>Chef</option>
                     <option>Cajero</option>
                 </select>
-                </div>
+                </div>-->
                     <button type="submit" class="btn btn-success" name="btnregistrar" value="ok"><i class="fa-solid fa-user-plus me-2"></i>Registrar</button>
             </form>
                     </form>
@@ -134,8 +206,8 @@
                         <td><?= $datos->correo ?></td>
                         <td><i class="fa-solid fa-user-tag me-2"></i><?= $datos->id_cargo ?></td>
                         <td>
-                        <a href="" class="btn btn-sm btn-warning" style="font-size: 0.9rem;"><i class="fa-solid fa-user-pen me-2"> </i>EDITAR</a>
-                        <a href="" class="btn btn-sm btn-danger" style="font-size: 0.9rem;"><i class="fa-solid fa-user-xmark me-2"> </i>BORRAR</a>
+                        <a href="" class="btn btn-sm btn-warning"><i class="fa-solid fa-user-pen me-2"></i></a>
+                        <a href="" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>
                         </td>
                         </tr>
 
@@ -145,16 +217,6 @@
             </table>
         </div>
 </div>
-
-
-
-
-
-
-
-
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
