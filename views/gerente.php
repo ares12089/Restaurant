@@ -9,6 +9,7 @@
     <title>Gerente</title>
 </head>
 <body>
+    
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <!-- Contenido del Navbar -->
@@ -35,9 +36,26 @@
     </div>
   </div>
 </nav>
+
 <div class="container-fluid row">
-            <form class="col-4 p-5" method="POST" style="margin-left: -1cm;">
+
+        <div class="col-10 p-5" method="POST" style="margin: center;">
+        <div class="container">
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>  Agregar Usuario</button>
+    </div>
+    <i class="fa-solid fa-thumbtack me-2" style="color: #ffffff;"></i>
+
+    <!-- Modal -->
+    <div class="modal fade" id="agregarUsuarioModal" tabindex="-1" aria-labelledby="agregarUsuarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
                 <h3 class="text-center text-secondary"><i class="fa-solid fa-users-between-lines me-2" style="color: #000000;"></i>REGISTRO DE EMPLEADOS</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                    <form class="col-4 p-5" method="POST" style="margin-left: -1cm;">
                 <?php 
                 include "../controller/registro_persona.php";
                 include "../module/conexion.php";
@@ -76,8 +94,15 @@
                 </div>
                     <button type="submit" class="btn btn-success" name="btnregistrar" value="ok"><i class="fa-solid fa-user-plus me-2"></i>Registrar</button>
             </form>
-        <div class="col-9 p-5" method="POST" style="margin-left: -2cm;">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
             <table class="table w-100">
+                
                     <thead class="bg-info">
                         <tr>
                         <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>ID</th>
@@ -86,7 +111,7 @@
                         <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Contraseña</th>
                         <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Telefono</th>
                         <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Correo</th>
-                        <th scope="col">Cargo</th>
+                        <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Cargo</th>
                         <th scope="col" class="text-center align-middle"><i class="fa-solid fa-sliders" style="color: #005eff;"></i>
                         </th>
                         </tr>
@@ -109,8 +134,8 @@
                         <td><?= $datos->correo ?></td>
                         <td><i class="fa-solid fa-user-tag me-2"></i><?= $datos->id_cargo ?></td>
                         <td>
-                        <a href="" class="btn btn-sm btn-warning" style="font-size: 0.9rem;"><i class="fa-solid fa-user-pen me-2"> </i></a>
-                        <a href="" class="btn btn-sm btn-danger" style="font-size: 0.9rem;"><i class="fa-solid fa-user-xmark me-2"> </i></a>
+                        <a href="" class="btn btn-sm btn-warning" style="font-size: 0.9rem;"><i class="fa-solid fa-user-pen me-2"> </i>EDITAR</a>
+                        <a href="" class="btn btn-sm btn-danger" style="font-size: 0.9rem;"><i class="fa-solid fa-user-xmark me-2"> </i>BORRAR</a>
                         </td>
                         </tr>
 
