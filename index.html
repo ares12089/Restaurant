@@ -36,25 +36,25 @@
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="POST" action="../Restaurant/login/validarprueba.php">
 					<div class="text-center" style="margin-top: -120px;">
-						<img id="moving-image" src="img/aaaaa.png" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
+						<img id="floating-image" src="img/aaaaa.png" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
 					</div>
 					
 					<style>
-					@keyframes moveImage {
-						0% { transform: translateX(-50%); }
-						50% { transform: translateX(50%); }
-						100% { transform: translateX(-50%); }
+					@keyframes floatImage {
+						0% { transform: translateY(0); }
+						50% { transform: translateY(-10px); }
+						100% { transform: translateY(0); }
 					}
 					
-					#moving-image {
-						animation: moveImage 3s infinite;
+					#floating-image {
+						animation: floatImage 2s infinite;
 					}
 					</style>
 					
 					<script>
 					window.onload = function() {
-						var movingImage = document.getElementById('moving-image');
-						movingImage.style.animationPlayState = 'running';
+						var floatingImage = document.getElementById('floating-image');
+						floatingImage.style.animationPlayState = 'running';
 					};
 					</script>
 																				  
