@@ -38,26 +38,7 @@
 					<div class="text-center" style="margin-top: -120px;">
 						<img id="floating-image" src="img/aaaaa.png" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
 					</div>
-					
-					<style>
-					@keyframes floatImage {
-						0% { transform: translateY(0); }
-						50% { transform: translateY(-10px); }
-						100% { transform: translateY(0); }
-					}
-					
-					#floating-image {
-						animation: floatImage 2s infinite;
-					}
-					</style>
-					
-					<script>
-					window.onload = function() {
-						var floatingImage = document.getElementById('floating-image');
-						floatingImage.style.animationPlayState = 'running';
-					};
-					</script>
-																				  
+																					  
 					<span class="login100-form-title p-b-43">
 						<i class="fa-solid fa-users-gear me-2"></i>
 						<span class="d-inline-block">Iniciar Sesión</span>
@@ -84,8 +65,6 @@
 						  </span>					  
 					</div>
 
-				
-
 					<div class="container-login100-form-btn p-4">
 						<button class="login100-form-btn">
 							<span class="button-content">
@@ -93,12 +72,8 @@
 							  <span class="button-text">INGRESAR</span>
 							</span>
 						  </button>						  
-					</div>
-											  
+					</div>				  
 				</form>
-
-
-
 				<div class="login100-more" style="background-image: url('img/fondorestaurant.jpg'); position: relative;">
 					<span id="reloj" style="position: absolute; top: calc(8cm + 20px); left: 50%; transform: translateX(-50%); color: white; font-size: 3em;"></span>
 					<canvas id="canvas" width="200" height="200" style="position: absolute; top: calc(50% - 3cm); left: 50%; transform: translate(-50%, -50%);"></canvas>
@@ -107,8 +82,6 @@
 			</div>
 		</div>
 	</div>
-	
-	
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -156,7 +129,6 @@
 	setInterval(actualizarReloj, 1000);
 	</script>
 <!--===============================================================================================-->
-
 <!--===============================================================================================-->
 	<script>
 	function dibujarReloj() {
@@ -214,8 +186,25 @@ dibujarReloj();
 </script>
 <!--===============================================================================================-->
 <!--===============================================================================================-->
-
-
-
+<style>
+	@keyframes floatImage {
+		0% { transform: translateY(0); }
+		50% { transform: translateY(-10px); }
+		100% { transform: translateY(0); }
+	}
+	
+	#floating-image {
+		animation: floatImage 2s infinite;
+	}
+	</style>
+	
+	<script>
+	window.onload = function() {
+		var floatingImage = document.getElementById('floating-image');
+		floatingImage.style.animationPlayState = 'running';
+	};
+	</script>
+<!--===============================================================================================-->
+<!--===============================================================================================-->
 </body>
 </html>
