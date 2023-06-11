@@ -7,7 +7,7 @@ $pass = $_POST['pass'];
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "xd";
+$dbname = "rol2";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -49,7 +49,7 @@ if ($result->num_rows == 1) {
     }
 } else {
     // Autenticación fallida
-    echo "Usuario o contraseña incorrectos";
+    echo '<div class="alert alert-danger"><i class="fa-solid fa-circle-exclamation me-2" style="color: #000000;"></i>Usuario o Contraseña incorrectos</div>';
 }
 
 // Cerrar la conexión a la base de datos

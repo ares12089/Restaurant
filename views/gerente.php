@@ -8,9 +8,14 @@
     <script src="https://kit.fontawesome.com/3052f95fc5.js" crossorigin="anonymous"></script>
     <title>Gerente</title>
 </head>
+
 <body>
-    
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <?php
+  include "../module/conexion.php";
+  include "../controller/eliminar_persona.php";
+  ?>
   <div class="container-fluid">
   <style>
   .sidebar {
@@ -84,8 +89,6 @@
         <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>
     </a>
     </div>
-
-
   </ul>
 </div>
 <div class="menu-button" onclick="toggleSidebar()">&#9776;</div>
@@ -107,13 +110,11 @@
     </div>
   </div>
 </nav>
-
-
 <div class="container-fluid row">
 
         <div class="col-10 p-5" method="POST" style="margin: center;">
         <div class="container">
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i>  Agregar Usuario</button>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Agregar Usuario</button>
     </div>
     <i class="fa-solid fa-thumbtack me-2" style="color: #ffffff;"></i>
 
@@ -126,11 +127,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                <form>
                     <form class="col-4 p-5" method="POST" style="margin-left: -1cm;">
                 <?php 
                 include "../controller/registro_persona.php";
-                include "../module/conexion.php";
                 ?>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Nombre Completo</label>
@@ -156,15 +156,15 @@
                     <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-envelope-open-text me-2" style="color: #000000;"></i>Correo</label>
                     <input type="text" class="form-control" name="correo">
                 </div>
+               
+                
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user-tag me-2"></i>Cargo</label>
+                    <input type="number" class="form-control" name="cargo">
+                </div>
 
-                <!--<div class="mb-3">
-                <label for="disabledSelect" class="form-label" name="cargo"><i class="fa-solid fa-user-tag me-2"></i>Establesca cargo</label>
-                <select id="disabledSelect" class="form-select">
-                    <option>Chef</option>
-                    <option>Cajero</option>
-                </select>
-                </div>-->
-                    <button type="submit" class="btn btn-success" name="btnregistrar" value="ok"><i class="fa-solid fa-user-plus me-2"></i>Registrar</button>
+
+                    <button type="submit" class="btn btn-success" name="xd"><i class="fa-solid fa-user-plus me-2"></i>Registrar</button>
             </form>
                     </form>
                 </div>
@@ -192,7 +192,8 @@
 
                     <?php 
                     //aqui se llamaran todos los registros de la bd
-                    include "../module/conexion.php";
+      
+                    include "../controller/registro_persona.php";
                     $sql=$conexion -> query(" SELECT * FROM usuarios");
                     //un while para recorrer todos los registros
                     while($datos=$sql->fetch_object()){ ?>
@@ -202,12 +203,12 @@
                         <td><i class="fa-solid fa-circle-user me-2"></i><?= $datos->nombre ?></td>
                         <td><i class="fa-solid fa-circle-user me-2"></i><?= $datos->usuario ?></td>
                         <td><i class="fa-solid fa-user-lock me-2"></i><?= $datos->contraseña ?></td>
-                        <td><?= $datos->telefono ?></td>
-                        <td><?= $datos->correo ?></td>
+                        <td><i class="fa-solid fa-phone me-2" style="color: #000000;"></i><?= $datos->telefono ?></td>
+                        <td><i class="fa-solid fa-envelope-open-text me-2" style="color: #000000;"></i><?= $datos->correo ?></td>
                         <td><i class="fa-solid fa-user-tag me-2"></i><?= $datos->id_cargo ?></td>
                         <td>
-                        <a href="" class="btn btn-sm btn-warning"><i class="fa-solid fa-user-pen me-2"></i></a>
-                        <a href="" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>
+                        <a href="../controller/modificar_producto.php" class="btn btn-sm btn-warning"><i class="fa-solid fa-user-pen me-2"></i></a>
+                        <a href="../views/gerente.php?id=<?= $datos->id ?>" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>
                         </td>
                         </tr>
 
