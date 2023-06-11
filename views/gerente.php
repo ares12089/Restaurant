@@ -233,9 +233,18 @@ if (isset($_POST['logout'])) {
                       <input type="text" class="form-control" id="correo" name="correo">
                   </div>
                   <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user-tag me-2"></i>Cargo</label>
-                      <input type="number" class="form-control" id="id_cargo" name="id_cargo">
-                  </div>
+                        <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user-tag me-2"></i>Cargo</label>
+                        <select class="form-control" id="id_cargo" name="id_cargo">
+                            <?php
+                            // Consultar los cargos disponibles en la base de datos
+                            $query = "SELECT * FROM cargo";
+                            $result = mysqli_query($conexion, $query);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['id'] . "'>" . $row['descripcion'] . "</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
                   <button type="submit" value="agregar" class="btn btn-success" name="agregar"><i class="fa-solid fa-user-plus me-2"></i>Registrar</button>
               </form>
 
@@ -263,30 +272,26 @@ if (isset($_POST['logout'])) {
                     </thead>
                 <tbody>
 
-                    <?php 
-                    //aqui se llamaran todos los registros de la bd
+<?php 
+include "../controller/registro_persona.php";
+$sql = $conexion->query("SELECT usuarios.id, usuarios.nombre, usuarios.usuario, usuarios.contraseña, usuarios.telefono, usuarios.correo, cargo.descripcion AS cargo FROM usuarios JOIN cargo ON usuarios.id_cargo = cargo.id");
+
+while ($datos = $sql->fetch_object()) { ?>
+    <tr>
+        <td><i class="fa-solid fa-id-card me-2"></i><?= $datos->id ?></td>
+        <td><?= $datos->nombre ?></td>
+        <td><?= $datos->usuario ?></td>
+        <td><?= $datos->contraseña ?></td>
+        <td><?= $datos->telefono ?></td>
+        <td><?= $datos->correo ?></td>
+        <td><?= $datos->cargo ?></td>
+        <td>
+         <a href="../controller/modificar_producto.php" class="btn btn-sm btn-warning"><i class="fa-solid fa-user-pen me-2"></i></a>
+          <a href="../views/gerente.php?id=<?= $datos->id ?>" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>
+        </td> 
+      </tr>
+<?php } ?>
       
-                    include "../controller/registro_persona.php";
-                    $sql=$conexion -> query(" SELECT * FROM usuarios");
-                    //un while para recorrer todos los registros
-                    while($datos=$sql->fetch_object()){ ?>
-
-                        <tr>
-                        <td><i class="fa-solid fa-id-card me-2"></i><?= $datos->id ?></td>
-                        <td><i class="fa-solid fa-circle-user me-2"></i><?= $datos->nombre ?></td>
-                        <td><i class="fa-solid fa-circle-user me-2"></i><?= $datos->usuario ?></td>
-                        <td><i class="fa-solid fa-user-lock me-2"></i><?= $datos->contraseña ?></td>
-                        <td><i class="fa-solid fa-phone me-2" style="color: #000000;"></i><?= $datos->telefono ?></td>
-                        <td><i class="fa-solid fa-envelope-open-text me-2" style="color: #000000;"></i><?= $datos->correo ?></td>
-                        <td><i class="fa-solid fa-user-tag me-2"></i><?= $datos->id_cargo ?></td>
-                        <td>
-                        <a href="../controller/modificar_producto.php" class="btn btn-sm btn-warning"><i class="fa-solid fa-user-pen me-2"></i></a>
-                        <a href="../views/gerente.php?id=<?= $datos->id ?>" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>
-                        </td>
-                        </tr>
-
-                    <?php } 
-                    ?>        
                 </tbody>
             </table>
         </div>
