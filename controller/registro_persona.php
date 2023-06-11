@@ -11,7 +11,7 @@ if (!empty($_POST["xd"])) {
         $cargo=$_POST["cargo"];
 
 
-        $sql = $conexion->query("INSERT INTO usuarios(nombre, usuario, contraseña, telefono, correo, id_cargo) VALUES('$nombre', '$usuario', '$contrasena', '$telefono', '$correo', '$cargo')");
+        $sql = $conexion->query("INSERT INTO usuarios(nombre, usuario, contraseña, telefono, correo, id_cargo) values('$nombre', '$usuario', '$contrasena', '$telefono', '$correo', '$cargo')");
         if ($sql==1) {
             echo '<div class="alert alert-success"><i class="fa-solid fa-circle-check me-2" style="color: #000000;"></i>Persona Regisrado Correctamente</div>';
         } else {

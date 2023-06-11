@@ -1,3 +1,20 @@
+<?php
+session_start(); // Iniciar sesión
+
+// Verificar si se ha enviado la solicitud de cierre de sesión
+if (isset($_POST['logout'])) {
+    // Eliminar todas las variables de sesión
+    session_unset();
+
+    // Destruir la sesión
+    session_destroy();
+
+    // Redirigir al usuario a la página de inicio de sesión u otra página deseada
+    header("Location: ../index.html");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,11 +101,14 @@
     <li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
 
     <div style="display: flex; justify-content: center;">
-    <a href="#" class="btn btn-small" style="background-color: #f9f9f9;">
-        <span class="me-1">Cerrar Sesión</span>
-        <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>
-    </a>
-    </div>
+    <form method="post" action="../index.html">
+        <button type="submit" name="logout" class="btn btn-small" style="background-color: #f9f9f9;">
+            <span class="me-1">Cerrar Sesión</span>
+            <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>
+        </button>
+    </form>
+</div>
+
   </ul>
 </div>
 <div class="menu-button" onclick="toggleSidebar()">&#9776;</div>
