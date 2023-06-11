@@ -1,4 +1,10 @@
 <?php
+// Iniciar sesión
+session_start();
+
+// Almacenar valor de sesión
+$_SESSION['logged_in'] = true;
+
 // Obtener los datos del formulario
 $user = $_POST['user'];
 $pass = $_POST['pass'];
@@ -49,7 +55,7 @@ if ($result->num_rows == 1) {
     }
 } else {
     // Autenticación fallida
-    echo '<div class="alert alert-danger"><i class="fa-solid fa-circle-exclamation me-2" style="color: #000000;"></i>Usuario o Contraseña incorrectos</div>';
+    echo "Usuario o contraseña incorrectos";
 }
 
 // Cerrar la conexión a la base de datos

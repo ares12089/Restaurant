@@ -1,32 +1,42 @@
 <?php 
+// Conexión a la base de datos
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "rol2";
 
-if (!empty($_POST["xd"])) {
-    if (!empty($_POST["nombre"]) and !empty($_POST["usuario"]) and !empty($_POST["contrasena"]) and !empty($_POST["telefono"]) and !empty($_POST["correo"]) and !empty($_POST["cargo"])) {
-        
-        $nombre=$_POST["nombre"];
-        $usuario=$_POST["usuario"];
-        $contrasena=$_POST["contrasena"];
-        $telefono=$_POST["telefono"];
-        $correo=$_POST["correo"];
-        $cargo=$_POST["cargo"];
+$conn = new mysqli($servername, $username, $password, $dbname);
 
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
 
-        $sql = $conexion->query("INSERT INTO usuarios(nombre, usuario, contraseña, telefono, correo, id_cargo) values('$nombre', '$usuario', '$contrasena', '$telefono', '$correo', '$cargo')");
-        if ($sql==1) {
-            echo '<div class="alert alert-success"><i class="fa-solid fa-circle-check me-2" style="color: #000000;"></i>Persona Regisrado Correctamente</div>';
-        } else {
-            echo '<div class="alert alert-danger"><i class="fa-solid fa-circle-exclamation me-2" style="color: #000000;"></i>Error Al Registrar Persona</div>'; 
-        }
-        
+// Verificar si se envió el formulario
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtener los datos del formulario
+    $nombre = $_POST["nombre"];
+    $usuario = $_POST["usuario"];
+    $contraseña = $_POST["contraseña"];
+    $telefono = $_POST["telefono"];
+    $correo= $_POST["correo"];
+    $id_cargo = $_POST["id_cargo"];
 
-    }else {
-        echo '<div class="alert alert-warning"><i class="fa-solid fa-triangle-exclamation me-2" style="color: #000000;"></i>Algunos de los campos esta vacio</div>';
+    // Insertar los datos en la base de datos
+    $sql = "INSERT INTO usuarios (nombre, usuario, contraseña, telefono, correo, id_cargo)
+            VALUES ('$nombre', '$usuario', '$contraseña', '$telefono', '$correo', '$id_cargo')";
+    
+    if ($conn->query($sql) === TRUE) {
+        // Redireccionar después de la inserción exitosa
+        header("Location:../views/gerente.php");
+        exit();
+    } else {
+        echo "Error al insertar los datos: " . $conn->error;
     }
 }
 
-
-
+$conn->close();
 ?>
+
 
 
 

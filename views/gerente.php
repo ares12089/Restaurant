@@ -1,5 +1,13 @@
 <?php
-session_start(); // Iniciar sesión
+
+// Verificar si se ha enviado la solicitud de cierre de sesión
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: ../index.html");
+    exit();
+}
 
 // Verificar si se ha enviado la solicitud de cierre de sesión
 if (isset($_POST['logout'])) {
@@ -16,7 +24,7 @@ if (isset($_POST['logout'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,6 +32,12 @@ if (isset($_POST['logout'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/3052f95fc5.js" crossorigin="anonymous"></script>
     <title>Gerente</title>
+    <script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>
+
 </head>
 
 <body>
@@ -115,7 +129,7 @@ if (isset($_POST['logout'])) {
     <li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
 
     <div style="display: flex; justify-content: center;">
-    <form method="post" action="../index.html">
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <button type="submit" name="logout" class="btn btn-small" style="background-color: #f9f9f9;">
             <span class="me-1">Cerrar Sesión</span>
             <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>
@@ -161,46 +175,36 @@ if (isset($_POST['logout'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <form>
-                    <form class="col-4 p-5" method="POST" style="margin-left: -1cm;">
-                <?php 
-                include "../controller/registro_persona.php";
-                ?>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Nombre Completo</label>
-                    <input type="text" class="form-control" name="nombre">
-                </div>
 
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Usuario</label>
-                    <input type="text" class="form-control" name="usuario">
-                </div>
+                              <form class="col-8 p-5" method="POST" action="../controller/registro_persona.php" >
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Nombre Completo</label>
+                      <input type="text" class="form-control" id="nombre" name="nombre">
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Usuario</label>
+                      <input type="text" class="form-control" id="usuario" name="usuario">
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-key me-2"></i>Contraseña</label>
+                      <input type="text" class="form-control" id="contraseña" name="contraseña">
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-phone me-2" style="color: #000000;"></i>Telefono</label>
+                      <input type="text" class="form-control" id="telefono" name="telefono">
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-envelope-open-text me-2" style="color: #000000;"></i>Correo</label>
+                      <input type="text" class="form-control" id="correo" name="correo">
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user-tag me-2"></i>Cargo</label>
+                      <input type="number" class="form-control" id="id_cargo" name="id_cargo">
+                  </div>
+                  <button type="submit" value="agregar" class="btn btn-success" name="agregar"><i class="fa-solid fa-user-plus me-2"></i>Registrar</button>
+              </form>
 
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-key me-2"></i>Contraseña</label>
-                    <input type="text" class="form-control" name="contrasena">
-                </div>
-
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-phone me-2" style="color: #000000;"></i>Telefono</label>
-                    <input type="text" class="form-control" name="telefono">
-                </div>
-
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-envelope-open-text me-2" style="color: #000000;"></i>Correo</label>
-                    <input type="text" class="form-control" name="correo">
-                </div>
-               
-                
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user-tag me-2"></i>Cargo</label>
-                    <input type="number" class="form-control" name="cargo">
-                </div>
-
-
-                    <button type="submit" class="btn btn-success" name="xd"><i class="fa-solid fa-user-plus me-2"></i>Registrar</button>
-            </form>
-                    </form>
+            
                 </div>
             </div>
         </div>
@@ -212,7 +216,7 @@ if (isset($_POST['logout'])) {
                     <thead class="bg-info">
                         <tr>
                         <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>ID</th>
-                        <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Nombre</th>
+                        <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Nombra</th>
                         <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Usuario</th>
                         <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Contraseña</th>
                         <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Telefono</th>
