@@ -36,8 +36,28 @@
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" method="POST" action="../Restaurant/login/validarprueba.php">
 					<div class="text-center" style="margin-top: -120px;">
-						<img src="img/aaaaa.png" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
-					  </div>															  
+						<img id="moving-image" src="img/aaaaa.png" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
+					</div>
+					
+					<style>
+					@keyframes moveImage {
+						0% { transform: translateX(-50%); }
+						50% { transform: translateX(50%); }
+						100% { transform: translateX(-50%); }
+					}
+					
+					#moving-image {
+						animation: moveImage 3s infinite;
+					}
+					</style>
+					
+					<script>
+					window.onload = function() {
+						var movingImage = document.getElementById('moving-image');
+						movingImage.style.animationPlayState = 'running';
+					};
+					</script>
+																				  
 					<span class="login100-form-title p-b-43">
 						<i class="fa-solid fa-users-gear me-2"></i>
 						<span class="d-inline-block">Iniciar Sesión</span>
