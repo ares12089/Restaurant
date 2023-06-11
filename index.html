@@ -99,7 +99,7 @@
 
 
 
-				<div class="login100-more" style="background-image: url('img/wallhaven-eoydqo.jpg'); position: relative;">
+				<div class="login100-more" style="background-image: url('img/fondorestaurant.jpg'); position: relative;">
 					<span id="reloj" style="position: absolute; top: calc(8cm + 20px); left: 50%; transform: translateX(-50%); color: white; font-size: 3em;"></span>
 					<canvas id="canvas" width="200" height="200" style="position: absolute; top: calc(50% - 3cm); left: 50%; transform: translate(-50%, -50%);"></canvas>
 				</div>
@@ -183,8 +183,8 @@
   ctx.closePath();
 
   // Dibujar las manecillas de las horas, minutos y segundos
-  dibujarManecilla(ctx, centroX, centroY, (horas % 12) * 30 + minutos / 2, radio * 0.5, 6, "#E1E1E1"); // Manecilla de las horas
-  dibujarManecilla(ctx, centroX, centroY, minutos * 6, radio * 0.8, 4, "#979797"); // Manecilla de los minutos
+  dibujarManecilla(ctx, centroX, centroY, (horas % 12) * 30 + minutos / 2, radio * 0.5, 6, "#BB5FFF"); // Manecilla de las horas
+  dibujarManecilla(ctx, centroX, centroY, minutos * 6, radio * 0.8, 4, "#FF7B5F"); // Manecilla de los minutos
   dibujarManecilla(ctx, centroX, centroY, segundos * 6, radio * 0.9, 2, "#ff0000"); // Manecilla de los segundos
 
   // Dibujar el centro del reloj
