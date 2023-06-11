@@ -280,11 +280,11 @@ if (isset($_POST['logout'])) {
                         <td><i class="fa-solid fa-envelope-open-text me-2" style="color: #000000;"></i><?= $datos->correo ?></td>
                         <td><i class="fa-solid fa-user-tag me-2"></i><?= $datos->id_cargo ?></td>
                         <td>
-                        <a href="../controller/modificar_producto.php" class="btn btn-sm btn-warning"><i class="fa-solid fa-user-pen me-2"></i></a>
-                        <a href="../views/gerente.php?id=<?= $datos->id ?>" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>
+                        <a href="../controller/modificar_producto.php" class="btn btn-sm btn-warning"><i class="fa-solid fa-user-pen me-2"></i>Eliminar</a>
+                        <a href="../views/gerente.php?id=<?= $datos->id ?>" class="btn btn-sm btn-danger" style="font-family: 'Times New Roman', Times, serif;"><i class="fa-solid fa-user-xmark me-2">Editar</i></a>
                         </td>
                         </tr>
-
+                        
                     <?php } 
                     ?>        
                 </tbody>
