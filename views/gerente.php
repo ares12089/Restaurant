@@ -82,8 +82,22 @@ if (isset($_POST['logout'])) {
 <li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
 <li><a href="#" class="text-aling-center"><i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i></a></li>
 <div class="text-center" style="margin-top: -120px;">
-  <img src="<?php echo '../img/wallhaven-y86k3l.jpg'; ?>" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
+  <div class="floating-container">
+    <img src="<?php echo '../img/wallhaven-y86k3l.jpg'; ?>" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
+  </div>
 </div>
+<style>
+@keyframes floating {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.floating-container {
+  animation: floating 3s ease-in-out infinite;
+}
+</style>
+
 
   <ul>
   <div style="text-align: center;">
