@@ -176,7 +176,7 @@ if (isset($_POST['logout'])) {
                 </div>
                 <div class="modal-body">
 
-                              <form class="col-8 p-5" method="POST" action="../controller/registro_persona.php" >
+                              <form class="col-12 p-5" method="POST" action="../controller/registro_persona.php" >
                   <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Nombre Completo</label>
                       <input type="text" class="form-control" id="nombre" name="nombre">
