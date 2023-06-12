@@ -205,16 +205,86 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
     </div>
   </div>
 </nav> 
-<div class="container-fluid row">
-        <div class="col-10 p-5" method="POST" style="margin: center;">
-        <div class="container">
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
-    <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Agregar Usuario
-</button>
+          <button id="modoOscuroBtn" onclick="cambiarModo()"><i class="fa-solid fa-moon fa-bounce" style="color: #000000;"></i></button>
+          <script>
+          var modoOscuro = false;
 
-  <input class="form-control-sm col-4 col-sm-3 me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
-    </div>
-    <i class="fa-solid fa-thumbtack me-2" style="color: #ffffff;"></i>
+
+          function cambiarModo() {
+          var boton = document.getElementById("modoOscuroBtn");
+
+
+          if (modoOscuro) {
+          document.body.style.backgroundColor = "white";
+          document.body.style.color = "#060B12";
+          boton.innerHTML = '<i class="fa-solid fa-sun fa-bounce" style="color: #000000;"></i>';
+          modoOscuro = false;
+          } else {
+          document.body.style.backgroundColor = "#060B12";
+          document.body.style.color = "white";
+          boton.innerHTML = '<i class="fa-solid fa-moon fa-bounce" style="color: #000000;"></i>';
+          modoOscuro = true;
+          }
+          }
+          </script>
+
+
+          <style>
+          #modoOscuroBtn {
+          position: relative;
+          left: 31cm;
+          top: -1.1cm;
+          width: 80px;
+          height: 30px;
+          border-radius: 15px;
+          background-color: transparent;
+          transition: background-color 0.3s ease;
+          }
+
+
+          #modoOscuroBtn:focus {
+          outline: none;
+          }
+
+
+          #modoOscuroBtn:hover {
+          cursor: pointer;
+          background-color: #ccc;
+          }
+
+
+          #modoOscuroBtn:active {
+          background-color: #aaa;
+          }
+          </style>
+
+
+
+
+
+
+          <div class="container-fluid row">
+          <div class="col-10 p-5" method="POST" style="margin: center;">
+          <div class="container">
+          <div style="position: relative; top: 20px;">
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
+          <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Agregar Usuario
+          </button>
+          </div>
+
+
+
+
+          <div style="position: relative; left: 19cm; top: -8px;">
+          <input class="form-control-sm col-4 col-sm-3 me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
+          </div>
+
+
+
+
+          </div>
+
+
 
     <!-- Modal Agregar -->
     <div class="modal fade" id="agregarUsuarioModal" tabindex="-1" aria-labelledby="agregarUsuarioModalLabel" aria-hidden="true">
@@ -369,7 +439,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
                                 <td><i class="fa-solid fa-envelope me-2" style="color: #ffffff;"></i><?= $datos->correo ?></td>
                                 <td><i class="fa-solid fa-user-tag me-2"></i><?= $datos->cargo ?></td>
                                 <td>
-                                <button class="btn btn-primary btn-sm editar-btn" data-bs-toggle="modal" data-bs-target="#modificarUsuarioModal" data-id="<?php echo $row['id']; ?>">
+                                <button class="btn btn-warning btn-sm editar-btn" data-bs-toggle="modal" data-bs-target="#modificarUsuarioModal" data-id="<?php echo $row['id']; ?>">
                                   <i class="fa-solid fa-user-edit"></i>
                                 </button>
 
