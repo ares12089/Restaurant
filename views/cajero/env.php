@@ -1,0 +1,5 @@
+; <?php exit; ?>
+MYSQL_DATABASE_NAME = "railway"
+MYSQL_USER = "root"
+MYSQL_PASSWORD = "6PVYWFn7XmUboNA8phF1"
+MYSQL_PORT = "6523"
