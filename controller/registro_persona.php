@@ -15,6 +15,7 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener los datos del formulario
     $nombre = $_POST["nombre"];
+    $cedula = $_POST["cedula"];
     $usuario = $_POST["usuario"];
     $contraseña = $_POST["contraseña"];
     $telefono = $_POST["telefono"];
@@ -22,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_cargo = $_POST["id_cargo"];
 
     // Insertar los datos en la base de datos
-    $sql = "INSERT INTO usuarios (nombre, usuario, contraseña, telefono, correo, id_cargo)
-            VALUES ('$nombre', '$usuario', '$contraseña', '$telefono', '$correo', '$id_cargo')";
+    $sql = "INSERT INTO usuarios (nombre, cedula, usuario, contraseña, telefono, correo, id_cargo)
+            VALUES ('$nombre','$cedula' , '$usuario', '$contraseña', '$telefono', '$correo', '$id_cargo')";
     
     if ($conn->query($sql) === TRUE) {
         // Redireccionar después de la inserción exitosa

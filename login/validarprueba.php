@@ -50,12 +50,13 @@ if ($result->num_rows == 1) {
             break;
         default:
             // Cargo no reconocido
-            echo "Cargo no válido";
+            echo '<div class="alert alert-danger"><i class="fa-solid fa-circle-exclamation me-2" style="color: #000000;"></i>Cargo no valido</div>';
             break;
     }
 } else {
     // Autenticación fallida
-    echo "Usuario o contraseña incorrectos";
+    echo '<div class="alert alert-danger"><i class="fa-solid fa-circle-exclamation me-2" style="color: #000000;"></i>Usuario/Contraseña no coinciden</div>';
+
 }
 
 // Cerrar la conexión a la base de datos

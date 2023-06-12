@@ -123,6 +123,16 @@ if (isset($_POST['logout'])) {
   100% { transform: translateY(0); }
 }
 
+.custom-table {
+  font-size: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
 .floating-container {
   animation: floating 3s ease-in-out infinite;
 }
@@ -192,12 +202,15 @@ if (isset($_POST['logout'])) {
       </ul>
     </div>
   </div>
-</nav>
+</nav> 
 <div class="container-fluid row">
-
         <div class="col-10 p-5" method="POST" style="margin: center;">
         <div class="container">
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Agregar Usuario</button>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
+    <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Agregar Usuario
+</button>
+
+  <input class="form-control-sm col-4 col-sm-3 me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
     </div>
     <i class="fa-solid fa-thumbtack me-2" style="color: #ffffff;"></i>
 
@@ -211,10 +224,14 @@ if (isset($_POST['logout'])) {
                 </div>
                 <div class="modal-body">
 
-                              <form class="col-12 p-5" method="POST" action="../controller/registro_persona.php" >
+                <form class="col-12 p-5" method="POST" action="../controller/registro_persona.php" >
                   <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Nombre Completo</label>
                       <input type="text" class="form-control" id="nombre" name="nombre">
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Cedula</label>
+                      <input type="text" class="form-control" id="cedula" name="cedula">
                   </div>
                   <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Usuario</label>
@@ -253,14 +270,20 @@ if (isset($_POST['logout'])) {
             </div>
         </div>
     </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-            <table class="table w-100">
-                
-                    <thead class="bg-info">
+
+
+    
+    <table id="table1" class="table table-striped table-dark table_id custom-table">
+
+  
+                    <thead>
                         <tr>
                         <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>ID</th>
-                        <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Nombra</th>
+                        <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Nombre</th>
+                        <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Cedula</th>
                         <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Usuario</th>
                         <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Contraseña</th>
                         <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>Telefono</th>
@@ -272,31 +295,39 @@ if (isset($_POST['logout'])) {
                     </thead>
                 <tbody>
 
-<?php 
-include "../controller/registro_persona.php";
-$sql = $conexion->query("SELECT usuarios.id, usuarios.nombre, usuarios.usuario, usuarios.contraseña, usuarios.telefono, usuarios.correo, cargo.descripcion AS cargo FROM usuarios JOIN cargo ON usuarios.id_cargo = cargo.id");
+                        <?php 
+                        include "../controller/registro_persona.php";
+                        $sql = $conexion->query("SELECT usuarios.id, usuarios.nombre, usuarios.cedula,usuarios.usuario, usuarios.contraseña, usuarios.telefono, usuarios.correo, cargo.descripcion AS cargo FROM usuarios JOIN cargo ON usuarios.id_cargo = cargo.id");
 
-while ($datos = $sql->fetch_object()) { ?>
-    <tr>
-        <td><i class="fa-solid fa-id-card me-2"></i><?= $datos->id ?></td>
-        <td><?= $datos->nombre ?></td>
-        <td><?= $datos->usuario ?></td>
-        <td><?= $datos->contraseña ?></td>
-        <td><?= $datos->telefono ?></td>
-        <td><?= $datos->correo ?></td>
-        <td><?= $datos->cargo ?></td>
-        <td>
-         <a href="../controller/modificar_producto.php" class="btn btn-sm btn-warning"><i class="fa-solid fa-user-pen me-2"></i></a>
-          <a href="../views/gerente.php?id=<?= $datos->id ?>" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>
-        </td> 
-      </tr>
-<?php } ?>
+                        while ($datos = $sql->fetch_object()) { ?>
+                            <tr>
+                                <td><i class="fa-solid fa-id-card  me-2"></i><?= $datos->id ?></td>
+                                <td><i class="fa-solid fa-circle-user  me-2" style="color: #ffffff;"></i><?= $datos->nombre ?></td>
+                                <td><i class="fa-solid fa-id-card  me-2"></i><?= $datos->cedula ?></td>
+                                <td><i class="fa-solid fa-circle-user  me-2" style="color: #ffffff;"></i><?= $datos->usuario ?></td>
+                                <td><i class="fa-solid fa-lock  me-2 style="color: #000000;"></i><?= $datos->contraseña ?></td>
+                                <td><i class="fa-solid fa-phone  me-2" style="color: #ffffff;"></i><?= $datos->telefono ?></td>
+                                <td><i class="fa-solid fa-envelope me-2" style="color: #ffffff;"></i><?= $datos->correo ?></td>
+                                <td><i class="fa-solid fa-user-tag me-2"></i><?= $datos->cargo ?></td>
+                                <td>
+                                  <a href="../controller/modificar_producto_a.php?id=<?= $datos->id ?>" class="btn btn-sm btn-warning"><i class="fa-solid fa-user-pen me-2"></i></a>
+                                  <a href="../views/gerente.php?id=<?= $datos->id ?>" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>
+                                </td> 
+                              </tr>
+                        <?php } ?>
       
+    
+
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center">
+              <button onclick="previousTable()" class="btn">Anterior</button>
+              <button onclick="nextTable()" class="btn">Siguiente</button>
+            </div>
         </div>
 </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="../js/buscador.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
