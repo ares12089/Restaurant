@@ -1,5 +1,20 @@
 <?php 
 
+
+// Conexión a la base de datos
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "rol2";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
+}
+
+
+
 if (!empty($_POST["btnmodificar"])) {
     if (!empty($_POST["nombre"]) and !empty($_POST["cedula"]) and !empty($_POST["usuario"]) and !empty($_POST["contraseña"]) and !empty($_POST["telefono"]) and !empty($_POST["correo"])and !empty($_POST["id_cargo"])) {
 

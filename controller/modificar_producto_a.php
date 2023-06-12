@@ -1,7 +1,7 @@
 <?php 
 include "../module/conexion.php";
 
- $id=$_GET["id"];
+ $id=$_GET['id'];
 
  $sql=$conexion->$query(" SELECT * FROM usuarios WHERE id=$id ");
 
@@ -21,7 +21,7 @@ include "../module/conexion.php";
     <h3 class="text-center text-secondary" style="margin-top: 1cm;">
     <i class="fa-solid fa-users-between-lines me-2" style="color: #000000;"></i> MODIFICAR EMPLEADOS
     </h3>
-    <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
+    <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
     <form class="col-4 p-5 mx-auto" method="POST" style="margin-left: -1cm;">
                 <?php 
                 include "../controller/modificar_producto.php";
