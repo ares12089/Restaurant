@@ -21,10 +21,11 @@ include "../module/conexion.php";
     <h3 class="text-center text-secondary" style="margin-top: 1cm;">
     <i class="fa-solid fa-users-between-lines me-2" style="color: #000000;"></i> MODIFICAR EMPLEADOS
     </h3>
-    <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
+    
     <form class="col-4 p-5 mx-auto" method="POST" style="margin-left: -1cm;">
+    <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
                 <?php 
-                include "../controller/modificar_producto.php";
+                include "../controller/actualizar_persona.php";
                 while ($datos=$sql->fetch_object()) { ?>
 
 
@@ -76,7 +77,7 @@ include "../module/conexion.php";
                 
 
 
-                    <button type="submit" class="btn btn-warning" name="btnmodificar"><i class="fa-solid fa-pen-to-square me-2" style="color: #000000;"></i>Modificar</button>
+                    <button type="submit" class="btn btn-warning" name="actualizar"><i class="fa-solid fa-pen-to-square me-2" style="color: #000000;"></i>Modificar</button>
             </form>
 </body>
 </html>

@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "rol2";
+$dbname = "rol4";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-if (!empty($_POST["btnmodificar"])) {
+if (!empty($_POST[""])) {
     if (!empty($_POST["nombre"]) && !empty($_POST["cedula"]) && !empty($_POST["usuario"]) && !empty($_POST["contraseña"]) && !empty($_POST["telefono"]) && !empty($_POST["correo"]) && !empty($_POST["id_cargo"])) {
 
         $id = $_POST["id"];
@@ -24,7 +24,7 @@ if (!empty($_POST["btnmodificar"])) {
         $correo = $_POST["correo"];
         $id_cargo = $_POST["id_cargo"];
 
-        $sql = "UPDATE usuarios SET nombre='$nombre', cedula='$cedula', usuario='$usuario', contraseña='$contraseña', telefono='$telefono', correo='$correo', id_cargo=$id_cargo WHERE id=$id";
+        $sql = "UPDATE usuarios SET nombre='$nombre', cedula='$cedula', usuario='$usuario', contraseña='$contraseña', telefono='$telefono', correo='$correo', id_cargo='$id_cargo' WHERE id=$id";
 
         if ($conn->query($sql) === TRUE) {
             header("location: ../views/gerente.php");

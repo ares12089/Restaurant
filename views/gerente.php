@@ -345,6 +345,8 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
     
     
 
+
+
 <!-- Modal Actualizar-->
 <div class="modal fade" id="modificarUsuarioModal" tabindex="-1" aria-labelledby="modificarUsuarioModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -355,10 +357,16 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
                 </div>
                 <div class="modal-body">
 
-                <form class="col-12 p-5" method="POST" action="../controller/actualizar_persona.php" >
+                <form class="col-12 p-5" method="POST">
+
+                 <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
+              
+
+
+
                   <div class="mb-3">
                     <label for="nombre" class="form-label"><i class="fa-solid fa-user me-2"></i>Nombre Completo</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombreBD; ?>" > 
+                    <input type="text" class="form-control" id="nombre" name="nombre"> 
                   </div>
                   <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Cedula</label>
@@ -393,7 +401,9 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
                             ?>
                         </select>
                     </div>
-                  <button type="submit" value="actualizar" class="btn btn-success" name="actualizar"><i class="fa-solid fa-user-plus me-2"></i>Actualizar</button>
+                
+
+                    <button type="submit" class="btn btn-warning" name="btnmodificar"><i class="fa-solid fa-pen-to-square me-2" style="color: #000000;"></i>Modificar</button>
               </form>
 
             
@@ -425,6 +435,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
                 <tbody>
 
                         <?php 
+                        include "../controller/actualizar_persona.php";
                         include "../controller/registro_persona.php";
                         $sql = $conexion->query("SELECT usuarios.id, usuarios.nombre, usuarios.cedula,usuarios.usuario, usuarios.contraseña, usuarios.telefono, usuarios.correo, cargo.descripcion AS cargo FROM usuarios JOIN cargo ON usuarios.id_cargo = cargo.id");
 
@@ -443,7 +454,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
                                   <i class="fa-solid fa-user-edit"></i>
                                 </button>
 
-                                  <a href="../views/gerente.php?id=<?= $datos->id ?>" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>
+                                  <a href="../views/gerente.php?id=<?= $_GET['id'] ?>" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>
                                 </td> 
                               </tr>
                         <?php } ?>
