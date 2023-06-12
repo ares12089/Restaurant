@@ -3,7 +3,7 @@ include "../module/conexion.php";
 
  $id=$_GET['id'];
 
- $sql=$conexion->$query(" SELECT * FROM usuarios WHERE id=$id ");
+ $sql = $conexion->query("SELECT * FROM usuarios WHERE id=$id");
 
 ?>
 
