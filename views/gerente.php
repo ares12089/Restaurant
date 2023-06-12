@@ -21,6 +21,8 @@ if (isset($_POST['logout'])) {
     header("Location: ../index.html");
     exit();
 }
+$nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
+
 ?>
 
 <!DOCTYPE html>
@@ -214,7 +216,7 @@ if (isset($_POST['logout'])) {
     </div>
     <i class="fa-solid fa-thumbtack me-2" style="color: #ffffff;"></i>
 
-    <!-- Modal -->
+    <!-- Modal Agregar -->
     <div class="modal fade" id="agregarUsuarioModal" tabindex="-1" aria-labelledby="agregarUsuarioModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -271,7 +273,64 @@ if (isset($_POST['logout'])) {
         </div>
     </div>
     
+    
 
+<!-- Modal Actualizar-->
+<div class="modal fade" id="modificarUsuarioModal" tabindex="-1" aria-labelledby="modificarUsuarioModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h3 class="text-center text-secondary"><i class="fa-solid fa-users-between-lines me-2" style="color: #000000;"></i>MODIFICAR EMPLEADO</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                <form class="col-12 p-5" method="POST" action="../controller/actualizar_persona.php" >
+                  <div class="mb-3">
+                    <label for="nombre" class="form-label"><i class="fa-solid fa-user me-2"></i>Nombre Completo</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $nombreBD; ?>" > 
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Cedula</label>
+                      <input type="text" class="form-control" id="cedula" name="cedula">
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Usuario</label>
+                      <input type="text" class="form-control" id="usuario" name="usuario">
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-key me-2"></i>Contraseña</label>
+                      <input type="text" class="form-control" id="contraseña" name="contraseña">
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-phone me-2" style="color: #000000;"></i>Telefono</label>
+                      <input type="text" class="form-control" id="telefono" name="telefono">
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-envelope-open-text me-2" style="color: #000000;"></i>Correo</label>
+                      <input type="text" class="form-control" id="correo" name="correo">
+                  </div>
+                  <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user-tag me-2"></i>Cargo</label>
+                        <select class="form-control" id="id_cargo" name="id_cargo">
+                            <?php
+                            // Consultar los cargos disponibles en la base de datos
+                            $query = "SELECT * FROM cargo";
+                            $result = mysqli_query($conexion, $query);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<option value='" . $row['id'] . "'>" . $row['descripcion'] . "</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                  <button type="submit" value="actualizar" class="btn btn-success" name="actualizar"><i class="fa-solid fa-user-plus me-2"></i>Actualizar</button>
+              </form>
+
+            
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 
@@ -310,7 +369,10 @@ if (isset($_POST['logout'])) {
                                 <td><i class="fa-solid fa-envelope me-2" style="color: #ffffff;"></i><?= $datos->correo ?></td>
                                 <td><i class="fa-solid fa-user-tag me-2"></i><?= $datos->cargo ?></td>
                                 <td>
-                                  <a href="../controller/modificar_producto_a.php?id=<?= $datos->id ?>" class="btn btn-sm btn-warning"><i class="fa-solid fa-user-pen me-2"></i></a>
+                                <button class="btn btn-primary btn-sm editar-btn" data-bs-toggle="modal" data-bs-target="#modificarUsuarioModal" data-id="<?php echo $row['id']; ?>">
+                                  <i class="fa-solid fa-user-edit"></i>
+                                </button>
+
                                   <a href="../views/gerente.php?id=<?= $datos->id ?>" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>
                                 </td> 
                               </tr>
@@ -329,5 +391,17 @@ if (isset($_POST['logout'])) {
 
 <script src="../js/buscador.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<!--  PARA TRAER LOS DATOS AL EDITAR-->
+<script>
+    var editarBtns = document.querySelectorAll('.editar-btn');
+
+    editarBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var idUsuario = this.getAttribute('data-id');
+            document.getElementById('id_usuario').value = idUsuario;
+        });
+    });
+</script>
+
 </body>
 </html>
