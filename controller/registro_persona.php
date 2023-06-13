@@ -1,6 +1,11 @@
 <?php 
 // Conexión a la base de datos
-include '../module/conexion.php';
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "rol2";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
