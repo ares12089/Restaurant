@@ -445,7 +445,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
                                 <td><i class="fa-solid fa-circle-user  me-2" style="color: #ffffff;"></i><?= $datos->nombre ?></td>
                                 <td><i class="fa-solid fa-id-card  me-2"></i><?= $datos->cedula ?></td>
                                 <td><i class="fa-solid fa-circle-user  me-2" style="color: #ffffff;"></i><?= $datos->usuario ?></td>
-                                <td><i class="fa-solid fa-lock  me-2 style="color: #000000;"></i><?= $datos->contraseña ?></td>
+                                <td><i class="fa-solid fa-lock  me-2" style="color: #000000;"></i><?= $datos->contraseña ?></td>
                                 <td><i class="fa-solid fa-phone  me-2" style="color: #ffffff;"></i><?= $datos->telefono ?></td>
                                 <td><i class="fa-solid fa-envelope me-2" style="color: #ffffff;"></i><?= $datos->correo ?></td>
                                 <td><i class="fa-solid fa-user-tag me-2"></i><?= $datos->cargo ?></td>
@@ -453,9 +453,11 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
                                 <button class="btn btn-warning btn-sm editar-btn" data-bs-toggle="modal" data-bs-target="#modificarUsuarioModal" data-id="<?php echo $row['id']; ?>">
                                   <i class="fa-solid fa-user-edit"></i>
                                 </button>
-
+                                  <button>
                                   <a href="../views/gerente.php?id=<?= $_GET['id'] ?>" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>
+                                  </button>
                                 </td> 
+
                               </tr>
                         <?php } ?>
       

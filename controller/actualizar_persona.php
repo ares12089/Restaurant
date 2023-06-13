@@ -16,7 +16,7 @@ if (isset($_POST['btnmodificar'])) {
         // Validar y procesar los datos aquí (ejemplo: validación, sanitización, etc.)
 
         // Conectar a la base de datos
-        $conexion = mysqli_connect("localhost", "root", "", "rol4");
+        $conexion = mysqli_connect("localhost", "root", "", "rol2");
 
         // Verificar si la conexión fue exitosa
         if (!$conexion) {
