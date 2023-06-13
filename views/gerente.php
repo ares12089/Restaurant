@@ -334,7 +334,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
                             ?>
                         </select>
                     </div>
-                  <button type="submit" value="agregar" class="btn btn-success" name="agregar"><i class="fa-solid fa-user-plus me-2"></i>Registrar</button>
+                    <button type="submit" value="agregar" class="btn btn-success" name="agregar">Agregar</button>
               </form>
 
             
@@ -453,16 +453,9 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
                                 <button class="btn btn-warning btn-sm editar-btn" data-bs-toggle="modal" data-bs-target="#modificarUsuarioModal" data-id="<?php echo $row['id']; ?>">
                                   <i class="fa-solid fa-user-edit"></i>
                                 </button>
-                                  <button>
-                                  <a href="../views/gerente.php?id=<?= $_GET['id'] ?>" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>
-                                  </button>
-                                </td> 
-
+                                <a href="../views/gerente.php?id=<?= $datos->id ?>" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>                                </td> 
                               </tr>
                         <?php } ?>
-      
-    
-
                 </tbody>
             </table>
             <div class="d-flex justify-content-center">
