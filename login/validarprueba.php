@@ -10,12 +10,13 @@ $user = $_POST['user'];
 $pass = $_POST['pass'];
 
 // Conectarse a la base de datos
-$servername = "localhost";
+$servername = "containers-us-west-188.railway.app";
 $username = "root";
-$password = "";
-$dbname = "rol4";
+$password = "6PVYWFn7XmUboNA8phF1";
+$dbname = "railway";
+$port = "6523";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 // Verificar la conexión
 if ($conn->connect_error) {
