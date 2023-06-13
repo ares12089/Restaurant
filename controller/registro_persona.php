@@ -2,8 +2,8 @@
 // Conexión a la base de datos
 include '../module/conexion.php';
 
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+if ($conexion->connect_error) {
+    die("Conexión fallida: " . $conexion->connect_error);
 }
 
 // Verificar si se envió el formulario
@@ -21,16 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO usuarios (nombre, cedula, usuario, contraseña, telefono, correo, id_cargo)
             VALUES ('$nombre','$cedula' , '$usuario', '$contraseña', '$telefono', '$correo', '$id_cargo')";
     
-    if ($conn->query($sql) === TRUE) {
+    if ($conexion->query($sql) === TRUE) {
         // Redireccionar después de la inserción exitosa
         header("Location:../views/gerente.php");
         exit();
     } else {
-        echo "Error al insertar los datos: " . $conn->error;
+        echo "Error al insertar los datos: " . $conexion->error;
     }
 }
 
-$conn->close();
+$conexion->close();
 ?>
 
 
