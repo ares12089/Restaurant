@@ -10,13 +10,12 @@ $user = $_POST['user'];
 $pass = $_POST['pass'];
 
 // Conectarse a la base de datos
-$servername = "containers-us-west-188.railway.app";
+$servername = "localhost";
 $username = "root";
-$password = "6PVYWFn7XmUboNA8phF1";
-$dbname = "railway";
-$port = "6523";
+$password = "";
+$dbname = "rol2";
 
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verificar la conexión
 if ($conn->connect_error) {
@@ -44,7 +43,7 @@ if ($result->num_rows == 1) {
             header("Location:../views/gerente.php");
             break;
         case 'Cajero':
-            header("Location:../views/cajero.php");
+            header("Location:../views/cajero/tienda.php");
             break;
         case 'Chef':
             header("Location:../views/chef.php");
