@@ -48,6 +48,10 @@ button.btn.btn-small {
     background-color: red !important;
     color: white;
   }
+  .menu-button {
+    border: none;
+    background-color: transparent;
+  }
   
 
 @keyframes floating {
@@ -80,19 +84,19 @@ button.btn.btn-small {
     background-color: transparent;
     transition: background-color 0.3s ease;
     }
-
-
-    #modoOscuroBtn:focus {
-    outline: none;
-    }
-
-
-    #modoOscuroBtn:hover {
-    cursor: pointer;
-    background-color: #ccc;
-    }
-
-
-    #modoOscuroBtn:active {
-    background-color: #aaa;
-    }
+    
+    body.dark-mode {
+        background-color: #373738 !important;
+        color: white;
+      }
+      
+      .navbar.dark-mode {
+        background-color: #8b8989 !important;
+        color: white;
+      }
+      
+      .sidebar.dark-mode {
+        background-color: #666665 !important;
+        color: white;
+      }
+      

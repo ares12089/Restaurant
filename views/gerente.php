@@ -53,26 +53,12 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
   <div class="container-fluid">
 
 <div class="sidebar" id="sidebar">
-<div class="center-icon">
-  <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-</div>
-<div class="center-icon">
-  <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-</div>
-<div class="center-icon">
-  <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-</div>
-<div class="center-icon">
-  <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-</div>
-<div class="center-icon">
-  <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-</div>
-<div class="center-icon">
-  <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-</div>
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="text-center" style="margin-top: -120px;">
   <div class="floating-container">
     <img src="<?php echo '../img/wallhaven-y86k3l.jpg'; ?>" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
@@ -83,38 +69,19 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
   <div style="text-align: center;">
   <li><h4>MENU<i class="fa-solid fa-martini-glass-citrus ms-2" style="color: #000000;"></i></h4></li>
     </div>
-    <div class="center-icon">
-      <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-    </div>
-    <div class="center-icon">
-      <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-    </div>
+
     <div style="text-align: center;">
     <a href="../views/cajero/productos.php">AGREGAR PLATOS<i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i></a>
     </div>
-    <div class="center-icon">
-    <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-    </div>
-    <div class="center-icon">
-      <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-    </div>
-    <div class="center-icon">
-      <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-    </div>
-    <div class="center-icon">
-    <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-  </div>
-  <div class="center-icon">
-    <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-  </div>
-  <div class="center-icon">
-  <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-</div>
-<div class="center-icon">
-  <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
-</div>
+
     <div style="display: flex; justify-content: center;">
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
         <button type="submit" name="logout" class="btn btn-small" style="background-color: #f9f9f9;">
             <span class="me-1">Cerrar Sesión</span>
             <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>
@@ -143,8 +110,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
     </div>
   </div>
 </nav> 
-          <button id="modoOscuroBtn" onclick="cambiarModo()"><i class="fa-solid fa-moon fa-bounce" style="color: #000000;"></i></button>
-          <script src="../js/gerente.js"></script>
+          <button id="modoOscuroBtn" onclick="cambiarModo()"><i class="fa-solid fa-moon fa-bounce" style="color: #000000;"></i></button>          <script src="../js/gerente.js"></script>
 
           <div class="container-fluid row">
           <div class="col-10 p-5" method="POST" style="margin: center;">
