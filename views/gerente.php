@@ -45,7 +45,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light <?php if ($modoOscuro) echo 'dark-mode'; ?>">
   <?php
   include "../module/conexion.php";
   include "../controller/eliminar_persona.php";

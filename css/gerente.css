@@ -38,6 +38,18 @@
     z-index: 999;
 }
 
+button.btn.btn-small {
+    background-color: #f9f9f9;
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  button.btn.btn-small:hover {
+    background-color: red !important;
+    color: white;
+  }
+  
+
 @keyframes floating {
     0% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
