@@ -116,7 +116,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 
 <div class="text-center" style="margin-top: -120px;">
   <div class="floating-container">
-    <img src="<?php echo '../img/wallhaven-y86k3l.jpg'; ?>" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
+    <img src="<?php echo '../img/lol3.jpg'; ?>" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
   </div>
 </div>
 <style>
@@ -345,73 +345,6 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
     </div>
     
     
-
-
-
-<!-- Modal Actualizar-->
-<div class="modal fade" id="modificarUsuarioModal" tabindex="-1" aria-labelledby="modificarUsuarioModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h3 class="text-center text-secondary"><i class="fa-solid fa-users-between-lines me-2" style="color: #000000;"></i>MODIFICAR EMPLEADO</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                <form class="col-12 p-5" method="POST">
-
-                 <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
-              
-
-
-
-                  <div class="mb-3">
-                    <label for="nombre" class="form-label"><i class="fa-solid fa-user me-2"></i>Nombre Completo</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre"> 
-                  </div>
-                  <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Cedula</label>
-                      <input type="text" class="form-control" id="cedula" name="cedula">
-                  </div>
-                  <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Usuario</label>
-                      <input type="text" class="form-control" id="usuario" name="usuario">
-                  </div>
-                  <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-key me-2"></i>Contraseña</label>
-                      <input type="text" class="form-control" id="contraseña" name="contraseña">
-                  </div>
-                  <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-phone me-2" style="color: #000000;"></i>Telefono</label>
-                      <input type="text" class="form-control" id="telefono" name="telefono">
-                  </div>
-                  <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-envelope-open-text me-2" style="color: #000000;"></i>Correo</label>
-                      <input type="text" class="form-control" id="correo" name="correo">
-                  </div>
-                  <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user-tag me-2"></i>Cargo</label>
-                        <select class="form-control" id="id_cargo" name="id_cargo">
-                            <?php
-                            // Consultar los cargos disponibles en la base de datos
-                            $query = "SELECT * FROM cargo";
-                            $result = mysqli_query($conexion, $query);
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                echo "<option value='" . $row['id'] . "'>" . $row['descripcion'] . "</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
-                
-
-                    <button type="submit" class="btn btn-warning" name="btnmodificar"><i class="fa-solid fa-pen-to-square me-2" style="color: #000000;"></i>Modificar</button>
-              </form>
-
-            
-                </div>
-            </div>
-        </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 
@@ -446,16 +379,24 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
                                 <td><i class="fa-solid fa-circle-user  me-2" style="color: #ffffff;"></i><?= $datos->nombre ?></td>
                                 <td><i class="fa-solid fa-id-card  me-2"></i><?= $datos->cedula ?></td>
                                 <td><i class="fa-solid fa-circle-user  me-2" style="color: #ffffff;"></i><?= $datos->usuario ?></td>
-                                <td><i class="fa-solid fa-lock  me-2" style="color: #000000;"></i><?= $datos->contraseña ?></td>
+                                <td><i class="fa-solid fa-lock  me-2" style="color: #ffffff;"></i><?= $datos->contraseña ?></td>
                                 <td><i class="fa-solid fa-phone  me-2" style="color: #ffffff;"></i><?= $datos->telefono ?></td>
                                 <td><i class="fa-solid fa-envelope me-2" style="color: #ffffff;"></i><?= $datos->correo ?></td>
                                 <td><i class="fa-solid fa-user-tag me-2"></i><?= $datos->cargo ?></td>
                                 <td>
-                                <button class="btn btn-warning btn-sm editar-btn" data-bs-toggle="modal" data-bs-target="#modificarUsuarioModal" data-id="<?php echo $row['id']; ?>">
-                                  <i class="fa-solid fa-user-edit"></i>
-                                </button>
+
+                                <!--boton actualizar -->
+                                <a href="../controller/modificar.php?id=<?= $datos->id ?>" class="btn btn-sm btn-warning"><i class="fa-solid fa-user-edit"></i></a>
+
+
+                                <!--boton eliminar-->
                                 <a href="../views/gerente.php?id=<?= $datos->id ?>" class="btn btn-sm btn-danger"><i class="fa-solid fa-user-xmark me-2"></i></a>                                </td> 
                               </tr>
+
+
+                              
+
+
                         <?php } ?>
                 </tbody>
             </table>
