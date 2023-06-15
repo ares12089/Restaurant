@@ -31,10 +31,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="productos.php"><i class="fa-solid fa-burger me-2"></i>Platos</a>
+                        <a class="nav-link active" aria-current="page" href="productos.php">Platos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="tienda.php"><i class="fa-solid fa-burger me-2" style="color: #000000;"></i>Menú</a>
+                        <a class="nav-link active" href="tienda.php">Menú</a>
                     </li>
                 </ul>
                 <!--  -->
@@ -79,7 +79,7 @@
 
     <div class="columns">
         <div class="column">
-            <h1 class="is-size-2">Menú<i class="fa-solid fa-burger ms-2" style="color: #000000;"></i></h1>
+            <h1 class="is-size-2">Menú</h1>
         </div>
     </div>
 
