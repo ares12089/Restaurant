@@ -57,3 +57,30 @@
   .floating-container {
     animation: floating 3s ease-in-out infinite;
   }
+
+  #modoOscuroBtn {
+    position: relative;
+    left: 31cm;
+    top: -1.1cm;
+    width: 80px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    }
+
+
+    #modoOscuroBtn:focus {
+    outline: none;
+    }
+
+
+    #modoOscuroBtn:hover {
+    cursor: pointer;
+    background-color: #ccc;
+    }
+
+
+    #modoOscuroBtn:active {
+    background-color: #aaa;
+    }
