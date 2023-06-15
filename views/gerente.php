@@ -89,7 +89,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
     <div class="center-icon">
       <i class="fa-solid fa-power-off" style="color: #f9f9f9; margin-left: 1.5px;"></i>
     </div>
-    <div style="text-align: center; font-family: 'Times New Roman', Times, serif;">
+    <div style="text-align: center;">
     <a href="../views/cajero/productos.php">AGREGAR PLATOS<i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i></a>
     </div>
     <div class="center-icon">
