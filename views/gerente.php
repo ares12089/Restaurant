@@ -61,7 +61,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 <br>
 <div class="text-center" style="margin-top: -120px;">
   <div class="floating-container">
-    <img src="<?php echo '../img/wallhaven-y86k3l.jpg'; ?>" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
+    <img src="<?php echo '../img/bur1.jpg'; ?>" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
   </div>
 </div>
 
