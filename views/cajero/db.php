@@ -23,7 +23,8 @@ function obtenerConexion()
     $user = obtenerVariableDelEntorno("MYSQL_USER");
     $dbName = obtenerVariableDelEntorno("MYSQL_DATABASE_NAME");
     $port = obtenerVariableDelEntorno("MYSQL_PORT");
-    $database = new PDO('mysql:host=containers-us-west-188.railway.app;port='.$port.';dbname=' . $dbName, $user, $password);
+    $host = obtenerVariableDelEntorno("MYSQL_HOST");
+    $database = new PDO('mysql:host='.$host.';port='.$port.';dbname='.$dbName, $user, $password);
     $database->query("set names utf8;");
     $database->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
     $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
