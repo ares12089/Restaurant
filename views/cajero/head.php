@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="food-and-restaurant.png" alt="Logo" width="40" height="30" class="d-inline-block align-text-top">
-                Restaurant
+                CAJERO
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -77,10 +77,10 @@
         });
     </script>
 
-    <div class="columns">
-        <div class="column">
-            <h1 class="is-size-2">Menú</h1>
-        </div>
-    </div>
+<div style="display: flex; justify-content: center;">
+  <div>
+    <h1 class="is-size-2">Menú</h1>
+  </div>
+</div>
 
     <section class="section">
