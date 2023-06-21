@@ -94,3 +94,32 @@ function guardarProducto($nombre, $tipo, $precio, $descripcion, $imagen)
     $sentencia = $bd->prepare("INSERT INTO platos(nombre, tipo, precio, descripcion, img) VALUES(?, ?, ?, ?, ?)");
     return $sentencia->execute([$nombre, $tipo, $precio, $descripcion,$datosImagen]);
 }
+
+function editarProducto($nombre, $descripcion, $tipo, $precio, $id)
+{
+    $bd = obtenerConexion();
+    $sentencia = $bd->prepare("UPDATE platos
+    SET nombre = ?, descripcion = ?, tipo = ?, precio = ?
+    WHERE id = ?;");
+    return $sentencia->execute([$nombre,$descripcion,$tipo,$precio,$id]);
+}
+
+function editarProductoimg($imagen, $nombre, $descripcion, $tipo, $precio, $id)
+{
+    // $imagen = $_FILES['imagen']['tmp_name'];
+    $datosImagen = file_get_contents($imagen);
+
+    $bd = obtenerConexion();
+    $sentencia = $bd->prepare("UPDATE platos
+    SET img = ?, nombre = ?, descripcion = ?, tipo = ?, precio = ?
+    WHERE id = ?;");
+    return $sentencia->execute([$datosImagen,$nombre,$descripcion,$tipo,$precio,$id]);
+}
+
+function obtenerUnProducto($id)
+{
+    $bd = obtenerConexion();
+    $sentencia = $bd->prepare("SELECT id, nombre, descripcion, tipo, precio, img FROM platos WHERE id = ?");
+    $sentencia->execute([$id]);
+    return $sentencia->fetchAll();
+}
