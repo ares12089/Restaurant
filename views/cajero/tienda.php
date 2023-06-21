@@ -7,14 +7,17 @@
 
     <title>CAJERO</title>
     <style>
-  .card {
-    transition: transform 1s;
-  }
+.card {
+  transition: transform 1s, box-shadow 1s; /* Agregamos la transición para box-shadow */
+}
 
-  .card:hover {
-    transform: scale(1.1);
-    z-index: 9999;
-  }
+.card:hover {
+  transform: scale(1.1);
+  z-index: 9999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Ajusta los valores según tus preferencias */
+}
+
+
   
 </style>
 
