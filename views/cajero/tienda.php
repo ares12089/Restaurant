@@ -5,18 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <title>Document</title>
+    <title>CAJERO</title>
+    <style>
+  .card {
+    transition: transform 1s;
+  }
+
+  .card:hover {
+    transform: scale(1.1);
+    z-index: 9999;
+  }
+  
+</style>
+
 </head>
 <body>
 <?php include_once "head.php" ?>
-<section class="col1">
+<section class="col1" style="background-color: #ffff;">
     <?php
     include_once "funciones.php";
     $productos = obtenerProductos();
     ?>
 
     <?php foreach ($productos as $producto) { ?>
-        <div class="card">
+        <div class="card m-1" >
             <?php echo '<img class="card-img-top" src="data:' . $producto->tipo . ';base64,' . base64_encode($producto->img) . '"/>' ?>
             <div class="card-body">
                 <h5 class="card-title"><?php echo $producto->nombre ?></h5>
@@ -63,11 +75,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="ordenesLabel">Ordenes:</h5>
+                    <h5 class="modal-title" id="ordenesLabel"></h5>
+                    <h2 class="is-size-2">Ordenes:</h2>
+
+                    <br><br/>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Contenido de la Ventana Emergente</p>
                     <!--  -->
                     <?php
                     include_once "funciones.php";
@@ -81,7 +95,7 @@
                                         Todavía no hay platos
                                     </h1>
                                     <h2 class="subtitle">
-                                        Visita el menú para agregar productos
+                                        agregar productos
                                     </h2>
                                     <a href="tienda.php" class="button is-warning">Ver menú</a>
                                 </div>
@@ -90,7 +104,6 @@
                     <?php } else { ?>
                         <div class="columns">
                             <div class="column">
-                                <h2 class="is-size-2">Ordenes:</h2>
                                 <table class="table">
                                     <thead>
                                         <tr>
