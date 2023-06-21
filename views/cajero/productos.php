@@ -23,55 +23,55 @@ $productos = obtenerProductos();
                     <div class="modal-body">
                         <!-- Contenido -->
                         <!-- <div class="columns"> -->
-                            <!-- <div class="column is-one-third"> -->
-                                <h2 class="is-size-2">Nuevo producto</h2>
-                                <form action="guardar_platos.php" method="post" enctype="multipart/form-data">
-                                    <div class="field">
-                                        <label for="nombre">Nombre</label>
-                                        <div class="control">
-                                            <input required id="nombre" class="input" type="text" placeholder="Nombre" name="nombre">
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <label for="descripcion">Descripción</label>
-                                        <div class="control">
-                                            <textarea name="descripcion" class="textarea" id="descripcion" cols="10" rows="5" placeholder="Descripción" required></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <label for="nombre">Tipo</label>
-                                        <div class="control">
-                                            <select required name="tipo" id="tipo">
-                                                <option value="1">Hamburguesas</option>
-                                                <option value="2">Pizzas</option>
-                                                <option value="3">Alitas</option>
-                                                <option value="4">Bebidas</option>
-                                            </select>
-                                            <!-- <input required id="nombre" class="input" type="text" placeholder="Nombre" name="nombre"> -->
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <label for="precio">Precio</label>
-                                        <div class="control">
-                                            <input required id="precio" name="precio" class="input" type="number" placeholder="Precio">
-                                        </div>
-                                    </div>
-                                    <!-- img -->
-                                    <div class="field">
-                                        <label for="precio">Imagen</label>
-                                        <div class="control">
-                                            <input type="file" name="imagen" id="imagen" required>
-                                        </div>
-                                    </div>
-                                    <!-- img -->
-                                    <div class="field">
-                                        <div class="control">
-                                            <button class="button is-success">Guardar</button>
-                                            <a href="productos.php" class="button is-warning">Volver</a>
-                                        </div>
-                                    </div>
-                                </form>
-                            <!-- </div> -->
+                        <!-- <div class="column is-one-third"> -->
+                        <h2 class="is-size-2">Nuevo producto</h2>
+                        <form action="guardar_platos.php" method="post" enctype="multipart/form-data">
+                            <div class="field">
+                                <label for="nombre">Nombre</label>
+                                <div class="control">
+                                    <input required id="nombre" class="input" type="text" placeholder="Nombre" name="nombre">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="descripcion">Descripción</label>
+                                <div class="control">
+                                    <textarea name="descripcion" class="textarea" id="descripcion" cols="10" rows="5" placeholder="Descripción" required></textarea>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="nombre">Tipo</label>
+                                <div class="control">
+                                    <select required name="tipo" id="tipo">
+                                        <option value="1">Hamburguesas</option>
+                                        <option value="2">Pizzas</option>
+                                        <option value="3">Alitas</option>
+                                        <option value="4">Bebidas</option>
+                                    </select>
+                                    <!-- <input required id="nombre" class="input" type="text" placeholder="Nombre" name="nombre"> -->
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="precio">Precio</label>
+                                <div class="control">
+                                    <input required id="precio" name="precio" class="input" type="number" placeholder="Precio">
+                                </div>
+                            </div>
+                            <!-- img -->
+                            <div class="field">
+                                <label for="precio">Imagen</label>
+                                <div class="control">
+                                    <input type="file" name="imagen" id="imagen" required>
+                                </div>
+                            </div>
+                            <!-- img -->
+                            <div class="field">
+                                <div class="control">
+                                    <button class="button is-success">Guardar</button>
+                                    <a href="productos.php" class="button is-warning">Volver</a>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- </div> -->
                         <!-- </div> -->
                         <!-- Contenido -->
                     </div>
@@ -103,12 +103,23 @@ $productos = obtenerProductos();
                         <td><?php echo $producto->tipo ?></td>
                         <td>$<?php echo number_format($producto->precio, 2) ?></td>
                         <td>
-                            <form action="eliminar_plato.php" method="post">
-                                <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
-                                <button class="button is-danger">
-                                    <i class="fa fa-trash-o"></i>
-                                </button>
-                            </form>
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+
+                                <form action="editv_plato.php" method="post">
+                                    <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
+                                    <button class="btn btn-outline-primary m-2">
+                                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                    </button>
+                                </form>
+
+                                <form action="eliminar_plato.php" method="post">
+                                    <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
+                                    <button class="btn btn-outline-danger m-2">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                                </form>
+
+                            </div>
                         </td>
                     <?php } ?>
                     </tr>
