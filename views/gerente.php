@@ -276,7 +276,7 @@ $(document).ready(function() {
             </div>
             <center>
               <div class="modal-body">
-                <h3></h3>
+                <h3><i class="fa-solid fa-circle-exclamation fa-shake fa-xl" style="color: #d31d1d;"></i></h3>
                 <p>¿Estás seguro de que deseas eliminar este elemento?</p>
                 </div>
                 </center>
