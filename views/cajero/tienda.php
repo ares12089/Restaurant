@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
 <?php include_once "head.php" ?>
 <section class="col1">
     <?php
@@ -121,21 +131,25 @@
                                         </tr>
                                     </tfoot>
                                 </table>
-                                <a href="terminar_compra.php" target="_blank" class="button is-success"><i class="fa fa-check"></i>&nbsp;Enviar Orden</a>
                             </div>
                         </div>
-                    <?php } ?>
-                    <!--  -->
+                
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
+                    <a href="terminar_compra.php" target="_blank" class="button is-success"><i class="fa fa-check"></i>&nbsp;Enviar Orden</a>
+
                 </div>
+                <?php } ?>
+                    <!--  -->
             </div>
+
         </div>
     </div>
     <!--  -->
-
     <?php
     include 'pie.php'
     ?>
+    
+</body>
+</html>
