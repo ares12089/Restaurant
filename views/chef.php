@@ -64,35 +64,12 @@
     <details class="custom-details">
         <summary>Tiket 03<button class="button">Listo</button></summary>
         <div class="content" style="padding-left: 4cm;">
-            <p>Hamburguesa</p>
+           
+            <p>Nombre: Daniel Muñoz</p>
             <p>Tipo: Hawaiana</p>
             <p>Extras: Salsa inglesa</p>
             <p>Bebidas: Gaseosa</p>
-        </div>
-    </details>
-</div>
-
-<div class="container" style="margin-top: 4cm; margin-left: -5cm;">
-    <details class="custom-details">
-        <summary>Tiket 03<button class="button">Listo</button></summary>
-        <div class="content" style="padding-left: 4cm;">
-            <p>Hamburguesa</p>
-            <p>Tipo: Hawaiana</p>
-            <p>Extras: Salsa inglesa</p>
-            <p>Bebidas: Gaseosa</p>
-        </div>
-    </details>
-</div>
-
-
-<div class="container" style="margin-top: 4cm; margin-left: -5cm;">
-    <details class="custom-details">
-        <summary>Tiket 03<button class="button">Listo</button></summary>
-        <div class="content" style="padding-left: 4cm;">
-            <p>Hamburguesa</p>
-            <p>Tipo: Hawaiana</p>
-            <p>Extras: Salsa inglesa</p>
-            <p>Bebidas: Gaseosa</p>
+            <p>Hora:</p>
         </div>
     </details>
 </div>
