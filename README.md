@@ -26,22 +26,52 @@ Acceder a través de un navegador web compatible, preferiblemente google chrome 
 
 Funcionalidades:
 
-Carpeta Controller:
+Carpeta Views / Cajero / Funciones.php
 
-eliminar_persona.php sirve para eliminar los registros de los empleados registrados por el gerente.
+function obtenerOrdene():
 
-botonact.php sirve para actualizar los registros de los empleados.
+La función se encarga de obtener y capturar el dato del plato ordenado por el cliente y pedido por el cajero para recibirlo en la vista del chef.
 
-modificar_producto.php sirve para modificar los registros almacenados en la base de datos de los platos.
+function quitarOrden($idOrden):
 
-modificar.php es una redireccion que funciona cuando la persona le da click en el boton modificar los envia a otra vista.
+Se encarga de quitar un plato pedido por el cliente del carrito de compras en caso de que el cliente ya no desee ese plato.
 
-registro_persona.php sirve para registrar datos de empleados que se almacenaran en la base de datos.
+function obtenerPLatos():
 
-Carpeta Login:
+Se encarga de hacer una consulta a la base de datos para mostrar los platos agregados en la vista del gerente.
 
-validarprueba.php se encarga de la validacion de datos para evitar entradas externas a las vistas de gerente,
-cajero y chef validando sus datos y poniendo una setencia para ingresar solamente por el ingreso de los datos al login.
+function agregarPlatoAlaOrden($idProducto, $extra):
+
+Se encarga de seleccionar el plato que el cliente desee y enviarlo al carrito de compras para su posterior envío a la vista del chef.
+
+function eliminarPlato($id):
+
+Se encarga de eliminar platos almacenados en la base de datos.
+
+function guardarPlato($nombre, $tipo, $precio, $descripcion, $imagen):
+
+Se encarga de insertar y almacenar un plato en la base de datos.
+
+function editarPlato($nombre, $descripcion, $tipo, $precio, $id):
+
+Se encarga de actualizar un plato almacenado en la base de datos.
+
+function obtenerIdsDeOrdenes():
+
+Se encarga de hacer un conteo de los platos que hay en el carrito.
+
+function editarPlatoimg($imagen, $nombre, $descripcion, $tipo, $precio, $id):
+
+Se encarga de actualizar la imagen almacenada en la base de datos.
+
+function obtenerUnPlato($id):
+
+Se encarga de obtener la id del plato al cual se le harán cambios.
+
+function getOrdenes():
+
+Se encarga de capturar las órdenes que envía el cajero y las envía a la vista del chef mostrando en tiempo real.
+
 
 
 Contribuir:
