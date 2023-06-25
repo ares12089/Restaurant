@@ -55,8 +55,8 @@ if ($result->num_rows == 1) {
     }
 } else {
     // Autenticación fallida
-    echo '<div class="alert alert-danger"><i class="fa-solid fa-circle-exclamation me-2" style="color: #000000;"></i>Usuario/Contraseña no coinciden</div>';
-
+    header("Location: ../index.html?error=1");
+    exit();
 }
 
 // Cerrar la conexión a la base de datos

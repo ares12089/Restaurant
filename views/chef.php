@@ -16,7 +16,7 @@
             align-items: center;
             justify-content: center;
             width: calc(100% + 100cm);
-            margin-top: 1cm;s
+            margin-top: 1cm;
             border: 1px solid #ccc;
             padding: 10px;
             margin-bottom: 10px;

@@ -34,8 +34,10 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST" action="../Restaurant/login/validarprueba.php">
-					<div class="text-center" style="margin-top: -120px;">
+				
+			<form class="login100-form validate-form" method="POST" action="../Restaurant/login/validarprueba.php">
+
+				<div class="text-center" style="margin-top: -120px;">
 						<img id="floating-image" src="img/bur1.jpg" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
 					</div>
 																					  
@@ -43,8 +45,12 @@
 						<i class="fa-solid fa-users-gear me-2"></i>
 						<span class="d-inline-block">Iniciar Sesión</span>
 					</span>
+					<div id="alerta" class="alert alert-danger" style="display: none;">
+						<i class="fa-solid fa-circle-exclamation me-2" style="color: #490e0e;"></i>    Usuario/Contraseña no coinciden
+					</div>
 					
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					
+					<div class="wrap-input100 validate-input" data-validate = "NO VALIDO: CAMPOS VACIOS">
 						<input class="input100" type="text" name="user">
 						<span class="focus-input100"></span>
 
@@ -54,7 +60,7 @@
 						  </span>
 					</div>
 					
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
+					<div class="wrap-input100 validate-input" data-validate=" NO VALIDO: CAMPOS VACIOS">
 						<input class="input100" type="password" name="pass">
 						<span class="focus-input100"></span>
 
@@ -203,7 +209,51 @@ dibujarReloj();
 		floatingImage.style.animationPlayState = 'running';
 	};
 	</script>
+	
 <!--===============================================================================================-->
 <!--===============================================================================================-->
+<style>
+@keyframes fadeOut {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+.fade-out {
+	animation: fadeOut 15s forwards;
+}
+
+</style>
+
+<script>
+	// Obtener la alerta
+	var alerta = document.getElementById("alerta");
+
+	// Mostrar la alerta si se envió el parámetro "error" en la URL
+	var urlParams = new URLSearchParams(window.location.search);
+	if (urlParams.has("error")) {
+		alerta.style.display = "block";
+		alerta.classList.add("fade-out");
+
+		// Cerrar la alerta después de 5 segundos
+		setTimeout(function() {
+			alerta.style.display = "none";
+			alerta.classList.remove("fade-out");
+		}, 5000);
+	}
+
+	// Ocultar la alerta cuando se haga clic en el botón de cerrar
+	var cerrarAlerta = document.getElementById("cerrar-alerta");
+	cerrarAlerta.addEventListener("click", function() {
+		alerta.classList.add("fade-out");
+
+		// Esperar a que termine la animación antes de ocultar la alerta
+		setTimeout(function() {
+			alerta.style.display = "none";
+			alerta.classList.remove("fade-out");
+		}, 1000); // Tiempo de duración de la animación en milisegundos
+	});
+</script>
+
+
 </body>
 </html>
