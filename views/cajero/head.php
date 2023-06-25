@@ -8,22 +8,29 @@
 
     <link rel="stylesheet" href="styles.css">
 
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.1/css/bulma.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- sweetAlert -->
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- sweetAlert -->
+
 </head>
 
 <body>
 
-
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-light sticky-nav" style="position: sticky; top: 0; z-index: 100;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="food-and-restaurant.png" alt="Logo" width="40" height="30" class="d-inline-block align-text-top">
-                CAJERO
+                Restaurant
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,24 +45,60 @@
                     </li>
                 </ul>
                 <!--  -->
-                <!-- Botón para abrir la ventana emergente -->
+                <!-- btn con js contador -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ordenes">
-                    Ordenes<?php
-                            include_once "funciones.php";
-                            $conteo = count(obtenerIdsDeProductosEnCarrito());
-                            if ($conteo > 0) {
-                                printf("(%d)", $conteo);
-                            }
-                            ?>&nbsp;<i class="fa fa-shopping-cart"></i>
+                    Ordenes - <span id="contador"><?php
+                                                include_once "funciones.php";
+                                                $conteo = count(obtenerIdsDeProductosEnCarrito());
+                                                if ($conteo > 0) {
+                                                    printf("(%d)", $conteo);
+                                                }
+                                                // echo $conteo;
+                                                ?>
+                    </span>&nbsp;<i class="fa fa-shopping-cart"></i>
                 </button>
+                <script>
+                    // 2
+                    // Función para obtener el número actualizado del contador del servidor
+                    function obtenerContador() {
+                        // Realizar una solicitud AJAX al servidor
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                // Actualizar el contenido del contador con la respuesta del servidor
+                                document.getElementById("contador").textContent = this.responseText;
+                            }
+                        };
+                        xhttp.open("GET", "obtener_contador.php", true); // Archivo PHP que devuelve el número actualizado
+                        xhttp.send();
+                    }
+
+                    // Llamar a la función obtenerContador inicialmente y luego cada cierto intervalo de tiempo
+                    obtenerContador();
+                    setInterval(obtenerContador, 1000); // Actualizar el contador cada 5 segundos (ajusta el intervalo según tus necesidades)
+
+                    //new
+                    // function actualizarContador() {
+                    //     // Realizar una solicitud AJAX al servidor para obtener el número actualizado de órdenes
+                    //     fetch('obtener_contador.php')
+                    //         .then(response => response.text())
+                    //         .then(data => {
+                    //             // Actualizar el contenido del botón con el nuevo valor
+                    //             document.getElementById('btnOrdenes').innerHTML = 'Ordenes' + (data > 0 ? '(' + data + ')' : '') + '&nbsp;<i class="fa fa-shopping-cart"></i>';
+                    //         })
+                    //         .catch(error => {
+                    //             console.error('Error al obtener el conteo de órdenes:', error);
+                    //         });
+                    // }
+
+                    // // Actualizar el contador inicialmente
+                    // actualizarContador();
+
+                    // // Actualizar el contador cada 5 segundos (ajusta el intervalo según tus necesidades)
+                    // setInterval(actualizarContador, 5000);
+                </script>
+
                 <!--  -->
-                <!-- <a class="nav-link active" aria-current="page" href="ver_orden.php">Ordenes<strong><?php
-                                                                                                    //include_once "funciones.php";
-                                                                                                    //$conteo = count(obtenerIdsDeProductosEnCarrito());
-                                                                                                    //if ($conteo > 0) {
-                                                                                                    //    printf("(%d)", $conteo);
-                                                                                                    //}
-                                                                                                    ?>&nbsp;<i class="fa fa-shopping-cart"></i></strong></a> -->
                 <!-- filtrar platos -->
                 <!--                 
                 <form class="d-flex" role="search">
@@ -77,10 +120,6 @@
         });
     </script>
 
-<div style="display: flex; justify-content: center;">
-  <div>
     <h1 class="is-size-2">Menú</h1>
-  </div>
-</div>
 
     <section class="section">
