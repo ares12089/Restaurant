@@ -10,10 +10,10 @@ $user = $_POST['user'];
 $pass = $_POST['pass'];
 
 // Conectarse a la base de datos
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "root";
-$password = "";
-$dbname = "rol2";
+$password = "root123";
+$dbname = "proyectof";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
