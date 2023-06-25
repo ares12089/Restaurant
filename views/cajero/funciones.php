@@ -1,7 +1,7 @@
 <?php
 include "db.php";
 
-function obtenerProductosEnCarrito()
+function obtenerOrdene()
 {
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
@@ -19,7 +19,7 @@ function obtenerProductosEnCarrito()
     $sentencia->execute([$idSesion]);
     return $sentencia->fetchAll();
 }
-function quitarProductoDelCarrito($idOrden)
+function quitarOrden($idOrden)
 {
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
@@ -28,7 +28,7 @@ function quitarProductoDelCarrito($idOrden)
     return $sentencia->execute([$idSesion, $idOrden]);
 }
 
-function obtenerProductos()
+function obtenerPLatos()
 {
     $bd = obtenerConexion();
     $sentencia = $bd->query("SELECT id, nombre, descripcion, tipo, precio, img FROM platos");
@@ -44,7 +44,7 @@ function obtenerProductos()
 //     return false;
 // }
 
-function obtenerIdsDeProductosEnCarrito()
+function obtenerIdsDeOrdenes()
 {
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
@@ -54,7 +54,7 @@ function obtenerIdsDeProductosEnCarrito()
     return $sentencia->fetchAll(PDO::FETCH_COLUMN);
 }
 
-function agregarProductoAlCarrito($idProducto, $extra)
+function agregarPlatoAlaOrden($idProducto, $extra)
 {
     // Ligar el id del producto con el usuario a través de la sesión
     $bd = obtenerConexion();
@@ -73,14 +73,14 @@ function iniciarSesionSiNoEstaIniciada()
     }
 }
 
-function eliminarProducto($id)
+function eliminarPlato($id)
 {
     $bd = obtenerConexion();
     $sentencia = $bd->prepare("DELETE FROM platos WHERE id = ?");
     return $sentencia->execute([$id]);
 }
 
-function guardarProducto($nombre, $tipo, $precio, $descripcion, $imagen)
+function guardarPlato($nombre, $tipo, $precio, $descripcion, $imagen)
 {
     //img
     //$contenidoImagen = file_get_contents($imagen['tmp_name']);
@@ -95,7 +95,7 @@ function guardarProducto($nombre, $tipo, $precio, $descripcion, $imagen)
     return $sentencia->execute([$nombre, $tipo, $precio, $descripcion,$datosImagen]);
 }
 
-function editarProducto($nombre, $descripcion, $tipo, $precio, $id)
+function editarPlato($nombre, $descripcion, $tipo, $precio, $id)
 {
     $bd = obtenerConexion();
     $sentencia = $bd->prepare("UPDATE platos
@@ -104,7 +104,7 @@ function editarProducto($nombre, $descripcion, $tipo, $precio, $id)
     return $sentencia->execute([$nombre,$descripcion,$tipo,$precio,$id]);
 }
 
-function editarProductoimg($imagen, $nombre, $descripcion, $tipo, $precio, $id)
+function editarPlatoimg($imagen, $nombre, $descripcion, $tipo, $precio, $id)
 {
     // $imagen = $_FILES['imagen']['tmp_name'];
     $datosImagen = file_get_contents($imagen);
@@ -116,7 +116,7 @@ function editarProductoimg($imagen, $nombre, $descripcion, $tipo, $precio, $id)
     return $sentencia->execute([$datosImagen,$nombre,$descripcion,$tipo,$precio,$id]);
 }
 
-function obtenerUnProducto($id)
+function obtenerUnPlato($id)
 {
     $bd = obtenerConexion();
     $sentencia = $bd->prepare("SELECT id, nombre, descripcion, tipo, precio, img FROM platos WHERE id = ?");
