@@ -17,6 +17,7 @@
       background-color: gold;
       border-radius: 5px;
       display: flex;
+      margin-left: 2cm;
       justify-content: center;
       width: 230px; /* Aumentamos el ancho en 3 centímetros */
       height: 130px; /* Aumentamos el alto en 3 centímetros */
@@ -96,57 +97,11 @@
     <p>Daniel Muñoz</p>
   </div>
 
-  <script>
-    const ticket = document.querySelector('.ticket');
-    const maxTranslate = 6;
-    const translateStep = 0.3;
-    let translateY = 0;
-    let isFloatingUp = true;
-
-    function floatTicket() {
-      if (isFloatingUp) {
-        translateY -= translateStep;
-
-        if (translateY <= -maxTranslate) {
-          isFloatingUp = false;
-        }
-      } else {
-        translateY += translateStep;
-
-        if (translateY >= maxTranslate) {
-          isFloatingUp = true;
-        }
-      }
-
-      ticket.style.transform = `translateY(${translateY}px)`;
-
-      requestAnimationFrame(floatTicket);
-    }
-
-    floatTicket();
-  </script>
-
-<script>
-    function createHamburger() {
-      const hamburgerContainer = document.querySelector('.hamburger-container');
-      const hamburger = document.createElement('div');
-      hamburger.classList.add('hamburger');
-      hamburger.style.left = Math.random() * 100 + 'vw';
-      hamburger.style.animationDuration = Math.random() * 3 + 2 + 's';
-      hamburgerContainer.appendChild(hamburger);
-
-      setTimeout(() => {
-        hamburger.remove();
-      }, 5000);
-    }
-
-    function startRainingHamburgers() {
-      setInterval(createHamburger, 200);
-    }
-
-    startRainingHamburgers();
-  </script>
-
+ <div class="hamburger-container"></div>
+<div class="ticket">
+  <p>Ticket 01</p>
+  <p>Daniel Muñoz</p>
+</div>
 
 </body>
 </html>
