@@ -16,7 +16,7 @@
 </style>
 
     <?php foreach ($productos as $producto) { ?>
-        <div class="card m-1 p-1 fixed-card">
+        <div class="card m-4 p-3 fixed-card">
             <?php echo '<img class="card-img-top" src="data:' . $producto->tipo . ';base64,' . base64_encode($producto->img) . '"/>' ?>
             <div class="card-body">
                 <h5 class="card-title"><?php echo $producto->nombre ?></h5>
