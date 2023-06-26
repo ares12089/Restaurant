@@ -127,7 +127,7 @@ $html = ob_get_clean();
 // echo $html;
 
 //incluir la libreria dompdf que se encuentra:
-require_once 'libreria/dompdf/autoload.inc.php';
+require_once 'dompdf/autoload.inc.php';
 //crear obj para trabajar con todas las funcionalidades para la conversion
 
 //obj
