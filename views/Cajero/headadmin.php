@@ -2,6 +2,32 @@
 <html lang="es">
 
 <head>
+<?php
+// Verificar si se ha enviado la solicitud de cierre de sesión
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: /restaurant/index.html");
+    exit();
+}
+
+// Verificar si se ha enviado la solicitud de cierre de sesión
+if (isset($_POST['logout'])) {
+    // Eliminar todas las variables de sesión
+    session_unset();
+
+    // Destruir la sesión
+    session_destroy();
+
+    // Redirigir al usuario a la página de inicio de sesión u otra página deseada
+    header("Location: /restaurant/index.html");
+    exit();
+}
+
+$nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
+?>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú</title>
