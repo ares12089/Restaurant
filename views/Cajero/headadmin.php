@@ -97,7 +97,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 </div>
 
 <div class="link-container">
-    <a href="../menu/productos.php"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
+    <a href="/Restaurant/views/cajero/productos.php"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
 </div>
     <div style="display: flex; justify-content: center;">
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
