@@ -1,6 +1,6 @@
 <?php
-// include_once "funciones.php";
-// $ordenes = obtenerTikets();
+//include head cheff
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

@@ -4,17 +4,9 @@
     include_once "funciones.php";
     $productos = obtenerProductos();
     ?>
-    <style>
-.fixed-card img.card-img-top {
-    width: 200px; 
-    height: 200px; 
-    object-fit: cover; 
-    align-items: center;
-}
-</style>
 
     <?php foreach ($productos as $producto) { ?>
-        <div class="card m-1 fixed-card">
+        <div class="card m-1">
             <?php echo '<img class="card-img-top" src="data:' . $producto->tipo . ';base64,' . base64_encode($producto->img) . '"/>' ?>
             <div class="card-body">
                 <h5 class="card-title"><?php echo $producto->nombre ?></h5>
@@ -137,8 +129,7 @@
                         <!-- Reload Pag -->
                         <script>
                             function reloadPage() {
-                                // window.location.reload();
-                                location.reload();
+                                window.location.reload();
                             }
                         </script>
                     </div>

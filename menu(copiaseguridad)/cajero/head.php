@@ -22,8 +22,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- sweetAlert -->
 
-    <script src="sir.js"></script>
-
 </head>
 
 <body>

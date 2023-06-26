@@ -1,5 +1,5 @@
 <?php
-include "db.php";
+ include "../../module/db.php";
 
 function obtenerProductosEnCarrito()
 {

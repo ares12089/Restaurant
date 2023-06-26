@@ -47,3 +47,6 @@
     
     // Actualizar el contador cada 5 segundos (ajusta el intervalo según tus necesidades)
     setInterval(actualizarContador, 5000);
+    
+//});
+
