@@ -1,23 +1,13 @@
-<?php include_once "head.php" ?>
+<?php include_once "headadmin.php" ?>
 <?php
 include_once "funciones.php";
 $productos = obtenerProductos();
 ?>
 
-<button id="alertw">Abrir Alerta</button>
 
-<script>
-    document.getElementById("alertw").addEventListener("click", function() {
-        Swal.fire({
-            position: 'top',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
-        })
-    })
-</script>
+
 <?php
+// <button id="alertw">Abrir Alerta</button>
 
 // echo '<script type="text/javascript">';
 // echo 'Swal.fire({';
@@ -27,6 +17,17 @@ $productos = obtenerProductos();
 // echo '  confirmButtonText: "Aceptar"';
 // echo '});';
 // echo '</script>';
+//<script>
+//   document.getElementById("alertw").addEventListener("click", function() {
+//        Swal.fire({
+//            position: 'top',
+//            icon: 'success',
+//            title: 'Your work has been saved',
+//            showConfirmButton: false,
+//            timer: 1500
+//        })
+//    })
+//</script>
 ?>
 
 <!-- <h2 id="contador">0</h2>

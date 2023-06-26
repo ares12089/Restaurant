@@ -33,6 +33,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/gerente.css" >
+    <link rel="stylesheet" href="../css/gerentenav.css" >
     <script src="https://kit.fontawesome.com/3052f95fc5.js" crossorigin="anonymous"></script>
     <title>Gerente</title>
     <script>
@@ -44,7 +45,10 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 </head>
 
 <body>
+<style>
 
+
+</style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light <?php if ($modoOscuro) echo 'dark-mode'; ?>">
   <?php
   include "../module/conexion.php";
@@ -69,10 +73,13 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
   <div style="text-align: center;">
   <li><h4>MENU<i class="fa-solid fa-martini-glass-citrus ms-2" style="color: #000000;"></i></h4></li>
     </div>
+    <div class="link-container">
+    <a href="../views/gerente.php"><i class="fa-solid fa-users-between-lines" style="color: #000000;"></i>AGREGAR EMPLEADOS</a>
+</div>
 
-    <div style="text-align: center;">
-    <a href="../views/cajero/productos.php">AGREGAR PLATOS<i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i></a>
-    </div>
+<div class="link-container">
+    <a href="../views/cajero/productos.php"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
+</div>
 
     <div style="display: flex; justify-content: center;">
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">

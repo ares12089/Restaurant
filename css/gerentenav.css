@@ -1,0 +1,27 @@
+.link-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.link-container a {
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.3s;
+}
+
+.link-container a:hover {
+    color: #ff0000; /* Cambia el color al pasar el cursor */
+}
+
+.link-container a i {
+    position: relative; /* Cambiamos la posición a relativa */
+    margin-right: 5px; /* Añadimos un margen derecho para separar el icono del texto */
+    transition: transform 0.3s;
+}
+
+.link-container a:hover i {
+    transform: translateX(3px); /* Aplica un efecto de desplazamiento al pasar el cursor */
+}
