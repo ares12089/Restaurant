@@ -46,7 +46,7 @@ function getOrdenes() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 let data = xhr.responseText;
-                document.querySelector(".myespacio").innerHTML = data; //el query selector cambia dependiendo del contenido en el php
+                document.querySelector(".bod").innerHTML = data; //el query selector cambia dependiendo del contenido en el php
             }
         }
     }
