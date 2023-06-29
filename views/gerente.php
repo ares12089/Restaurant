@@ -244,7 +244,6 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
       </table>
 
       <style>
-
         #table1 {
           background-color: #ffffff;
           border-collapse: collapse;
@@ -294,41 +293,41 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 
     <!-- Modal de confirmación -->
 
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-$(document).ready(function() {
-  // Obtener el enlace de eliminación
-  var deleteLink = $('.delete-btn');
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Obtener el enlace de eliminación
+        var deleteLink = $('.delete-btn');
 
-  // Abrir el modal de confirmación al hacer clic en el enlace de eliminación
-  deleteLink.click(function(e) {
-    e.preventDefault();
-    var deleteUrl = $(this).attr('href');
-    $('#confirmDelete').attr('href', deleteUrl);
-    $('#confirmModal').modal('show');
-  });
-});
-</script>
-<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="confirmModalLabel">Confirmar eliminación</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        // Abrir el modal de confirmación al hacer clic en el enlace de eliminación
+        deleteLink.click(function(e) {
+          e.preventDefault();
+          var deleteUrl = $(this).attr('href');
+          $('#confirmDelete').attr('href', deleteUrl);
+          $('#confirmModal').modal('show');
+        });
+      });
+    </script>
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmModalLabel">Confirmar eliminación</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <center>
+            <div class="modal-body">
+              <h3><i class="fa-solid fa-circle-exclamation fa-shake fa-xl" style="color: #d31d1d;"></i></h3>
+              <p>¿Estás seguro de que deseas eliminar este elemento?</p>
             </div>
-            <center>
-              <div class="modal-body">
-                <h3><i class="fa-solid fa-circle-exclamation fa-shake fa-xl" style="color: #d31d1d;"></i></h3>
-                <p>¿Estás seguro de que deseas eliminar este elemento?</p>
-                </div>
-                </center>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <a href="#" id="confirmDelete" class="btn btn-danger">Eliminar</a>
-                          </div>
-                            </div>
-                              </div>
-                                </div> -->
+          </center>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <a href="#" id="confirmDelete" class="btn btn-danger">Eliminar</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 </body>
