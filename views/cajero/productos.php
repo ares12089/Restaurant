@@ -104,7 +104,39 @@ $productos = obtenerProductos();
         </div>
         <!-- Ventana emergente add -->
 
-        <table class="table">
+        <style>
+            
+        #table1 {
+          background-color: #ffffff;
+          border-collapse: collapse;
+          box-shadow: 0px 5px 10px -5px #333333;
+        }
+
+        #table1 th,
+        #table1 td {
+          border: none;
+        }
+
+        #table1 th {
+          background-color: #ffffff;
+          color: #000000;
+          padding: 10px;
+        }
+
+        #table1 td {
+          padding: 10px;
+        }
+
+        #table1 tr:nth-child(odd) {
+          background-color: #f8f9fa;
+        }
+
+        #table1 tr:hover {
+          background-color: #e9ecef;
+        }
+
+        </style>
+        <table class="table custom-table" id="table1">
             <thead>
                 <tr>
                     <th>Nombre</th>
