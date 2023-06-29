@@ -13,7 +13,7 @@ $pass = $_POST['pass'];
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "proyectof";
+$dbname = "rol2";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

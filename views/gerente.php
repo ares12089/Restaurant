@@ -48,75 +48,79 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 <style>
 
 
-</style>
-<nav class="navbar navbar-expand-lg navbar-light bg-light <?php if ($modoOscuro) echo 'dark-mode'; ?>">
-  <?php
-  include "../module/conexion.php";
-  include "../controller/eliminar_persona.php";
-  ?>
-  <div class="container-fluid">
+        </style>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light <?php if ($modoOscuro) echo 'dark-mode'; ?>">
+          <?php
+          include "../module/conexion.php";
+          include "../controller/eliminar_persona.php";
+          ?>
+          <div class="container-fluid">
 
-<div class="sidebar" id="sidebar">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="text-center" style="margin-top: -120px;">
-  <div class="floating-container">
-    <img src="<?php echo '../img/bur1.jpg'; ?>" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
-  </div>
-</div>
+        <div class="sidebar" id="sidebar">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="text-center" style="margin-top: -120px;">
+          <div class="floating-container">
+            <img src="<?php echo '../img/bur1.jpg'; ?>" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
+          </div>
+        </div>
 
-  <ul>
-  <div style="text-align: center;">
-  <li><h4>MENU<i class="fa-solid fa-martini-glass-citrus ms-2" style="color: #000000;"></i></h4></li>
-    </div>
-    <div class="link-container">
-    <a href="../views/gerente.php"><i class="fa-solid fa-users-between-lines" style="color: #000000;"></i>AGREGAR EMPLEADOS</a>
-</div>
+          <ul>
+          <div style="text-align: center;">
+          <li><h4>MENU<i class="fa-solid fa-martini-glass-citrus ms-2" style="color: #000000;"></i></h4></li>
+            </div>
+            <div class="link-container">
+            <a href="../views/gerente.php"><i class="fa-solid fa-users-between-lines" style="color: #000000;"></i>AGREGAR EMPLEADOS</a>
+        </div>
 
-<div class="link-container">
-    <a href="../views/cajero/productos.php"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
-</div>
+        <div class="link-container">
+            <a href="../views/cajero/productos.php"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
+        </div>
 
-    <div style="display: flex; justify-content: center;">
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        <button type="submit" name="logout" class="btn btn-small" style="background-color: #f9f9f9;">
-            <span class="me-1">Cerrar Sesión</span>
-            <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>
-        </button>
-    </form>
-</div>
+            <div style="display: flex; justify-content: center;">
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
 
-  </ul>
-</div>
-<div class="menu-button" onclick="toggleSidebar()">&#9776;</div>
-<script>
-  function toggleSidebar() {
-    var sidebar = document.getElementById("sidebar");
-    sidebar.classList.toggle("open");
-  }
-</script>
+                 <!--Boton cerrar sesion-->   
+                <button type="submit" name="logout" class="btn btn-small" style="background-color: #f9f9f9;">
+                    <span class="me-1">Cerrar Sesión</span>
+                    <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>
+                </button>
+            </form>
+        </div>
 
-    <div class="d-flex justify-content-center align-items-center">
-      <a class="navbar-brand" href="#"><i class="fa-solid fa-door-open me-2" style="color: #000000;"></i>BIENVENIDO</a>
-    </div>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav> 
+          </ul>
+        </div>
+        <div class="menu-button" onclick="toggleSidebar()">&#9776;</div>
+        <script>
+          function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("open");
+          }
+        </script>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <a class="navbar-brand" href="#"><i class="fa-solid fa-door-open me-2" style="color: #000000;"></i>BIENVENIDO</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav> 
+
+
           <button id="modoOscuroBtn" onclick="cambiarModo()"><i class="fa-solid fa-moon fa-bounce" style="color: #000000;"></i></button>          <script src="../js/gerente.js"></script>
 
           <div class="container-fluid row">
@@ -194,7 +198,7 @@ c          </div>
 
 
     
-    <table id="table1" class="table table-striped table-dark table_id custom-table">
+    <table id="table1" class="table table-striped table_id custom-table">
 
   
                     <thead>
@@ -219,12 +223,12 @@ c          </div>
                         while ($datos = $sql->fetch_object()) { ?>
                             <tr>
                                 <td><i class="fa-solid fa-id-card  me-2"></i><?= $datos->id ?></td>
-                                <td><i class="fa-solid fa-circle-user  me-2" style="color: #ffffff;"></i><?= $datos->nombre ?></td>
+                                <td><i class="fa-solid fa-circle-user  me-2"></i><?= $datos->nombre ?></td>
                                 <td><i class="fa-solid fa-id-card  me-2"></i><?= $datos->cedula ?></td>
-                                <td><i class="fa-solid fa-circle-user  me-2" style="color: #ffffff;"></i><?= $datos->usuario ?></td>
-                                <td><i class="fa-solid fa-lock  me-2" style="color: #ffffff;"></i><?= $datos->contraseña ?></td>
-                                <td><i class="fa-solid fa-phone  me-2" style="color: #ffffff;"></i><?= $datos->telefono ?></td>
-                                <td><i class="fa-solid fa-envelope me-2" style="color: #ffffff;"></i><?= $datos->correo ?></td>
+                                <td><i class="fa-solid fa-circle-user  me-2"></i><?= $datos->usuario ?></td>
+                                <td><i class="fa-solid fa-lock  me-2"></i><?= $datos->contraseña ?></td>
+                                <td><i class="fa-solid fa-phone  me-2"></i><?= $datos->telefono ?></td>
+                                <td><i class="fa-solid fa-envelope me-2"></i><?= $datos->correo ?></td>
                                 <td><i class="fa-solid fa-user-tag me-2"></i><?= $datos->cargo ?></td>
                                 <td>
                                 <!--boton actualizar -->
@@ -236,11 +240,9 @@ c          </div>
                         <?php } ?>
                 </tbody>
             </table>
-            <div class="d-flex justify-content-center">
-              <button onclick="previousTable()" class="btn">Anterior</button>
-              <button onclick="nextTable()" class="btn">Siguiente</button>
-            </div>
-        </div>
+
+
+         
 </div>
 
 <script src="../js/buscador.js"></script>

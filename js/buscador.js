@@ -37,3 +37,20 @@
     });
 
   })(document);
+
+// Obtener la referencia a la tabla
+var table = document.getElementById('table1');
+
+// Establecer el color de fondo blanco
+table.style.backgroundColor = '#ffffff';
+
+// Eliminar los bordes de las celdas individuales
+var cells = table.getElementsByTagName('td');
+for (var i = 0; i < cells.length; i++) {
+  cells[i].style.border = 'none';
+}
+
+// Establecer el sombreado en la parte inferior
+table.style.boxShadow = '0px 5px 10px -5px #333333';
+
+
