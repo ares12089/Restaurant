@@ -85,7 +85,24 @@ $productos = obtenerPlatosTiket($_GET['cod']);
     </div>
 </div> -->
 
-
+<style>
+    img{
+        height: 50px;
+        width: 50px;
+        margin: 0 0 0 60;
+        padding: 0;
+    }
+    h1{
+        margin: 0;
+        padding: 0;
+    }
+    p{
+        margin: 1;
+        padding: 1;
+    }
+</style>
+<img src="http://localhost/phpy/Restaurant/img/food-and-restaurant.png" alt="Imagen del negocio">
+</img>
 <h1>Restaurant</h1>
 <p>ORDEN NO. <?php echo ($_GET['cod']) ?></p>
 <p>---------------------------------------</p>
