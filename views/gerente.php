@@ -46,10 +46,6 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 </head>
 
 <body>
-  <style>
-
-
-  </style>
   <nav class="navbar navbar-expand-lg navbar-light bg-light <?php if ($modoOscuro) echo 'dark-mode'; ?>">
     <?php
     include "../module/conexion.php";
@@ -123,25 +119,8 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
     </div>
   </nav>
 
-
-  <button id="modoOscuroBtn" onclick="cambiarModo()"><i class="fa-solid fa-moon fa-bounce" style="color: #000000;"></i></button>
   <script src="../js/gerente.js"></script>
 
-  <div class="container-fluid row">
-    <div class="col-10 p-5" method="POST" style="margin: center;">
-      <div class="container">
-        <div style="position: relative; top: 20px;">
-          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
-            <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Agregar Usuario
-          </button>
-          <input class="form-control-sm col-4 col-sm-3 me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
-
-        </div>
-
-        <div>
-          c </div>
-
-      </div>
 
       <!-- Modal Agregar -->
       <div class="modal fade" id="agregarUsuarioModal" tabindex="-1" aria-labelledby="agregarUsuarioModalLabel" aria-hidden="true">
@@ -201,8 +180,19 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 
+      <div class="container-fluid row">
+    <div class="col-10 p-5" method="POST" style="margin: center;">
+      <div class="container">
+        <div style="position: relative; top: 20px;">
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
+            <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Agregar Usuario
+          </button>
+          <input class="form-control-sm col-4 col-sm-3 me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
+        </div>
+<br>
+      </div>
 
-      <table id="table1" class="table custom-table">
+      <table id="table1" class="table custom-table table_id">
         <thead>
           <tr>
             <th scope="col"><i class="fa-solid fa-thumbtack me-2" style="color: #1e60d2;"></i>ID</th>
@@ -274,60 +264,60 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
         }
       </style>
 
-    </div>
 
-    <script src="../js/buscador.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
-    <!--  PARA TRAER LOS DATOS AL EDITAR-->
-    <script>
-      var editarBtns = document.querySelectorAll('.editar-btn');
+  <script src="../js/buscador.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
-      editarBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var idUsuario = this.getAttribute('data-id');
-          document.getElementById('id_usuario').value = idUsuario;
-        });
+  <!--  PARA TRAER LOS DATOS AL EDITAR-->
+  <script>
+    var editarBtns = document.querySelectorAll('.editar-btn');
+
+    editarBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var idUsuario = this.getAttribute('data-id');
+        document.getElementById('id_usuario').value = idUsuario;
       });
-    </script>
+    });
+  </script>
 
-    <!-- Modal de confirmación -->
+  <!-- Modal de confirmación -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        // Obtener el enlace de eliminación
-        var deleteLink = $('.delete-btn');
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Obtener el enlace de eliminación
+      var deleteLink = $('.delete-btn');
 
-        // Abrir el modal de confirmación al hacer clic en el enlace de eliminación
-        deleteLink.click(function(e) {
-          e.preventDefault();
-          var deleteUrl = $(this).attr('href');
-          $('#confirmDelete').attr('href', deleteUrl);
-          $('#confirmModal').modal('show');
-        });
+      // Abrir el modal de confirmación al hacer clic en el enlace de eliminación
+      deleteLink.click(function(e) {
+        e.preventDefault();
+        var deleteUrl = $(this).attr('href');
+        $('#confirmDelete').attr('href', deleteUrl);
+        $('#confirmModal').modal('show');
       });
-    </script>
-    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="confirmModalLabel">Confirmar eliminación</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    });
+  </script>
+  <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmModalLabel">Confirmar eliminación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <center>
+          <div class="modal-body">
+            <h3><i class="fa-solid fa-circle-exclamation fa-shake fa-xl" style="color: #d31d1d;"></i></h3>
+            <p>¿Estás seguro de que deseas eliminar este elemento?</p>
           </div>
-          <center>
-            <div class="modal-body">
-              <h3><i class="fa-solid fa-circle-exclamation fa-shake fa-xl" style="color: #d31d1d;"></i></h3>
-              <p>¿Estás seguro de que deseas eliminar este elemento?</p>
-            </div>
-          </center>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <a href="#" id="confirmDelete" class="btn btn-danger">Eliminar</a>
-          </div>
+        </center>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <a href="#" id="confirmDelete" class="btn btn-danger">Eliminar</a>
         </div>
       </div>
     </div>
+  </div>
 
 
 </body>

@@ -172,6 +172,4 @@ function cambiarModo() {
         });
     </script>
 
-    <h1 class="is-size-2">Menú</h1>
-
     <section class="section">
