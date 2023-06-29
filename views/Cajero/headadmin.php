@@ -90,7 +90,6 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 
   <ul>
   <div style="text-align: center;">
-  <li><h4>MENU<i class="fa-solid fa-martini-glass-citrus ms-2" style="color: #000000;"></i></h4></li>
     </div>
     <div class="link-container">
     <a href="../gerente.php"><i class="fa-solid fa-users-between-lines" style="color: #000000;"></i>AGREGAR EMPLEADOS</a>
