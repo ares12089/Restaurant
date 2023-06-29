@@ -32,7 +32,7 @@ $productos = obtenerProductos();
 
 <!-- <h2 id="contador">0</h2>
 <button onclick="aumentarContador()">Aumentar</button> -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+
 <div class="columns">
     <div class="column">
         <h2 class="is-size-2">Platos existentes:</h2>
@@ -105,94 +105,85 @@ $productos = obtenerProductos();
         <!-- Ventana emergente add -->
 
         <style>
-            
-        #table1 {
-          background-color: #ffffff;
-          border-collapse: collapse;
-          box-shadow: 0px 5px 10px -5px #333333;
-        }
+            #table1 {
+                background-color: #ffffff;
+                border-collapse: collapse;
+                box-shadow: 0px 5px 10px -5px #333333;
+            }
 
-        #table1 th,
-        #table1 td {
-          border: none;
-        }
+            #table1 th,
+            #table1 td {
+                border: none;
+            }
 
-        #table1 th {
-          background-color: #ffffff;
-          color: #000000;
-          padding: 10px;
-        }
+            #table1 th {
+                background-color: #ffffff;
+                color: #000000;
+                padding: 10px;
+            }
 
-        #table1 td {
-          padding: 10px;
-        }
+            #table1 td {
+                padding: 10px;
+            }
 
-        #table1 tr:nth-child(odd) {
-          background-color: #f8f9fa;
-        }
+            #table1 tr:nth-child(odd) {
+                background-color: #f8f9fa;
+            }
 
-        #table1 tr:hover {
-          background-color: #e9ecef;
-        }
-
+            #table1 tr:hover {
+                background-color: #e9ecef;
+            }
         </style>
-        <table class="table custom-table" id="table1">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>IMG</th>
-                    <th>Descripción</th>
-                    <th>Tipo</th>
-                    <th>Precio</th>
-                    <th>Aciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($productos as $producto) { ?>
-                    <tr>
-                        <td><?php echo $producto->nombre ?></td>
-                        <td>
-                            <a href="data:<?php echo $producto->tipo ?>;base64,<?php echo base64_encode($producto->img) ?>" data-lightbox="product-gallery" data-title="<?php echo $producto->nombre ?>">
-                                <?php echo '<img class="tbl_img" src="data:' . $producto->tipo . ';base64,' . base64_encode($producto->img) . '"/>' ?>
-                            </a>
-                        </td>
-                        <td><?php echo $producto->descripcion ?></td>
-                        <td><?php echo $producto->tipo ?></td>
-                        <td>$<?php echo number_format($producto->precio, 2) ?></td>
-                        <td>
 
-                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+        <div class="container-fluid row">
+            <div class="col-10 p-5" style="margin: center;">
 
-                                <form action="editv_plato.php" method="post">
-                                    <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
-                                    <button class="btn btn-outline-primary m-2">
-                                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                                    </button>
-                                </form>
+                <table class="table custom-table" style="font-size: 12px; width: max-content;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">IMG</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Aciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($productos as $producto) { ?>
+                            <tr>
+                                <td><?php echo $producto->nombre ?></td>
+                                <td><?php echo '<img class="tbl_img" src="data:' . $producto->tipo . ';base64,' . base64_encode($producto->img) . '"/>' ?></td>
+                                <td><?php echo $producto->descripcion ?></td>
+                                <td><?php echo $producto->tipo ?></td>
+                                <td>$<?php echo number_format($producto->precio, 2) ?></td>
+                                <td>
 
-                                <form action="eliminar_plato.php" method="post">
-                                    <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
-                                    <button class="btn btn-outline-danger m-2">
-                                        <i class="fa fa-trash-o"></i>
-                                    </button>
-                                </form>
+                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
 
-                            </div>
-                        </td>
-                    <?php } ?>
-                    </tr>
-            </tbody>
-        </table>
+                                        <form action="editv_plato.php" method="post">
+                                            <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
+                                            <button class="btn btn-outline-primary m-2">
+                                                <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                            </button>
+                                        </form>
+
+                                        <form action="eliminar_plato.php" method="post">
+                                            <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
+                                            <button class="btn btn-outline-danger m-2">
+                                                <i class="fa fa-trash-o"></i>
+                                            </button>
+                                        </form>
+
+                                    </div>
+                                </td>
+                            <?php } ?>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
-<!--Libreria para visualisar la imagen :P-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-<script>
-    lightbox.option({
-        'resizeDuration': 200,
-        'wrapAround': true
-    });
-</script>
-
 
 <?php include 'pie.php' ?>
