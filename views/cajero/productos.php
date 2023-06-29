@@ -32,6 +32,7 @@ $productos = obtenerProductos();
 
 <!-- <h2 id="contador">0</h2>
 <button onclick="aumentarContador()">Aumentar</button> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 
 <div class="columns">
     <div class="column">
@@ -153,7 +154,11 @@ $productos = obtenerProductos();
                         <?php foreach ($productos as $producto) { ?>
                             <tr>
                                 <td><?php echo $producto->nombre ?></td>
-                                <td><?php echo '<img class="tbl_img" src="data:' . $producto->tipo . ';base64,' . base64_encode($producto->img) . '"/>' ?></td>
+                                <td>
+                            <a href="data:<?php echo $producto->tipo ?>;base64,<?php echo base64_encode($producto->img) ?>" data-lightbox="product-gallery" data-title="<?php echo $producto->nombre ?>">
+                                <?php echo '<img class="tbl_img" src="data:' . $producto->tipo . ';base64,' . base64_encode($producto->img) . '"/>' ?>
+                            </a>
+                        </td>
                                 <td><?php echo $producto->descripcion ?></td>
                                 <td><?php echo $producto->tipo ?></td>
                                 <td>$<?php echo number_format($producto->precio, 2) ?></td>
@@ -185,5 +190,5 @@ $productos = obtenerProductos();
         </div>
     </div>
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 <?php include 'pie.php' ?>
