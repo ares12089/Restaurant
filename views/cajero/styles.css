@@ -91,14 +91,14 @@ body {
   margin-top: 2vh;
 }
 
-.card{
+.card {
   width: 18rem;
   height: 25rem;
   margin: auto auto 0.5rem 0;
   /* margin-bottom: 1rem; */
 }
 
-.card-title{
+.card-title {
   font-weight: 900;
 }
 
@@ -122,8 +122,8 @@ body {
 
 .card_img {
   /* background-color: #ffcaa6; */
-  /* background-image: url("descarga.jpg"); */
-  /* height: 40%;
+/* background-image: url("descarga.jpg"); */
+/* height: 40%;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -250,6 +250,7 @@ body {
 .select-css option[selected] {
   background-color: orange;
 }
+
 /* select */
 
 /* tabla platos */
@@ -258,5 +259,24 @@ body {
   height: 40px;
   border-radius: 100%;
 }
+
 /* tabla platos */
 
+.fixed-card img.card-img-top {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.card img {
+  align-items: center;
+  margin-left: 15%;
+  /* margin: center; */
+  /* Agrega aquí otros estilos para la imagen */
+}
