@@ -5,23 +5,11 @@ function obtenerProductosEnCarrito()
 {
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
-    // $sentencia = $bd->prepare("SELECT platos.id, platos.nombre, platos.descripcion, platos.tipo, platos.precio
-    // FROM platos
-    // INNER JOIN ordenes
-    // ON platos.id = ordenes.id_plato
-    // WHERE ordenes.id_sesion = ?");
     $sentencia = $bd->prepare("SELECT ordenes.id_orden, ordenes.id_sesion, ordenes.id_plato, ordenes.extras, platos.nombre, platos.precio 
     FROM ordenes 
     INNER JOIN platos 
     ON ordenes.id_plato = platos.id
     WHERE ordenes.id_sesion = ?");
-    // $sentencia = $bd->prepare("SELECT ordenes.id_orden, ordenes.id_sesion, ordenes.id_plato, ordenes.extras, platos.nombre, platos.precio, ordenes.id_tiket
-    // FROM ordenes 
-    // INNER JOIN platos 
-    // ON ordenes.id_plato = platos.id
-    // INNER JOIN tikets 
-    // ON ordenes.id_tiket = tikets.id_tiket
-    // WHERE ordenes.id_sesion = ?");
     $idSesion = session_id();
     $sentencia->execute([$idSesion]);
     return $sentencia->fetchAll();
@@ -183,8 +171,6 @@ function eliminarProducto($id)
 
 function guardarProducto($nombre, $tipo, $precio, $descripcion, $imagen)
 {
-    //img
-    //$contenidoImagen = file_get_contents($imagen['tmp_name']);
     $imagen = $_FILES['imagen']['tmp_name'];
     $imagenNombre = $_FILES['imagen']['name'];
     $imagenTipo = $_FILES['imagen']['type'];
