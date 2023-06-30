@@ -73,11 +73,11 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
             </li>
           </div>
           <div class="link-container">
-            <a href="../views/gerente.php"><i class="fa-solid fa-users-between-lines" style="color: #000000;"></i>AGREGAR EMPLEADOS</a>
+            <a href="../views/gerente.php" class="btn btn-outline-primary"><i class="fa-solid fa-users-between-lines" style="color: #000000;"></i>AGREGAR EMPLEADOS</a>
           </div>
 
           <div class="link-container">
-            <a href="../views/cajero/productos.php"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
+            <a href="../views/cajero/productos.php" class="btn btn-outline-primary"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
           </div>
 
           <div style="display: flex; justify-content: center;">
