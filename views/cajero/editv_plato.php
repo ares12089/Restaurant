@@ -75,10 +75,10 @@ $productoedit = obtenerUnProducto($_POST["id_plato"]);
                     </div>
                 </div>
                 <div class="field">
-                    <label for="nombre">Tipo:</label>
+                    <label for="nombre">Adicion:</label>
                     <div class="control">
                         <select required name="tipo" id="tipo">
-                            <option disabled value="">Selecciona un tipo</option>
+                            <option disabled value="">Selecciona las adiciones</option>
                             <option value="1" <?php if ($productoe->tipo == "burguer") echo 'selected' ?>>Hamburguesas</option>
                             <option value="2" <?php if ($productoe->tipo == "pizza") echo 'selected' ?>>Pizzas</option>
                             <option value="3" <?php if ($productoe->tipo == "alitas") echo 'selected' ?>>Alitas</option>
@@ -101,8 +101,8 @@ $productoedit = obtenerUnProducto($_POST["id_plato"]);
                 <div class="field">
                     <div class="control">
                         <input type="hidden" name="id_plato" value="<?php echo $productoe->id ?>">
-                        <button class="btn btn-primary">Actualizar</button>
-                        <a href="productos.php" class="btn btn-warning">Volver</a>
+                        <button class="btn btn-warning">Actualizar</button>
+                        <a href="productos.php" class="btn btn-secondary">Volver</a>
                     </div>
                 </div>
             </form>

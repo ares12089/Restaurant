@@ -57,13 +57,11 @@ $productos = obtenerProductos();
                                 </div>
                             </div>
                             <div class="field">
-                                <label for="nombre">Tipo</label>
+                                <label for="nombre">Adicion:</label>
                                 <div class="control">
                                     <select required name="tipo" id="tipo">
-                                        <option value="1">Hamburguesas</option>
-                                        <option value="2">Pizzas</option>
-                                        <option value="3">Alitas</option>
-                                        <option value="4">Bebidas</option>
+                                        <option value="1">Salsas</option>
+                                        <option value="2">no-adicion</option>
                                     </select>
                                 </div>
                             </div>

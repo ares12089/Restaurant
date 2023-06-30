@@ -17,7 +17,7 @@
             object-fit: cover;
             align-items: center;
         }
-        
+
         .card img {
             align-items: center;
             margin-left: 10%;
@@ -46,24 +46,15 @@
                 <p class="card-text">Extra:</p>
                 <div class="control">
                     <form action="agregar_orden.php" method="post">
-                        <?php if ($producto->tipo == "pizza") {
+                        <?php if ($producto->tipo == "salsas") {
                             echo ("
                 <select required name='extra' id='extra' class='select-css'>
-                    <option value='Pequeña'>Pequeña</option>
-                    <option value='Mediana'>Mediana</option>
-                    <option value='Grande'>Grande</option>
-                    <option value='Familiar'>Familiar</option>
+                    <option value='Habanero'>Habanero</option>
+                    <option value='BBQ'>BBQ</option>
+                    <option value='Mayonesa'>Mayonesa</option>
+                    <option value='Piña'>Piña</option>
                 </select>
                 ");
-                        } else if ($producto->tipo == "alitas") {
-                            echo ("
-                    <select required name='extra' id='extra' class='select-css'>
-                        <option value='Habanero'>Habanero</option>
-                        <option value='BBQ'>BBQ</option>
-                        <option value='Mayonesa'>Mayonesa</option>
-                        <option value='Piña'>Piña</option>
-                    </select>
-                    ");
                         } else {
                             echo ("<p class='card-text'>No-aplica</p>");
                             echo ("<input type='hidden' class='text_body' name='extra' value='no-aplica'>");
