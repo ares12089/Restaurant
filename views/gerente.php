@@ -90,7 +90,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
               <br>
 
               <!--Boton cerrar sesion-->
-              <button type="submit" name="logout" class="btn btn-small" style="background-color: #f9f9f9;">
+              <button type="submit" name="logout" class="btn btn-small btn-outline-danger" style="background-color: #f9f9f9;">
                 <span class="me-1">Cerrar Sesión</span>
                 <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>
               </button>
