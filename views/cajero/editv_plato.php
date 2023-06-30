@@ -79,10 +79,8 @@ $productoedit = obtenerUnProducto($_POST["id_plato"]);
                     <div class="control">
                         <select required name="tipo" id="tipo">
                             <option disabled value="">Selecciona las adiciones</option>
-                            <option value="1" <?php if ($productoe->tipo == "burguer") echo 'selected' ?>>Hamburguesas</option>
-                            <option value="2" <?php if ($productoe->tipo == "pizza") echo 'selected' ?>>Pizzas</option>
-                            <option value="3" <?php if ($productoe->tipo == "alitas") echo 'selected' ?>>Alitas</option>
-                            <option value="4" <?php if ($productoe->tipo == "bebidas") echo 'selected' ?>>Bebidas</option>
+                            <option value="1" <?php if ($productoe->tipo == "salsas") echo 'selected' ?>>Salsas</option>
+                            <option value="2" <?php if ($productoe->tipo == "no-aplica") echo 'selected' ?>>No-Adiciones</option>
                         </select>
                     </div>
                 </div>
