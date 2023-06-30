@@ -16,15 +16,8 @@
             height: 200px;
             object-fit: cover;
             align-items: center;
-            
         }
-
-        .card {
-            /* display: flex; */
-            /* justify-content: center; */
-            /* align-items: center; */
-        }
-
+        
         .card img {
             align-items: center;
             margin-left: 10%;
@@ -36,14 +29,13 @@
 
         .card {
             border-radius: 5%;
-  /* width: 200px; */
-  /* height: 200px; */
-  width: 15rem;
-  height: 25rem; 
-  margin: auto auto 0.5rem 0;
-  /* margin-bottom: 1rem; */
-}
-
+            /* width: 200px; */
+            /* height: 200px; */
+            width: 15rem;
+            height: 25rem;
+            margin: auto auto 0.5rem 0;
+            /* margin-bottom: 1rem; */
+        }
     </style>
 
     <?php foreach ($productos as $producto) { ?>
