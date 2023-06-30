@@ -1,22 +1,53 @@
 <?php include_once "head.php" ?>
+<h1 class="is-size-2 mb-2">Menú</h1>
 
 <section class="col1">
     <?php
     include_once "funciones.php";
     $productos = obtenerProductos();
     ?>
-
     <style>
-.fixed-card img.card-img-top {
-    width: 200px; 
-    height: 200px; 
-    object-fit: cover; 
-    align-items: center;
+        h1 {
+            text-align: center;
+        }
+
+        .fixed-card img.card-img-top {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            align-items: center;
+            
+        }
+
+        .card {
+            /* display: flex; */
+            /* justify-content: center; */
+            /* align-items: center; */
+        }
+
+        .card img {
+            align-items: center;
+            margin-left: 10%;
+            border-radius: 50%;
+            margin-top: 5%;
+            /* margin: center; */
+            /* Agrega aquí otros estilos para la imagen */
+        }
+
+        .card {
+            border-radius: 5%;
+  /* width: 200px; */
+  /* height: 200px; */
+  width: 15rem;
+  height: 25rem; 
+  margin: auto auto 0.5rem 0;
+  /* margin-bottom: 1rem; */
 }
-</style>
+
+    </style>
 
     <?php foreach ($productos as $producto) { ?>
-        <div class="card m-3 p-3 fixed-card">
+        <div class="card m-1 fixed-card">
             <?php echo '<img class="card-img-top" src="data:' . $producto->tipo . ';base64,' . base64_encode($producto->img) . '"/>' ?>
             <div class="card-body">
                 <h5 class="card-title"><?php echo $producto->nombre ?></h5>
@@ -65,8 +96,7 @@
                     <h5 class="modal-title" id="ordenesLabel">Ordenes:</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
-                <!-- <div class="modal-body"> -->
-                <!--  -->
+                <!-- contenido -->
                 <?php
                 include_once "funciones.php";
                 $productos = obtenerProductosEnCarrito();
@@ -86,81 +116,74 @@
                             </div>
                         </section>
                     </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        <?php } else { ?>
-            <div class="modal-body">
-                <div class="columns">
-                    <div class="column">
-                        <h2 class="is-size-2">Ordenes:</h2>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Extras</th>
-                                    <th>Precio</th>
-                                    <th>Quitar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $total = 0;
-                                foreach ($productos as $producto) {
-                                    $total += $producto->precio;
-                                ?>
-                                    <tr>
-                                        <td><?php echo $producto->nombre ?></td>
-                                        <td><?php echo $producto->extras ?></td>
-                                        <td>$<?php echo number_format($producto->precio, 2) ?></td>
-                                        <td>
-                                            <form action="eliminar_orden.php" method="post">
-                                                <input type="hidden" name="id_orden" value="<?php echo $producto->id_orden ?>">
-                                                <input type="hidden" name="redireccionar_carrito">
-                                                <button class="btn btn-danger">
-                                                    <i class="fa fa-trash-o"></i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                    <?php } ?>
-                                    </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="2" class="is-size-4 has-text-right"><strong>Total</strong></td>
-                                    <td colspan="2" class="is-size-4">
-                                        $<?php echo number_format($total, 2) ?>
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                        <!-- <a href="terminar_compra.php" target="_blank" ><button class="btn btn-outline-primary m-2" onclick="reloadPage()">Enviar Orden</button></a> -->
-                        <!-- <a href="generar_cod.php" target="_blank" class="btn btn-outline-primary m-2" onclick="reloadPage()"><i class="fa fa-check"></i>&nbsp;Enviar Orden</a> -->
-                        <!-- Reload Pag -->
-                        <script>
-                            function reloadPage() {
-                                // window.location.reload();
-                                location.reload();
-                            }
-                        </script>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
-                </div>
+                <?php } else { ?>
+                    <div class="modal-body">
+                        <div class="columns">
+                            <div class="column">
+                                <h2 class="is-size-2">Ordenes:</h2>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Extras</th>
+                                            <th>Precio</th>
+                                            <th>Quitar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $total = 0;
+                                        foreach ($productos as $producto) {
+                                            $total += $producto->precio;
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $producto->nombre ?></td>
+                                                <td><?php echo $producto->extras ?></td>
+                                                <td>$<?php echo number_format($producto->precio, 2) ?></td>
+                                                <td>
+                                                    <form action="eliminar_orden.php" method="post">
+                                                        <input type="hidden" name="id_orden" value="<?php echo $producto->id_orden ?>">
+                                                        <input type="hidden" name="redireccionar_carrito">
+                                                        <button class="btn btn-danger">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            <?php } ?>
+                                            </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2" class="is-size-4 has-text-right"><strong>Total</strong></td>
+                                            <td colspan="2" class="is-size-4">
+                                                $<?php echo number_format($total, 2) ?>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <!-- Reload Pag -->
+                                <script>
+                                    function reloadPage() {
+                                        window.location.reload();
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="generar_cod.php" target="_blank" class="btn btn-outline-primary m-2" onclick="reloadPage()"><i class="fa fa-check"></i>&nbsp;Enviar Orden</a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                <?php } ?>
+                <!-- contenido -->
             </div>
-            <div class="modal-footer">
-                <a href="generar_cod.php" target="_blank" class="btn btn-outline-primary m-2" onclick="reloadPage()"><i class="fa fa-check"></i>&nbsp;Enviar Orden</a>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        <?php } ?>
-        <!--  -->
-        <!-- </div> -->
-        <!-- <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div> -->
         </div>
     </div>
-    </div>
     <!-- ventana emerjente -->
-
-    <?php
-    include 'pie.php'
-    ?>
+</section>
+<?php
+include 'pie.php'
+?>

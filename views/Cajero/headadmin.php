@@ -170,5 +170,3 @@
       };
     });
   </script>
-
-  <section class="section">

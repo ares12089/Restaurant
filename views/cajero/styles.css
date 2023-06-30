@@ -87,13 +87,14 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: #aaa;
   margin-top: 2vh;
 }
 
 .card {
-  width: 18rem;
-  height: 25rem;
+  width: 200px;
+  /* height: 200px; */
+  /* width: 18rem;*/
+  height: 25rem; 
   margin: auto auto 0.5rem 0;
   /* margin-bottom: 1rem; */
 }
@@ -106,6 +107,7 @@ body {
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
+
 /* select */
 .select-css {
   display: block;
