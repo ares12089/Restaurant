@@ -2,7 +2,7 @@
 include "../module/conexion.php";
 
 $id = $_POST["id"];
-$sql = $conexion->query(" select * from usuarios where id=$id ");
+$sql = $conexion->query("SELECT * FROM usuarios WHERE id=$id");
 ?>
 
 <!DOCTYPE html>
@@ -25,15 +25,15 @@ $sql = $conexion->query(" select * from usuarios where id=$id ");
         .image-column {
             flex: 1;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 500px;
             background-color: #373737;
             box-shadow: -28px 0px 43px -10px rgba(0, 0, 0, 0.18); /* efecto sombreado y borde contenedor imagen */
         }
 
         .form-container {
-            margin: 0 10px; /* Ajusta los márgenes izquierdo y derecho según  necesidades */
+            margin: 0 10px; /* Ajusta los márgenes izquierdo y derecho según tus necesidades */
         }
 
         @media (max-width: 768px) {
@@ -51,7 +51,7 @@ $sql = $conexion->query(" select * from usuarios where id=$id ");
 </head>
 
 <body>
-<h2 class="is-size-4 col-6 p-5 mx-auto">MODIFICAR EMPLEADO</h2>
+    <h2 class="is-size-4 col-6 p-5 mx-auto">MODIFICAR EMPLEADO</h2>
     <div class="columns">
         <div class="form-column">
             <form class="col-10 p-0 mx-auto" method="POST">
