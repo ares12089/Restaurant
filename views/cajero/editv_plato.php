@@ -1,4 +1,7 @@
-
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/bulma@0.9.1/css/bulma.min.css">
+</head>
 <?php
 
 if (!isset($_POST["id_plato"])) {
@@ -11,8 +14,7 @@ $productoedit = obtenerUnProducto($_POST["id_plato"]);
 
 <?php foreach ($productoedit as $productoe) { ?>
 
-    <!-- Contenido -->
-    <!-- <div class="column is-one-third"> -->
+<body>
     <div class="columns">
         <div class="column">
             <h2 class="is-size-2 col-4 p-5 mx-auto">Editar producto</h2>
@@ -75,6 +77,8 @@ $productoedit = obtenerUnProducto($_POST["id_plato"]);
             <!-- Contenido -->
         </div>
     </div>
-<?php }
+<?php } ?>
+</body>
+<?php
 include 'pie.php'
 ?>

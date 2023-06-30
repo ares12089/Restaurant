@@ -256,12 +256,9 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
                   </center>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <!-- <a href="#" id="confirmDelete" class="btn btn-danger">Eliminar</a> -->
                     <form action="../controller/eliminar_persona.php" method="post">
                       <input type="hidden" name="id" id="id" value="<?= $datos->id ?>">
-                      <button class="btn btn-sm btn-danger delete-btn">
-                        <i class="fa-solid fa-user-edit"></i>
-                      </button>
+                      <button class="btn btn-danger">Eliminar</button>
                     </form>
                   </div>
                 </div>
