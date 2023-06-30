@@ -47,6 +47,8 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
     <!-- sweetAlert -->
     <script src="sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- img -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 
 
     <meta charset="UTF-8">

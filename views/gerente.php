@@ -181,7 +181,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 
 
       <div class="container-fluid row">
-    <div class="col-10 p-5" method="POST" style="margin: center;">
+    <div class="col-10 p-5" style="margin: center;">
       <div class="container">
         <div style="position: relative; top: 20px;">
           <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">

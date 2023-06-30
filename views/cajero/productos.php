@@ -30,17 +30,8 @@ $productos = obtenerProductos();
 //</script>
 ?>
 
-<!-- <h2 id="contador">0</h2>
-<button onclick="aumentarContador()">Aumentar</button> -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 
-<div class="columns">
-    <div class="column">
-        <h2 class="is-size-2">Platos existentes:</h2>
-        <!-- Botón para abrir la ventana emergente -->
-        <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#agregarPlato">
-            Nuevo&nbsp;<i class="fa fa-plus"></i>
-        </button>
+
         <!-- Ventana emergente add -->
         <div class="modal fade" id="agregarPlato" tabindex="-1" aria-labelledby="agregarPlatoLabel" aria-hidden="true" style="z-index: 9999;">
             <div class="modal-dialog">
@@ -51,8 +42,6 @@ $productos = obtenerProductos();
                     </div>
                     <div class="modal-body">
                         <!-- Contenido -->
-                        <!-- <div class="columns"> -->
-                        <!-- <div class="column is-one-third"> -->
                         <h2 class="is-size-2">Nuevo producto</h2>
                         <form action="guardar_platos.php" method="post" enctype="multipart/form-data">
                             <div class="field">
@@ -106,40 +95,47 @@ $productos = obtenerProductos();
         <!-- Ventana emergente add -->
 
         <style>
-            #table1 {
+            #tablepr {
                 background-color: #ffffff;
                 border-collapse: collapse;
                 box-shadow: 0px 5px 10px -5px #333333;
+                font-size: 16px;
+                width: 70vw;
             }
 
-            #table1 th,
-            #table1 td {
+            #tablepr th,
+            #tablepr td {
                 border: none;
             }
 
-            #table1 th {
+            #tablepr th {
                 background-color: #ffffff;
                 color: #000000;
                 padding: 10px;
             }
 
-            #table1 td {
+            #tablepr td {
                 padding: 10px;
             }
 
-            #table1 tr:nth-child(odd) {
+            #tablepr tr:nth-child(odd) {
                 background-color: #f8f9fa;
             }
 
-            #table1 tr:hover {
+            #tablepr tr:hover {
                 background-color: #e9ecef;
             }
         </style>
 
         <div class="container-fluid row">
             <div class="col-10 p-5" style="margin: center;">
+                <h2 class="is-size-2">Platos existentes:</h2>
+                <!-- Botón para abrir la ventana emergente -->
+                <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#agregarPlato">
+                    Nuevo&nbsp;<i class="fa fa-plus"></i>
+                </button>
 
-                <table class="table custom-table" style="font-size: 12px; width: max-content;">
+                <table class="table custom-table" id="tablepr">
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>
@@ -155,10 +151,10 @@ $productos = obtenerProductos();
                             <tr>
                                 <td><?php echo $producto->nombre ?></td>
                                 <td>
-                            <a href="data:<?php echo $producto->tipo ?>;base64,<?php echo base64_encode($producto->img) ?>" data-lightbox="product-gallery" data-title="<?php echo $producto->nombre ?>">
-                                <?php echo '<img class="tbl_img" src="data:' . $producto->tipo . ';base64,' . base64_encode($producto->img) . '"/>' ?>
-                            </a>
-                        </td>
+                                    <a href="data:<?php echo $producto->tipo ?>;base64,<?php echo base64_encode($producto->img) ?>" data-lightbox="product-gallery" data-title="<?php echo $producto->nombre ?>">
+                                        <?php echo '<img class="tbl_img" src="data:' . $producto->tipo . ';base64,' . base64_encode($producto->img) . '"/>' ?>
+                                    </a>
+                                </td>
                                 <td><?php echo $producto->descripcion ?></td>
                                 <td><?php echo $producto->tipo ?></td>
                                 <td>$<?php echo number_format($producto->precio, 2) ?></td>
@@ -168,14 +164,14 @@ $productos = obtenerProductos();
 
                                         <form action="editv_plato.php" method="post">
                                             <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
-                                            <button class="btn btn-outline-primary m-2">
+                                            <button class="btn btn-warning m-2">
                                                 <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                             </button>
                                         </form>
 
                                         <form action="eliminar_plato.php" method="post">
                                             <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
-                                            <button class="btn btn-outline-danger m-2">
+                                            <button class="btn btn-danger m-2">
                                                 <i class="fa fa-trash-o"></i>
                                             </button>
                                         </form>
@@ -188,7 +184,5 @@ $productos = obtenerProductos();
                 </table>
             </div>
         </div>
-    </div>
-</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 <?php include 'pie.php' ?>
