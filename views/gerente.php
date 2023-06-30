@@ -122,65 +122,65 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
   <script src="../js/gerente.js"></script>
 
 
-      <!-- Modal Agregar -->
-      <div class="modal fade" id="agregarUsuarioModal" tabindex="-1" aria-labelledby="agregarUsuarioModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="text-center text-secondary"><i class="fa-solid fa-users-between-lines me-2" style="color: #000000;"></i>REGISTRO DE EMPLEADOS</h3>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
+  <!-- Modal Agregar -->
+  <div class="modal fade" id="agregarUsuarioModal" tabindex="-1" aria-labelledby="agregarUsuarioModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="text-center text-secondary"><i class="fa-solid fa-users-between-lines me-2" style="color: #000000;"></i>REGISTRO DE EMPLEADOS</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
 
-              <form class="col-12 p-5" method="POST" action="../controller/registro_persona.php">
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Nombre Completo</label>
-                  <input type="text" class="form-control" id="nombre" name="nombre">
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Cedula</label>
-                  <input type="text" class="form-control" id="cedula" name="cedula">
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Usuario</label>
-                  <input type="text" class="form-control" id="usuario" name="usuario">
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-key me-2"></i>Contraseña</label>
-                  <input type="text" class="form-control" id="contraseña" name="contraseña">
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-phone me-2" style="color: #000000;"></i>Telefono</label>
-                  <input type="text" class="form-control" id="telefono" name="telefono">
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-envelope-open-text me-2" style="color: #000000;"></i>Correo</label>
-                  <input type="text" class="form-control" id="correo" name="correo">
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user-tag me-2"></i>Cargo</label>
-                  <select class="form-control" id="id_cargo" name="id_cargo">
-                    <?php
-                    // Consultar los cargos disponibles en la base de datos
-                    $query = "SELECT * FROM cargo";
-                    $result = mysqli_query($conexion, $query);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                      echo "<option value='" . $row['id'] . "'>" . $row['descripcion'] . "</option>";
-                    }
-                    ?>
-                  </select>
-                </div>
-                <button type="submit" value="agregar" class="btn btn-success" name="agregar">Agregar</button>
-              </form>
-
+          <form class="col-12 p-5" method="POST" action="../controller/registro_persona.php">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Nombre Completo</label>
+              <input type="text" class="form-control" id="nombre" name="nombre">
             </div>
-          </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Cedula</label>
+              <input type="text" class="form-control" id="cedula" name="cedula">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Usuario</label>
+              <input type="text" class="form-control" id="usuario" name="usuario">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-key me-2"></i>Contraseña</label>
+              <input type="text" class="form-control" id="contraseña" name="contraseña">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-phone me-2" style="color: #000000;"></i>Telefono</label>
+              <input type="text" class="form-control" id="telefono" name="telefono">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-envelope-open-text me-2" style="color: #000000;"></i>Correo</label>
+              <input type="text" class="form-control" id="correo" name="correo">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user-tag me-2"></i>Cargo</label>
+              <select class="form-control" id="id_cargo" name="id_cargo">
+                <?php
+                // Consultar los cargos disponibles en la base de datos
+                $query = "SELECT * FROM cargo";
+                $result = mysqli_query($conexion, $query);
+                while ($row = mysqli_fetch_assoc($result)) {
+                  echo "<option value='" . $row['id'] . "'>" . $row['descripcion'] . "</option>";
+                }
+                ?>
+              </select>
+            </div>
+            <button type="submit" value="agregar" class="btn btn-success" name="agregar">Agregar</button>
+          </form>
+
         </div>
       </div>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 
-      <div class="container-fluid row">
+  <div class="container-fluid row">
     <div class="col-10 p-5" style="margin: center;">
       <div class="container">
         <div style="position: relative; top: 20px;">
@@ -189,7 +189,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
           </button>
           <input class="form-control-sm col-4 col-sm-3 me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
         </div>
-<br>
+        <br>
       </div>
 
       <table id="table1" class="table custom-table table_id">
@@ -223,12 +223,52 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
               <td><i class="fa-solid fa-envelope me-2"></i><?= $datos->correo ?></td>
               <td><i class="fa-solid fa-user-tag me-2"></i><?= $datos->cargo ?></td>
               <td>
-                <!--boton actualizar -->
-                <a href="../controller/modificar.php?id=<?= $datos->id ?>" class="btn btn-sm btn-warning"><i class="fa-solid fa-user-edit"></i></a>
-                <!--boton eliminar-->
-                <a href="../views/gerente.php?id=<?= $datos->id ?>" class="btn btn-sm btn-danger delete-btn"><i class="fa-solid fa-user-xmark me-2"></i></a>
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                  <!--boton actualizar -->
+                  <form action="../controller/modificar.php" method="post">
+                    <input type="hidden" name="id" id="id" value="<?= $datos->id ?>">
+                    <button class="btn btn-sm btn-warning">
+                      <i class="fa-solid fa-user-edit"></i>
+                    </button>
+                  </form>
 
+                  <!--boton eliminar-->
+
+                  <button type="button" class="btn btn-sm btn-danger delete-btn" data-bs-toggle="modal" data-bs-target="#confirmModal">
+                    <i class="fa-solid fa-user-xmark"></i>
+                  </button>
+                </div>
             </tr>
+
+            <!-- modal de confirmacion eliminacion -->
+            <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalLabel">Confirmar eliminación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <center>
+                    <div class="modal-body">
+                      <h3><i class="fa-solid fa-circle-exclamation fa-shake fa-xl" style="color: #d31d1d;"></i></h3>
+                      <p>¿Estás seguro de que deseas eliminar este elemento?</p>
+                    </div>
+                  </center>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <!-- <a href="#" id="confirmDelete" class="btn btn-danger">Eliminar</a> -->
+                    <form action="../controller/eliminar_persona.php" method="post">
+                      <input type="hidden" name="id" id="id" value="<?= $datos->id ?>">
+                      <button class="btn btn-sm btn-danger delete-btn">
+                        <i class="fa-solid fa-user-edit"></i>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- modal de confirmacion eliminacion -->
+
           <?php } ?>
         </tbody>
       </table>
@@ -266,11 +306,11 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 
 
 
-  <script src="../js/buscador.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+      <script src="../js/buscador.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
-  <!--  PARA TRAER LOS DATOS AL EDITAR-->
-  <script>
+      <!--  PARA TRAER LOS DATOS AL EDITAR-->
+      <!-- <script>
     var editarBtns = document.querySelectorAll('.editar-btn');
 
     editarBtns.forEach(function(btn) {
@@ -279,45 +319,45 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
         document.getElementById('id_usuario').value = idUsuario;
       });
     });
-  </script>
+  </script> -->
 
-  <!-- Modal de confirmación -->
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      // Obtener el enlace de eliminación
-      var deleteLink = $('.delete-btn');
+      <!-- Modal de confirmación -->
+      <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        $(document).ready(function() {
+          // Obtener el enlace de eliminación
+          var deleteLink = $('.delete-btn');
 
-      // Abrir el modal de confirmación al hacer clic en el enlace de eliminación
-      deleteLink.click(function(e) {
-        e.preventDefault();
-        var deleteUrl = $(this).attr('href');
-        $('#confirmDelete').attr('href', deleteUrl);
-        $('#confirmModal').modal('show');
-      });
-    });
-  </script>
-  <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="confirmModalLabel">Confirmar eliminación</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <center>
-          <div class="modal-body">
-            <h3><i class="fa-solid fa-circle-exclamation fa-shake fa-xl" style="color: #d31d1d;"></i></h3>
-            <p>¿Estás seguro de que deseas eliminar este elemento?</p>
+          // Abrir el modal de confirmación al hacer clic en el enlace de eliminación
+          deleteLink.click(function(e) {
+            e.preventDefault();
+            var deleteUrl = $(this).attr('href');
+            $('#confirmDelete').attr('href', deleteUrl);
+            $('#confirmModal').modal('show');
+          });
+        });
+      </script>
+      <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmModalLabel">Confirmar eliminación</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <center>
+              <div class="modal-body">
+                <h3><i class="fa-solid fa-circle-exclamation fa-shake fa-xl" style="color: #d31d1d;"></i></h3>
+                <p>¿Estás seguro de que deseas eliminar este elemento?</p>
+              </div>
+            </center>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <a href="#" id="confirmDelete" class="btn btn-danger">Eliminar</a>
+            </div>
           </div>
-        </center>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <a href="#" id="confirmDelete" class="btn btn-danger">Eliminar</a>
         </div>
-      </div>
-    </div>
-  </div>
+      </div> -->
 
 
 </body>

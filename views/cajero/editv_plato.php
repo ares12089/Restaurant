@@ -1,4 +1,4 @@
-<?php include_once "head.php" ?>
+
 <?php
 
 if (!isset($_POST["id_plato"])) {
@@ -12,12 +12,11 @@ $productoedit = obtenerUnProducto($_POST["id_plato"]);
 <?php foreach ($productoedit as $productoe) { ?>
 
     <!-- Contenido -->
-    <!-- <div class="columns"> -->
     <!-- <div class="column is-one-third"> -->
     <div class="columns">
         <div class="column">
-            <h2 class="is-size-2">Editar producto</h2>
-            <form action="editar_plato.php" method="post" enctype="multipart/form-data">
+            <h2 class="is-size-2 col-4 p-5 mx-auto">Editar producto</h2>
+            <form action="editar_plato.php" method="post" enctype="multipart/form-data" class="col-4 p-5 mx-auto">
                 <div class="field">
                     <label for="nombre">Nombre:</label>
                     <div class="control">

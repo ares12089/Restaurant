@@ -2,7 +2,7 @@
 
 include "../module/conexion.php";
 
-$id = $_GET["id"];
+$id = $_POST["id"];
 $sql = $conexion->query(" select * from usuarios where id=$id ");
 
 ?>
@@ -21,7 +21,7 @@ $sql = $conexion->query(" select * from usuarios where id=$id ");
 <body>
     <h3 class="text-center text-secondary p-3"><i class="fa-solid fa-users-between-lines me-2" style="color: #000000;"></i>MODIFICAR EMPLEADO</h3>
     <form class="col-4 p-3 m-auto" method="POST">
-        <input type="hidden" name="id" value="<?= $_GET["id"] ?>">
+        <input type="hidden" name="id" value="<?= $_POST["id"] ?>">
         <?php
         include "../controller/botonact.php";
         while ($datos = $sql->fetch_object()) { ?>

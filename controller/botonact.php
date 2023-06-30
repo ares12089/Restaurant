@@ -20,9 +20,6 @@ if (!empty($_POST["btnregistrar"])) {
         }
         
 
-
-
-
     }else {
         echo '<div class="alert alert-danger"><i class="fa-solid fa-circle-exclamation me-2" style="color: #000000;"></i>Campos vacios</div>';
     }
