@@ -72,9 +72,6 @@ $productoedit = obtenerUnProducto($_POST["id_plato"]);
                     </div>
                 </div>
             </form>
-            <!-- </div> -->
-            <!-- </div> -->
-            <!-- Contenido -->
         </div>
     </div>
 <?php } ?>
