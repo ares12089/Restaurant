@@ -19,12 +19,6 @@
             
         }
 
-        .card {
-            /* display: flex; */
-            /* justify-content: center; */
-            /* align-items: center; */
-        }
-
         .card img {
             align-items: center;
             margin-left: 10%;
@@ -35,7 +29,7 @@
         }
 
         .card {
-            border-radius: 5%;
+            border-radius: 2%;
   /* width: 200px; */
   /* height: 200px; */
   width: 15rem;
