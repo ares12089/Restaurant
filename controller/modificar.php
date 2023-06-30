@@ -67,6 +67,7 @@ $sql = $conexion->query(" select * from usuarios where id=$id ");
 
 
         <button type="submit" class="btn btn-warning" name="btnregistrar" value="ok"><i class="fa-solid fa-pen-to-square me-2" style="color: #000000;"></i>Modificar</button>
+        <a href="../views/gerente.php" class="btn btn-danger">Volver</a>
     </form>
 
 

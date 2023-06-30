@@ -1,6 +1,49 @@
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/bulma@0.9.1/css/bulma.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.1/css/bulma.min.css">
+
+    <style>
+
+        .tbl_img{ /* efecto sombreado y borde imagen */
+            border-radius: 10px;
+            box-shadow: -28px 0px 43px -10px rgba(0,0,0,0.18);
+
+        }
+        .form-column {
+            flex: 2; /* Cambiado a 2 para hacerlo más ancho */
+            padding: 5px; 
+        }
+        
+        .image-column {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            background-color: #ffffff;
+            box-shadow: -28px 0px 43px -10px rgba(0,0,0,0.18);/* efecto sombreado y borde contenedor imagen */
+            border-radius: 10px;
+
+        
+        }
+        
+        .form-container {
+            margin: 0 10px; /* Ajusta los márgenes izquierdo y derecho según tus necesidades */
+        }
+        
+        @media (max-width: 768px) {
+            .columns {
+                flex-direction: column;
+            }
+            
+            .form-column,
+            .image-column {
+                flex: none;
+                width: 100%;
+            }
+        }
+        
+    </style>
 </head>
 <?php
 
@@ -16,9 +59,9 @@ $productoedit = obtenerUnProducto($_POST["id_plato"]);
 
 <body>
     <div class="columns">
-        <div class="column">
-            <h2 class="is-size-2 col-4 p-5 mx-auto">Editar producto</h2>
-            <form action="editar_plato.php" method="post" enctype="multipart/form-data" class="col-4 p-5 mx-auto">
+        <div class="form-column">
+            <h2 class="is-size-2 col-6 p-5 mx-auto">Editar producto</h2>
+            <form action="editar_plato.php" method="post" enctype="multipart/form-data" class="col-10 p-0 mx-auto">
                 <div class="field">
                     <label for="nombre">Nombre:</label>
                     <div class="control">
@@ -49,21 +92,12 @@ $productoedit = obtenerUnProducto($_POST["id_plato"]);
                         <input required id="precio" name="precio" class="input" type="number" value="<?php echo $productoe->precio ?>">
                     </div>
                 </div>
-                <!-- img -->
                 <div class="field">
-                    <label for="precio">Imagen:</label>
-                    <div class="control">
-                        <?php echo '<img class="tbl_img" src="data:' . $productoe->tipo . ';base64,' . base64_encode($productoe->img) . '"/>' ?>
-                    </div>
-                </div>
-                <!-- nueva v - antigua ^ -->
-                <div class="field">
-                    <label for="precio">Nueva Imagen:</label>
+                    <label for="imagen">Nueva Imagen:</label>
                     <div class="control">
                         <input type="file" name="imagen" id="imagen">
                     </div>
                 </div>
-                <!-- img -->
                 <div class="field">
                     <div class="control">
                         <input type="hidden" name="id_plato" value="<?php echo $productoe->id ?>">
@@ -72,9 +106,14 @@ $productoedit = obtenerUnProducto($_POST["id_plato"]);
                     </div>
                 </div>
             </form>
-            <!-- </div> -->
-            <!-- </div> -->
-            <!-- Contenido -->
+        </div>
+        <div class="image-column">
+            <div class="field">
+                <label for="precio">Imagen:</label>
+                <div class="control">
+                    <?php echo '<img class="tbl_img" src="data:' . $productoe->tipo . ';base64,' . base64_encode($productoe->img) . '"/>' ?>
+                </div>
+            </div>
         </div>
     </div>
 <?php } ?>
