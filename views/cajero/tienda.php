@@ -1,6 +1,8 @@
-<?php include_once "head.php"?>
+<?php
+include_once "head.php";
+?>
 
-<h1 class="is-size-2 mb-2">Menú</h1>
+<h1 class="is-size-2 mb-2">Menú<?php echo $_SESSION['userId'] ?></h1>
 
 <section class="col1">
     <?php

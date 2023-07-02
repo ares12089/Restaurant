@@ -1,26 +1,28 @@
 <?php
 include "../../module/db.php";
 
+session_start();
+
 function obtenerProductosEnCarrito()
 {
     $bd = obtenerConexion();
-    iniciarSesionSiNoEstaIniciada();
+    // iniciarSesionSiNoEstaIniciada();
     $sentencia = $bd->prepare("SELECT ordenes.id_orden, ordenes.id_sesion, ordenes.id_plato, ordenes.extras, platos.nombre, platos.precio 
     FROM ordenes 
     INNER JOIN platos 
     ON ordenes.id_plato = platos.id
     WHERE ordenes.id_sesion = ?");
-    $idSesion = session_id();
-    // $idSesion = sesion();
+    // $idSesion = session_id();
+    $idSesion = $_SESSION['userId'];
     $sentencia->execute([$idSesion]);
     return $sentencia->fetchAll();
 }
 function quitarProductoDelCarrito($idOrden)
 {
     $bd = obtenerConexion();
-    iniciarSesionSiNoEstaIniciada();
-    $idSesion = session_id();
-    // $idSesion = sesion();
+    // iniciarSesionSiNoEstaIniciada();
+    // $idSesion = session_id();
+    $idSesion = $_SESSION['userId'];
     $sentencia = $bd->prepare("DELETE FROM ordenes WHERE id_sesion = ? AND id_orden = ?");
     return $sentencia->execute([$idSesion, $idOrden]);
 }
@@ -35,10 +37,10 @@ function obtenerProductos()
 function obtenerIdsDeProductosEnCarrito()
 {
     $bd = obtenerConexion();
-    iniciarSesionSiNoEstaIniciada();
-    // $idSesion = sesion();
+    // iniciarSesionSiNoEstaIniciada();
+    $idSesion = $_SESSION['userId'];
     $sentencia = $bd->prepare("SELECT id_plato FROM ordenes WHERE id_sesion = ?");
-    $idSesion = session_id();
+    // $idSesion = session_id();
     $sentencia->execute([$idSesion]);
     return $sentencia->fetchAll(PDO::FETCH_COLUMN);
 }
@@ -67,14 +69,14 @@ function generarCodigo()
 function obtenerPlatosTiket($num_tiket)
 {
     $bd = obtenerConexion();
-    iniciarSesionSiNoEstaIniciada();
+    // iniciarSesionSiNoEstaIniciada();
     $sentencia = $bd->prepare("SELECT tikets.id_tiket, tikets.extras, platos.nombre, platos.precio, tikets.num_tiket
     FROM tikets 
     INNER JOIN platos 
     ON tikets.id_plato = platos.id
     WHERE tikets.num_tiket = ? AND tikets.id_sesion = ?");
-    $idSesion = session_id();
-    // $idSesion = sesion();
+    // $idSesion = session_id();
+    $idSesion = $_SESSION['userId'];
     $sentencia->execute([$num_tiket, $idSesion]);
     return $sentencia->fetchAll();
 }
@@ -117,17 +119,18 @@ function mostrarTiketEnv()
 function eliminarordenes()
 {
     $bd = obtenerConexion();
-    $sentencia = $bd->prepare("DELETE FROM ordenes");
-    return $sentencia->execute();
+    $idSesion = $_SESSION['userId'];
+    $sentencia = $bd->prepare("DELETE FROM ordenes where id_sesion = ?");
+    return $sentencia->execute([$idSesion]);
 }
 
 function agregarProductoAlCarrito($idProducto, $extra)
 {
     // Ligar el id del producto con el usuario a través de la sesión
     $bd = obtenerConexion();
-    iniciarSesionSiNoEstaIniciada();
-    $idSesion = session_id();
-    // $idSesion = $_SESSION['userId'];
+    // iniciarSesionSiNoEstaIniciada();
+    // $idSesion = session_id();
+    $idSesion = $_SESSION['userId'];
     $idOrden = null;
     $sentencia = $bd->prepare("INSERT INTO ordenes(id_orden, id_sesion, extras, id_plato) VALUES (?, ?, ?, ?)");
     return $sentencia->execute([$idOrden, $idSesion, $extra, $idProducto]);
@@ -135,11 +138,7 @@ function agregarProductoAlCarrito($idProducto, $extra)
 
 function sesion()
 {
-    // Verificar si se ha enviado la solicitud de cierre de sesión
-    // session_start();
-
-    // include_once '../../login/validarprueba.php';
-    // return $_SESSION['userId'];
+    $_SESSION['userId'];
     
     // Verificar si el usuario ha iniciado sesión
     if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
@@ -155,12 +154,11 @@ function sesion()
         // Destruir la sesión
         session_destroy();
 
-        // Redirigir al usuario a la página de inicio de sesión u otra página deseada
+        // Redirigir al usuario a la página de inicio de sesión
         header("Location: ../../index.html");
         exit();
     }
 
-    // $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 }
 function iniciarSesionSiNoEstaIniciada()
 {

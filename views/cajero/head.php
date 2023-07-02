@@ -2,32 +2,8 @@
 <html lang="es">
 <?php
 include_once './funciones.php';
-// session_start()
-// sesion();
+sesion();
 
-// Verificar si se ha enviado la solicitud de cierre de sesión
-// session_start();
-
-// // Verificar si el usuario ha iniciado sesión
-// if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-//     header("Location: ../../index.html");
-//     exit();
-// }
-
-// // Verificar si se ha enviado la solicitud de cierre de sesión
-// if (isset($_POST['logout'])) {
-//     // Eliminar todas las variables de sesión
-//     session_unset();
-
-//     // Destruir la sesión
-//     session_destroy();
-
-//     // Redirigir al usuario a la página de inicio de sesión u otra página deseada
-//     header("Location: ../../index.html");
-//     exit();
-// }
-
-// $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 ?>
 
 <head>
@@ -51,6 +27,8 @@ include_once './funciones.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- sweetAlert -->
 
+    <script src="https://kit.fontawesome.com/3052f95fc5.js" crossorigin="anonymous"></script>
+    
     <script src="sir.js"></script>
 
 </head>
@@ -103,34 +81,14 @@ include_once './funciones.php';
 
                     // Llamar a la función obtenerContador inicialmente y luego cada cierto intervalo de tiempo
                     obtenerContador();
-                    setInterval(obtenerContador, 1000); // Actualizar el contador cada 5 segundos (ajusta el intervalo según tus necesidades)
-
-                    //new
-                    // function actualizarContador() {
-                    //     // Realizar una solicitud AJAX al servidor para obtener el número actualizado de órdenes
-                    //     fetch('obtener_contador.php')
-                    //         .then(response => response.text())
-                    //         .then(data => {
-                    //             // Actualizar el contenido del botón con el nuevo valor
-                    //             document.getElementById('btnOrdenes').innerHTML = 'Ordenes' + (data > 0 ? '(' + data + ')' : '') + '&nbsp;<i class="fa fa-shopping-cart"></i>';
-                    //         })
-                    //         .catch(error => {
-                    //             console.error('Error al obtener el conteo de órdenes:', error);
-                    //         });
-                    // }
-
-                    // // Actualizar el contador inicialmente
-                    // actualizarContador();
-
-                    // // Actualizar el contador cada 5 segundos (ajusta el intervalo según tus necesidades)
-                    // setInterval(actualizarContador, 5000);
+                    setInterval(obtenerContador, 1000); // Actualizar el contador cada segundo
                 </script>
-                <!-- <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                    <button type="submit" name="logout" class="btn btn-small" style="background-color: #f9f9f9;">
+                <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                    <button type="submit" name="logout" class="btn btn-outline-danger">
                         <span class="me-1">Cerrar Sesión</span>
-                        <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>
+                        <i class="fa-solid fa-power-off"></i>
                     </button>
-                </form> -->
+                </form>
             </div>
         </div>
     </nav>

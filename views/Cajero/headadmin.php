@@ -3,8 +3,7 @@
 
 <head>
   <?php
-  // Verificar si se ha enviado la solicitud de cierre de sesión
-  session_start();
+  include_once './funciones.php';
 
   // Verificar si el usuario ha iniciado sesión
   if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
@@ -30,7 +29,6 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menú</title>
 
   <link rel="stylesheet" href="stylesnav.css">
   <link rel="stylesheet" href="styles.css">

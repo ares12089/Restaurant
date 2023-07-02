@@ -4,9 +4,6 @@ include_once "funciones.php";
 $productos = obtenerProductos();
 ?>
 
-
-
-
 <!-- <button id="alertw">Abrir Alerta</button> -->
 <?php
 // echo '<script type="text/javascript">';
@@ -36,11 +33,13 @@ $productos = obtenerProductos();
 
 <div class="columns">
     <div class="column">
+        <div class="ms-4">
         <h2 class="is-size-2">Platos existentes:</h2>
         <!-- Botón para abrir la ventana emergente -->
         <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#agregarPlato">
             Nuevo&nbsp;<i class="fa fa-plus"></i>
         </button>
+        </div>
         <!-- Ventana emergente add -->
         <div class="modal fade" id="agregarPlato" tabindex="-1" aria-labelledby="agregarPlatoLabel" aria-hidden="true" style="z-index: 9999;">
             <div class="modal-dialog">

@@ -23,7 +23,7 @@ if ($conn->connect_error) {
 }
 
 // Consulta SQL para verificar las credenciales del usuario
-$sql = "SELECT c.descripcion AS cargo
+$sql = "SELECT c.descripcion AS cargo, u.id
         FROM usuarios u
         INNER JOIN cargo c ON u.id_cargo = c.id
         WHERE u.usuario = '$user' AND u.contraseña = '$pass'";
@@ -36,10 +36,10 @@ if ($result->num_rows == 1) {
     $row = $result->fetch_assoc();
 
     //obtener id del usuario
-    // $userId = $row['id_user'];
+    $userId = $row['id'];
 
     // Asignar el ID del usuario a la variable de sesión
-    // $_SESSION['userId'] = $userId;
+    $_SESSION['userId'] = $userId;
 
     // Obtener el cargo del usuario
     $cargo = $row['cargo'];
