@@ -6,9 +6,9 @@ $productos = obtenerProductos();
 
 
 
-<?php
-// <button id="alertw">Abrir Alerta</button>
 
+<!-- <button id="alertw">Abrir Alerta</button> -->
+<?php
 // echo '<script type="text/javascript">';
 // echo 'Swal.fire({';
 // echo '  title: "¡Alerta personalizada!",';
@@ -17,18 +17,18 @@ $productos = obtenerProductos();
 // echo '  confirmButtonText: "Aceptar"';
 // echo '});';
 // echo '</script>';
-//<script>
-//   document.getElementById("alertw").addEventListener("click", function() {
-//        Swal.fire({
-//            position: 'top',
-//            icon: 'success',
-//            title: 'Your work has been saved',
-//            showConfirmButton: false,
-//            timer: 1500
-//        })
-//    })
-//</script>
 ?>
+<!-- <script>
+    document.getElementById("alertw").addEventListener("click", function() {
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    })
+</script> -->
 
 <!-- <h2 id="contador">0</h2>
 <button onclick="aumentarContador()">Aumentar</button> -->
@@ -155,33 +155,54 @@ $productos = obtenerProductos();
                             <tr>
                                 <td><?php echo $producto->nombre ?></td>
                                 <td>
-                            <a href="data:<?php echo $producto->tipo ?>;base64,<?php echo base64_encode($producto->img) ?>" data-lightbox="product-gallery" data-title="<?php echo $producto->nombre ?>">
-                                <?php echo '<img class="tbl_img" src="data:' . $producto->tipo . ';base64,' . base64_encode($producto->img) . '"/>' ?>
-                            </a>
-                        </td>
+                                    <a href="data:<?php echo $producto->tipo ?>;base64,<?php echo base64_encode($producto->img) ?>" data-lightbox="product-gallery" data-title="<?php echo $producto->nombre ?>">
+                                        <?php echo '<img class="tbl_img" src="data:' . $producto->tipo . ';base64,' . base64_encode($producto->img) . '"/>' ?>
+                                    </a>
+                                </td>
                                 <td><?php echo $producto->descripcion ?></td>
                                 <td><?php echo $producto->tipo ?></td>
                                 <td>$<?php echo number_format($producto->precio, 2) ?></td>
                                 <td>
-
                                     <div class="btn-group" role="group" aria-label="Basic outlined example">
 
                                         <form action="editv_plato.php" method="post">
                                             <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
-                                            <button class="btn btn-warning m-2">
-                                                <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                            <button class="btn btn-warning">
+                                                <i class="fa fa-pencil-square"></i>
                                             </button>
                                         </form>
 
-                                        <form action="eliminar_plato.php" method="post">
-                                            <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
-                                            <button class="btn btn-danger m-2">
-                                                <i class="fa fa-trash-o"></i>
-                                            </button>
-                                        </form>
-
+                                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal">
+                                            <i class="fa fa-trash-o"></i>
+                                        </button>
                                     </div>
                                 </td>
+                                <!-- confirmacion eliminacion -->
+                                <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="confirmModalLabel">Confirmar eliminación</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <center>
+                                                <div class="modal-body">
+                                                    <h3><i class="fa-solid fa-circle-exclamation fa-shake fa-xl" style="color: #d31d1d;"></i></h3>
+                                                    <p>¿Estás seguro de que deseas eliminar este elemento?</p>
+                                                </div>
+                                            </center>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                <form action="eliminar_plato.php" method="post">
+                                                    <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
+                                                    <button class="btn btn-danger m-2">Eliminar
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- confirmacion eliminacion -->
                             <?php } ?>
                             </tr>
                     </tbody>
