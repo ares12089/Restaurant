@@ -33,8 +33,15 @@ $result = $conn->query($sql);
 if ($result->num_rows == 1) {
     // Usuario autenticado correctamente
 
-    // Obtener el cargo del usuario
     $row = $result->fetch_assoc();
+
+    //obtener id del usuario
+    // $userId = $row['id_user'];
+
+    // Asignar el ID del usuario a la variable de sesión
+    // $_SESSION['userId'] = $userId;
+
+    // Obtener el cargo del usuario
     $cargo = $row['cargo'];
 
     // Redireccionar a la página correspondiente según el cargo
@@ -55,10 +62,9 @@ if ($result->num_rows == 1) {
     }
 } else {
     // Autenticación fallida
-    header("Location: ../index.html?error=1");
+    header("Location: ../../index.html");
     exit();
 }
 
 // Cerrar la conexión a la base de datos
 $conn->close();
-?>

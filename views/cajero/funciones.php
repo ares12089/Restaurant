@@ -11,6 +11,7 @@ function obtenerProductosEnCarrito()
     ON ordenes.id_plato = platos.id
     WHERE ordenes.id_sesion = ?");
     $idSesion = session_id();
+    // $idSesion = sesion();
     $sentencia->execute([$idSesion]);
     return $sentencia->fetchAll();
 }
@@ -19,6 +20,7 @@ function quitarProductoDelCarrito($idOrden)
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
     $idSesion = session_id();
+    // $idSesion = sesion();
     $sentencia = $bd->prepare("DELETE FROM ordenes WHERE id_sesion = ? AND id_orden = ?");
     return $sentencia->execute([$idSesion, $idOrden]);
 }
@@ -34,6 +36,7 @@ function obtenerIdsDeProductosEnCarrito()
 {
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
+    // $idSesion = sesion();
     $sentencia = $bd->prepare("SELECT id_plato FROM ordenes WHERE id_sesion = ?");
     $idSesion = session_id();
     $sentencia->execute([$idSesion]);
@@ -54,6 +57,7 @@ function generarCodigo()
 {
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
+    // sesion();
     $sentencia = $bd->prepare("SELECT generar_codigo() AS codigo");
     $sentencia->execute();
     $result = $sentencia->fetch(PDO::FETCH_ASSOC);
@@ -70,6 +74,7 @@ function obtenerPlatosTiket($num_tiket)
     ON tikets.id_plato = platos.id
     WHERE tikets.num_tiket = ? AND tikets.id_sesion = ?");
     $idSesion = session_id();
+    // $idSesion = sesion();
     $sentencia->execute([$num_tiket, $idSesion]);
     return $sentencia->fetchAll();
 }
@@ -78,6 +83,7 @@ function obtenerTikets()
 {
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
+    // sesion();
     $sentencia = $bd->prepare("SELECT tikets.id_tiket, tikets.extras, platos.nombre, platos.precio, platos.descripcion, tikets.num_tiket, tikets.hora 
     FROM tikets
     INNER JOIN platos 
@@ -101,6 +107,7 @@ function mostrarTiketEnv()
 {
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
+    // sesion();
     $sentencia = $bd->prepare("SELECT id_tiket, num_tiket, hora FROM tikets WHERE estado = 'inac' ORDER BY id_tiket DESC;");
     // $idSesion = session_id();
     $sentencia->execute();
@@ -120,6 +127,7 @@ function agregarProductoAlCarrito($idProducto, $extra)
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
     $idSesion = session_id();
+    // $idSesion = $_SESSION['userId'];
     $idOrden = null;
     $sentencia = $bd->prepare("INSERT INTO ordenes(id_orden, id_sesion, extras, id_plato) VALUES (?, ?, ?, ?)");
     return $sentencia->execute([$idOrden, $idSesion, $extra, $idProducto]);
@@ -128,8 +136,11 @@ function agregarProductoAlCarrito($idProducto, $extra)
 function sesion()
 {
     // Verificar si se ha enviado la solicitud de cierre de sesión
-    session_start();
+    // session_start();
 
+    // include_once '../../login/validarprueba.php';
+    // return $_SESSION['userId'];
+    
     // Verificar si el usuario ha iniciado sesión
     if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         header("Location: ../../index.html");
@@ -149,7 +160,7 @@ function sesion()
         exit();
     }
 
-    $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
+    // $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 }
 function iniciarSesionSiNoEstaIniciada()
 {

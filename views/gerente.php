@@ -68,7 +68,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
         <ul>
           <div style="text-align: center;">
             <li>
-              <h4>MENU<i class="fa-solid fa-martini-glass-citrus ms-2"></i></h4>
+              <h4>Restaurant<i class="fa-solid fa-martini-glass-citrus ms-2"></i></h4>
             </li>
           </div>
           <div class="link-container">

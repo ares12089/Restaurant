@@ -1,5 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
+<?php
+include_once './funciones.php';
+// session_start()
+// sesion();
+
+// Verificar si se ha enviado la solicitud de cierre de sesión
+// session_start();
+
+// // Verificar si el usuario ha iniciado sesión
+// if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+//     header("Location: ../../index.html");
+//     exit();
+// }
+
+// // Verificar si se ha enviado la solicitud de cierre de sesión
+// if (isset($_POST['logout'])) {
+//     // Eliminar todas las variables de sesión
+//     session_unset();
+
+//     // Destruir la sesión
+//     session_destroy();
+
+//     // Redirigir al usuario a la página de inicio de sesión u otra página deseada
+//     header("Location: ../../index.html");
+//     exit();
+// }
+
+// $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -47,13 +76,13 @@
                 <!-- btn con js contador -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ordenes">
                     Ordenes - <span id="contador"><?php
-                                                include_once "funciones.php";
-                                                $conteo = count(obtenerIdsDeProductosEnCarrito());
-                                                if ($conteo > 0) {
-                                                    printf("(%d)", $conteo);
-                                                }
-                                                // echo $conteo;
-                                                ?>
+                                                    include_once "funciones.php";
+                                                    $conteo = count(obtenerIdsDeProductosEnCarrito());
+                                                    if ($conteo > 0) {
+                                                        printf("(%d)", $conteo);
+                                                    }
+                                                    // echo $conteo;
+                                                    ?>
                     </span>&nbsp;<i class="fa fa-shopping-cart"></i>
                 </button>
                 <script>
@@ -96,13 +125,11 @@
                     // // Actualizar el contador cada 5 segundos (ajusta el intervalo según tus necesidades)
                     // setInterval(actualizarContador, 5000);
                 </script>
-
-                <!--  -->
-                <!-- filtrar platos -->
-                <!--                 
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <!-- <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                    <button type="submit" name="logout" class="btn btn-small" style="background-color: #f9f9f9;">
+                        <span class="me-1">Cerrar Sesión</span>
+                        <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>
+                    </button>
                 </form> -->
             </div>
         </div>
@@ -118,4 +145,3 @@
             };
         });
     </script>
-    
