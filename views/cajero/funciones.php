@@ -1,5 +1,5 @@
 <?php
- include "../../module/db.php";
+include "../../module/db.php";
 
 function obtenerProductosEnCarrito()
 {
@@ -125,7 +125,32 @@ function agregarProductoAlCarrito($idProducto, $extra)
     return $sentencia->execute([$idOrden, $idSesion, $extra, $idProducto]);
 }
 
+function sesion()
+{
+    // Verificar si se ha enviado la solicitud de cierre de sesión
+    session_start();
 
+    // Verificar si el usuario ha iniciado sesión
+    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+        header("Location: ../../index.html");
+        exit();
+    }
+
+    // Verificar si se ha enviado la solicitud de cierre de sesión
+    if (isset($_POST['logout'])) {
+        // Eliminar todas las variables de sesión
+        session_unset();
+
+        // Destruir la sesión
+        session_destroy();
+
+        // Redirigir al usuario a la página de inicio de sesión u otra página deseada
+        header("Location: ../../index.html");
+        exit();
+    }
+
+    $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
+}
 function iniciarSesionSiNoEstaIniciada()
 {
     if (session_status() !== PHP_SESSION_ACTIVE) {

@@ -8,7 +8,7 @@
 
   // Verificar si el usuario ha iniciado sesión
   if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    header("Location: /restaurant/index.html");
+    header("Location: ../../index.html");
     exit();
   }
 
@@ -21,7 +21,7 @@
     session_destroy();
 
     // Redirigir al usuario a la página de inicio de sesión u otra página deseada
-    header("Location: /restaurant/index.html");
+    header("Location: ../../index.html");
     exit();
   }
 
