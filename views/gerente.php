@@ -46,10 +46,9 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light <?php if ($modoOscuro) echo 'dark-mode'; ?>">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <?php
     include "../module/conexion.php";
-    include "../controller/eliminar_persona.php";
     ?>
     <div class="container-fluid">
 
@@ -62,7 +61,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
         <br>
         <div class="text-center" style="margin-top: -120px;">
           <div class="floating-container">
-            <img src="../img/bur1.jpg" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 140px; height: 140px; border: 2px solid rgb(141, 141, 141);">
+            <img src="../img/food-and-restaurant.png" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 140px; height: 140px; border: 2px solid rgb(141, 141, 141);">
           </div>
         </div>
 
@@ -147,7 +146,10 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-key me-2"></i>Contraseña</label>
-              <input type="password" class="form-control" id="contraseña" name="contraseña">
+              <div class="input-container">
+                <input type="password" class="form-control" id="passwordInput" name="contraseña">
+                <button type="button" class="btn btn-outline-secondary" onclick="togglePasswordVisibility()"><i class="fa-solid fa-lock"></i></button>
+              </div>
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-phone me-2" style="color: #000000;"></i>Telefono</label>
@@ -299,6 +301,19 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
         #table1 tr:hover {
           background-color: #e9ecef;
         }
+
+        .input-container {
+          display: flex;
+          align-items: center;
+          /* Centrar verticalmente los elementos */
+        }
+
+        .input-container input {
+          flex: 1;
+          /* El campo de entrada ocupa todo el espacio disponible */
+          margin-right: 10px;
+          /* Espacio entre el campo de entrada y el botón */
+        }
       </style>
 
 
@@ -306,55 +321,20 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
       <script src="../js/buscador.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
-      <!--  PARA TRAER LOS DATOS AL EDITAR-->
-      <!-- <script>
-    var editarBtns = document.querySelectorAll('.editar-btn');
-
-    editarBtns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var idUsuario = this.getAttribute('data-id');
-        document.getElementById('id_usuario').value = idUsuario;
-      });
-    });
-  </script> -->
-
-
-      <!-- Modal de confirmación -->
-      <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script>
-        $(document).ready(function() {
-          // Obtener el enlace de eliminación
-          var deleteLink = $('.delete-btn');
+        //mostrar/ocultar contraseña
+        function togglePasswordVisibility() {
+          var passwordInput = document.getElementById("passwordInput");
 
-          // Abrir el modal de confirmación al hacer clic en el enlace de eliminación
-          deleteLink.click(function(e) {
-            e.preventDefault();
-            var deleteUrl = $(this).attr('href');
-            $('#confirmDelete').attr('href', deleteUrl);
-            $('#confirmModal').modal('show');
-          });
-        });
+          if (passwordInput.type === "password") {
+            // Cambiar el tipo de entrada a texto para mostrar la contraseña
+            passwordInput.type = "text";
+          } else {
+            // Cambiar el tipo de entrada a password para ocultar la contraseña
+            passwordInput.type = "password";
+          }
+        }
       </script>
-      <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="confirmModalLabel">Confirmar eliminación</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <center>
-              <div class="modal-body">
-                <h3><i class="fa-solid fa-circle-exclamation fa-shake fa-xl" style="color: #d31d1d;"></i></h3>
-                <p>¿Estás seguro de que deseas eliminar este elemento?</p>
-              </div>
-            </center>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <a href="#" id="confirmDelete" class="btn btn-danger">Eliminar</a>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </body>
