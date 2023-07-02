@@ -62,22 +62,22 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
         <br>
         <div class="text-center" style="margin-top: -120px;">
           <div class="floating-container">
-            <img src="<?php echo '../img/bur1.jpg'; ?>" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 130px; height: 130px; border: 2px solid rgb(141, 141, 141);">
+            <img src="../img/bur1.jpg" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 140px; height: 140px; border: 2px solid rgb(141, 141, 141);">
           </div>
         </div>
 
         <ul>
           <div style="text-align: center;">
             <li>
-              <h4>MENU<i class="fa-solid fa-martini-glass-citrus ms-2" style="color: #000000;"></i></h4>
+              <h4>MENU<i class="fa-solid fa-martini-glass-citrus ms-2"></i></h4>
             </li>
           </div>
           <div class="link-container">
-            <a href="../views/gerente.php" class="btn btn-outline-primary"><i class="fa-solid fa-users-between-lines" style="color: #000000;"></i>AGREGAR EMPLEADOS</a>
+            <a href="../views/gerente.php" class="btn "><i class="fa-solid fa-users-between-lines" style="color: #000000;"></i>AGREGAR EMPLEADOS</a>
           </div>
 
           <div class="link-container">
-            <a href="../views/cajero/productos.php" class="btn btn-outline-primary"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
+            <a href="../views/cajero/productos.php" class="btn"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
           </div>
 
           <div style="display: flex; justify-content: center;">
@@ -139,7 +139,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Cedula</label>
-              <input type="text" class="form-control" id="cedula" name="cedula">
+              <input type="number" class="form-control" id="cedula" name="cedula">
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Usuario</label>
@@ -147,11 +147,11 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-key me-2"></i>Contraseña</label>
-              <input type="text" class="form-control" id="contraseña" name="contraseña">
+              <input type="password" class="form-control" id="contraseña" name="contraseña">
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-phone me-2" style="color: #000000;"></i>Telefono</label>
-              <input type="text" class="form-control" id="telefono" name="telefono">
+              <input type="number" class="form-control" id="telefono" name="telefono">
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-envelope-open-text me-2" style="color: #000000;"></i>Correo</label>
@@ -355,8 +355,8 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
           </div>
         </div>
       </div> -->
-
-
+    </div>
+  </div>
 </body>
 
 </html>

@@ -18,7 +18,8 @@ $sql = $conexion->query("SELECT * FROM usuarios WHERE id=$id");
 
     <style>
         .form-column {
-            flex: 2; /* Cambiado a 2 para hacerlo más ancho */
+            flex: 2;
+            /* Cambiado a 2 para hacerlo más ancho */
             padding: 5px;
         }
 
@@ -29,11 +30,13 @@ $sql = $conexion->query("SELECT * FROM usuarios WHERE id=$id");
             justify-content: center;
             align-items: center;
             background-color: whitesmoke;
-            box-shadow: -28px 0px 43px -10px rgba(0, 0, 0, 0.18); /* efecto sombreado y borde contenedor imagen */
+            box-shadow: -28px 0px 43px -10px rgba(0, 0, 0, 0.18);
+            /* efecto sombreado y borde contenedor imagen */
         }
 
         .form-container {
-            margin: 0 10px; /* Ajusta los márgenes izquierdo y derecho según tus necesidades */
+            margin: 0 10px;
+            /* Ajusta los márgenes izquierdo y derecho según tus necesidades */
         }
 
         @media (max-width: 768px) {
@@ -104,6 +107,7 @@ $sql = $conexion->query("SELECT * FROM usuarios WHERE id=$id");
         </div>
         <div class="image-column">
             <!-- Aquí puedes agregar cualquier contenido que desees -->
+            <img src="../img/food-and-restaurant.png"></img>
         </div>
     </div>
 
