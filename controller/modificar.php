@@ -28,7 +28,7 @@ $sql = $conexion->query("SELECT * FROM usuarios WHERE id=$id");
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #373737;
+            background-color: whitesmoke;
             box-shadow: -28px 0px 43px -10px rgba(0, 0, 0, 0.18); /* efecto sombreado y borde contenedor imagen */
         }
 
@@ -99,7 +99,7 @@ $sql = $conexion->query("SELECT * FROM usuarios WHERE id=$id");
                 <?php } ?>
 
                 <button type="submit" class="btn btn-warning" name="btnregistrar" value="ok"><i class="fa-solid fa-pen-to-square me-2" style="color: #000000;"></i>Modificar</button>
-                <a href="../views/gerente.php" class="btn btn-danger">Volver</a>
+                <a href="../views/gerente.php" class="btn btn-secondary">Volver</a>
             </form>
         </div>
         <div class="image-column">

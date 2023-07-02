@@ -104,32 +104,34 @@ $productos = obtenerProductos();
         <!-- Ventana emergente add -->
 
         <style>
-            #table1 {
+            #tablepr {
                 background-color: #ffffff;
                 border-collapse: collapse;
                 box-shadow: 0px 5px 10px -5px #333333;
+                font-size: 16px;
+                width: 70vw;
             }
 
-            #table1 th,
-            #table1 td {
+            #tablepr th,
+            #tablepr td {
                 border: none;
             }
 
-            #table1 th {
+            #tablepr th {
                 background-color: #ffffff;
                 color: #000000;
                 padding: 10px;
             }
 
-            #table1 td {
+            #tablepr td {
                 padding: 10px;
             }
 
-            #table1 tr:nth-child(odd) {
+            #tablepr tr:nth-child(odd) {
                 background-color: #f8f9fa;
             }
 
-            #table1 tr:hover {
+            #tablepr tr:hover {
                 background-color: #e9ecef;
             }
         </style>
@@ -137,7 +139,7 @@ $productos = obtenerProductos();
         <div class="container-fluid row">
             <div class="col-10 p-5" style="margin: center;">
 
-                <table class="table custom-table" style="font-size: 12px; width: max-content;">
+                <table id="tablepr" class="table custom-table">
                     <thead>
                         <tr>
                             <th scope="col">Nombre</th>
@@ -166,14 +168,14 @@ $productos = obtenerProductos();
 
                                         <form action="editv_plato.php" method="post">
                                             <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
-                                            <button class="btn btn-outline-primary m-2">
+                                            <button class="btn btn-warning m-2">
                                                 <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                             </button>
                                         </form>
 
                                         <form action="eliminar_plato.php" method="post">
                                             <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
-                                            <button class="btn btn-outline-danger m-2">
+                                            <button class="btn btn-danger m-2">
                                                 <i class="fa fa-trash-o"></i>
                                             </button>
                                         </form>
