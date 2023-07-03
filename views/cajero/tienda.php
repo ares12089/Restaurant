@@ -2,7 +2,7 @@
 include_once "head.php";
 ?>
 
-<h1 class="is-size-2 mb-2">Menú<?php echo $_SESSION['userId'] ?></h1>
+<h1 class="is-size-2 mb-2">Menú</h1>
 
 <section class="col1">
     <?php
@@ -169,6 +169,32 @@ include_once "head.php";
         </div>
     </div>
     <!-- ventana emerjente -->
+    <!-- confirmacion cierre de sesion -->
+    <div class="modal fade" id="sesionModal" tabindex="-1" aria-labelledby="sesionModalLabel" aria-hidden="true" style="z-index: 9999;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="sesionModalLabel">Cierre de Sesion</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <center>
+                                <div class="modal-body">
+                                    <h3><i class="fa-solid fa-circle-exclamation fa-shake fa-xl" style="color: #d31d1d;"></i></h3>
+                                    <p>¿Estás seguro de que deseas cerrar sesion?</p>
+                                </div>
+                            </center>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                                    <button type="submit" name="logout" class="btn btn-outline-danger">
+                                        <span class="me-1">Si</span>
+                                        <i class="fa-solid fa-power-off"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </section>
 <?php
 include 'pie.php'

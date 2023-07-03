@@ -28,7 +28,7 @@ sesion();
     <!-- sweetAlert -->
 
     <script src="https://kit.fontawesome.com/3052f95fc5.js" crossorigin="anonymous"></script>
-    
+
     <script src="sir.js"></script>
 
 </head>
@@ -50,9 +50,8 @@ sesion();
                         <a class="nav-link active" href="tienda.php">Menú</a>
                     </li>
                 </ul>
-                <!--  -->
                 <!-- btn con js contador -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ordenes">
+                <button type="button" class="btn btn-primary me-4" data-bs-toggle="modal" data-bs-target="#ordenes">
                     Ordenes - <span id="contador"><?php
                                                     include_once "funciones.php";
                                                     $conteo = count(obtenerIdsDeProductosEnCarrito());
@@ -63,36 +62,31 @@ sesion();
                                                     ?>
                     </span>&nbsp;<i class="fa fa-shopping-cart"></i>
                 </button>
-                <script>
-                    // 2
-                    // Función para obtener el número actualizado del contador del servidor
-                    function obtenerContador() {
-                        // Realizar una solicitud AJAX al servidor
-                        var xhttp = new XMLHttpRequest();
-                        xhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                // Actualizar el contenido del contador con la respuesta del servidor
-                                document.getElementById("contador").textContent = this.responseText;
-                            }
-                        };
-                        xhttp.open("GET", "obtener_contador.php", true); // Archivo PHP que devuelve el número actualizado
-                        xhttp.send();
-                    }
-
-                    // Llamar a la función obtenerContador inicialmente y luego cada cierto intervalo de tiempo
-                    obtenerContador();
-                    setInterval(obtenerContador, 1000); // Actualizar el contador cada segundo
-                </script>
-                <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-                    <button type="submit" name="logout" class="btn btn-outline-danger">
-                        <span class="me-1">Cerrar Sesión</span>
-                        <i class="fa-solid fa-power-off"></i>
-                    </button>
-                </form>
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#sesionModal">
+                    <i class="fa-solid fa-power-off"></i>
+                </button>
+                
             </div>
         </div>
     </nav>
-
+    <script>
+        // Función para obtener el número actualizado del contador del servidor
+        function obtenerContador() {
+            // Realizar una solicitud AJAX al servidor
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Actualizar el contenido del contador con la respuesta del servidor
+                    document.getElementById("contador").textContent = this.responseText;
+                }
+            };
+            xhttp.open("GET", "obtener_contador.php", true); // Archivo PHP que devuelve el número actualizado
+            xhttp.send();
+        }
+        // Llamar a la función obtenerContador inicialmente y luego cada cierto intervalo de tiempo
+        obtenerContador();
+        setInterval(obtenerContador, 1000); // Actualizar el contador cada segundo
+    </script>
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", () => {
             const boton = document.querySelector(".navbar-burger");
