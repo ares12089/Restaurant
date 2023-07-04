@@ -28,6 +28,7 @@ $tikets = mostrarTiketEnv();
 </head>
 
 <body>
+    <a class="btn btn-otline-secondary" style="z-index: 2000;">Volver</a>
     <table class="table table-hover">
         <thead class="thead-dark">
             <tr>
