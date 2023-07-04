@@ -62,6 +62,7 @@ sesion();
                                                     ?>
                     </span>&nbsp;<i class="fa fa-shopping-cart"></i>
                 </button>
+                <!-- cerrar sesion -->
                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#sesionModal">
                     <i class="fa-solid fa-power-off"></i>
                 </button>

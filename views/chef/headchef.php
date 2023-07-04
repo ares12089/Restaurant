@@ -45,6 +45,7 @@ sesion();
                 </ul>
                 <!--  -->
                 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                <input type="hidden" name="id_us" value="<?php echo $_SESSION['userId'] ?>">
                     <button type="submit" name="logout" class="btn btn-outline-danger">
                         <span class="me-1">Cerrar Sesión</span>
                         <i class="fa-solid fa-power-off"></i>
