@@ -11,15 +11,17 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
 // Verificar si se ha enviado la solicitud de cierre de sesión
 if (isset($_POST['logout'])) {
-  // Eliminar todas las variables de sesión
-  session_unset();
+  if ($_SESSION['userId'] === $_POST['id_us']) {
+    // Eliminar todas las variables de sesión
+    session_unset();
 
-  // Destruir la sesión
-  session_destroy();
+    // Destruir la sesión
+    session_destroy();
 
-  // Redirigir al usuario a la página de inicio de sesión u otra página deseada
-  header("Location: ../index.html");
-  exit();
+    // Redirigir al usuario a la página de inicio de sesión u otra página deseada
+    header("Location: ../index.html");
+    exit();
+  }
 }
 $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 
@@ -89,6 +91,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
               <br>
 
               <!--Boton cerrar sesion-->
+              <input type="hidden" name="id_us" value="<?php echo $_SESSION['userId'] ?>">
               <button type="submit" name="logout" class="btn btn-small btn-outline-danger" style="background-color: #f9f9f9;">
                 <span class="me-1">Cerrar Sesión</span>
                 <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>

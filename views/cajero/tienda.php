@@ -74,7 +74,7 @@ include_once "head.php";
     <?php } ?>
 
     <!--  -->
-    <!-- Ventana emergente -->
+    <!-- Ventana emergente ordenes -->
     <div class="modal fade" id="ordenes" tabindex="-1" aria-labelledby="ordenesLabel" aria-hidden="true" style="z-index: 2000;">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -96,7 +96,7 @@ include_once "head.php";
                                         Todavía no hay platos
                                     </h1>
                                     <h2 class="subtitle">
-                                        Visita el menú para agregar productos
+                                        Agrega productos del menú
                                     </h2>
                                 </div>
                             </div>
@@ -169,6 +169,7 @@ include_once "head.php";
         </div>
     </div>
     <!-- ventana emerjente -->
+
     <!-- confirmacion cierre de sesion -->
     <div class="modal fade" id="sesionModal" tabindex="-1" aria-labelledby="sesionModalLabel" aria-hidden="true" style="z-index: 9999;">
                     <div class="modal-dialog">
@@ -186,6 +187,7 @@ include_once "head.php";
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                                 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                                <input type="hidden" name="id_us" value="<?php echo $_SESSION['userId'] ?>">
                                     <button type="submit" name="logout" class="btn btn-outline-danger">
                                         <span class="me-1">Si</span>
                                         <i class="fa-solid fa-power-off"></i>

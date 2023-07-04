@@ -1,7 +1,7 @@
 <?php
-include "../../module/db.php";
-
 session_start();
+
+include "../../module/db.php";
 
 function obtenerProductosEnCarrito()
 {
@@ -148,6 +148,7 @@ function sesion()
 
     // Verificar si se ha enviado la solicitud de cierre de sesión
     if (isset($_POST['logout'])) {
+        if ($_SESSION['userId'] === $_POST['id_us']) {
         // Eliminar todas las variables de sesión
         session_unset();
 
@@ -157,7 +158,10 @@ function sesion()
         // Redirigir al usuario a la página de inicio de sesión
         header("Location: ../../index.html");
         exit();
+        }
     }
+
+    $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 
 }
 function iniciarSesionSiNoEstaIniciada()
