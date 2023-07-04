@@ -34,11 +34,11 @@ $productos = obtenerProductos();
 <div class="columns">
     <div class="column">
         <div class="ms-4">
-        <h2 class="is-size-2">Platos existentes:</h2>
-        <!-- Botón para abrir la ventana emergente -->
-        <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#agregarPlato">
-            Nuevo&nbsp;<i class="fa fa-plus"></i>
-        </button>
+            <h2 class="is-size-2">Platos existentes:</h2>
+            <!-- Botón para abrir la ventana emergente -->
+            <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#agregarPlato">
+                Nuevo&nbsp;<i class="fa fa-plus"></i>
+            </button>
         </div>
         <!-- Ventana emergente add -->
         <div class="modal fade" id="agregarPlato" tabindex="-1" aria-labelledby="agregarPlatoLabel" aria-hidden="true" style="z-index: 9999;">
@@ -132,6 +132,13 @@ $productos = obtenerProductos();
             #tablepr tr:hover {
                 background-color: #e9ecef;
             }
+
+            .tbl_img {
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+                object-fit: cover;
+            }
         </style>
 
         <div class="container-fluid row">
@@ -143,7 +150,7 @@ $productos = obtenerProductos();
                             <th scope="col">Nombre</th>
                             <th scope="col">IMG</th>
                             <th scope="col">Descripción</th>
-                            <th scope="col">Tipo</th>
+                            <th scope="col">Extras</th>
                             <th scope="col">Precio</th>
                             <th scope="col">Aciones</th>
                         </tr>

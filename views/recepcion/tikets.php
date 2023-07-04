@@ -28,7 +28,7 @@ $tikets = mostrarTiketEnv();
 </head>
 
 <body>
-    <a class="btn btn-otline-secondary" style="z-index: 2000;">Volver</a>
+    <!-- <a href="../../index.html" class="btn btn-outline-secondary" style="z-index: 2000;">Volver</a> -->
     <table class="table table-hover">
         <thead class="thead-dark">
             <tr>
@@ -37,19 +37,6 @@ $tikets = mostrarTiketEnv();
         </thead>
         <tbody>
 
-
-            <?php
-            //prueba mod diseño 
-            // Generar el HTML con las órdenes
-            // $html = '';
-            // foreach ($tikets as $tiket) {
-            //     $html .= '<tr>';
-            //     $html .= '<th>' . $tiket->num_tiket . '</th>';
-            //     $html .= '</tr>';
-            // }
-
-            // echo $html;
-            ?>
             <?php
             $grupos = []; // Array para almacenar los grupos de registros
 
@@ -77,7 +64,7 @@ $tikets = mostrarTiketEnv();
                     }
 
                     // Mostrar los campos repetidos
-                    
+
                 }
                 $html .= '</tr>';
             }

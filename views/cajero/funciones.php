@@ -84,7 +84,7 @@ function obtenerPlatosTiket($num_tiket)
 function obtenerTikets()
 {
     $bd = obtenerConexion();
-    iniciarSesionSiNoEstaIniciada();
+    // iniciarSesionSiNoEstaIniciada();
     // sesion();
     $sentencia = $bd->prepare("SELECT tikets.id_tiket, tikets.extras, platos.nombre, platos.precio, platos.descripcion, tikets.num_tiket, tikets.hora 
     FROM tikets

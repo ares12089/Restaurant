@@ -84,7 +84,6 @@
                     $html = '';
                     if (!empty($grupos)) {
 
-
                         foreach ($grupos as $numTiket => $grupo) {
                             $primerRegistro = true; // Bandera para controlar el encabezado
 
@@ -105,6 +104,7 @@
 
                         
                     } else {
+                        //si no hay datos que mostrar
                         $html .= '<style>
                         .left{
                         background-image: url(../../img/burger-skate.gif);
@@ -142,12 +142,10 @@
                     foreach ($ordenes as $orden) {
                         if ($orden->num_tiket == $primerOrden->num_tiket) {
                             // Mostrar los campos adicionales como nombre y precio
-                            $html .= '<div class="card border-danger m-2">';
+                            $html .= '<div class="card border-secondary m-2">';
                             $html .= '<div class="card-body">';
                             $html .= '<h4 class="card-title">' . $orden->nombre . '</h4>';
-                            $html .= '<p class="card-text">Extras: ' . $primerOrden->extras . '</p>';
-                            // $html .= '<p class="card-text">' . $orden->precio . '</p>';
-                            // $html .= '<hr>';
+                            $html .= '<p class="card-text">Extras: ' . $orden->extras . '</p>';
                             $html .= '</div>';
                             $html .= '</div>';
                         }
@@ -155,9 +153,10 @@
 
                     $html .= '<form action="env_tiket.php" method="post">';
                     $html .= '<input type="hidden" name="num_tiket" value="' . $primerOrden->num_tiket . '">';
-                    $html .= '<button class="btn btn-success m-2">Listo <i class="fa fa-share" aria-hidden="true"></i></button>';
+                    $html .= '<button class="btn btn-outline-success m-2">Listo <i class="fa fa-share" aria-hidden="true"></i></button>';
                     $html .= '</form>';
                 } else {
+                    //si no hay datos que mostrar
                     $html .= '<style>
                     .right{
                         background-image: url(../../img/burger-skate.gif);

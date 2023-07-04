@@ -3,11 +3,12 @@ body {
   margin: auto;
   font-family: sans-serif;
   padding: 90px 20px 0;
+  background-color: #cbdbb8;
 }
 
 
 /* categorias */
-.categories {
+/* .categories {
   margin-top: 3vh;
   display: flex;
   flex-wrap: wrap;
@@ -71,7 +72,7 @@ body {
 
 .button:active .button__icon {
   background-color: #6d3c15;
-}
+} */
 
 /* categorias */
 
@@ -171,6 +172,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 100%;
+  object-fit: cover;
 }
 
 /* tabla platos */
