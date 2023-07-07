@@ -1,5 +1,5 @@
 <?php
-include "../module/conexion.php";
+include "../../module/conexion.php";
 
 $id = $_POST["id"];
 $sql = $conexion->query("SELECT * FROM usuarios WHERE id=$id");
@@ -60,7 +60,7 @@ $sql = $conexion->query("SELECT * FROM usuarios WHERE id=$id");
             <form class="col-10 p-0 mx-auto" method="POST">
                 <input type="hidden" name="id" value="<?= $_POST["id"] ?>">
                 <?php
-                include "../controller/botonact.php";
+                include "../../controller/botonact.php";
                 while ($datos = $sql->fetch_object()) { ?>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label"><i class="fa-solid fa-user me-2"></i>Nombre Completo</label>
@@ -102,12 +102,12 @@ $sql = $conexion->query("SELECT * FROM usuarios WHERE id=$id");
                 <?php } ?>
 
                 <button type="submit" class="btn btn-warning" name="btnregistrar" value="ok"><i class="fa-solid fa-pen-to-square me-2" style="color: #000000;"></i>Modificar</button>
-                <a href="../views/gerente.php" class="btn btn-secondary">Volver</a>
+                <a href="./gerente.php" class="btn btn-secondary">Volver</a>
             </form>
         </div>
         <div class="image-column">
             <!-- Aquí puedes agregar cualquier contenido que desees -->
-            <img src="../img/food-and-restaurant.png"></img>
+            <img src="../../img/food-and-restaurant.png"></img>
         </div>
     </div>
 

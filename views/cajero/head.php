@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <?php
-include_once './funciones.php';
+include_once '../../controller/funciones.php';
 sesion();
 
 ?>
@@ -11,7 +11,7 @@ sesion();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú</title>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../css/styles.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
@@ -19,7 +19,7 @@ sesion();
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 
-    <script src="script.js"></script>
+    <script src="../../js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- sweetAlert -->
@@ -29,7 +29,7 @@ sesion();
 
     <script src="https://kit.fontawesome.com/3052f95fc5.js" crossorigin="anonymous"></script>
 
-    <script src="sir.js"></script>
+    <!-- <script src="sir.js"></script> -->
 
 </head>
 
@@ -38,7 +38,7 @@ sesion();
     <nav class="navbar navbar-expand-lg bg-light sticky-nav" style="position: sticky; top: 0; z-index: 100;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="food-and-restaurant.png" alt="Logo" width="40" height="30" class="d-inline-block align-text-top">
+                <img src="../../img/food-and-restaurant.png" alt="Logo" width="40" height="30" class="d-inline-block align-text-top">
                 Restaurant
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,6 @@ sesion();
                 <!-- btn con js contador -->
                 <button type="button" class="btn btn-primary me-4" data-bs-toggle="modal" data-bs-target="#ordenes">
                     Ordenes - <span id="contador"><?php
-                                                    include_once "funciones.php";
                                                     $conteo = count(obtenerIdsDeProductosEnCarrito());
                                                     if ($conteo > 0) {
                                                         printf("(%d)", $conteo);

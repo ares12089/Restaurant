@@ -5,7 +5,7 @@ session_start();
 
 // Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-  header("Location: ../index.html");
+  header("Location: ../../index.html");
   exit();
 }
 
@@ -19,7 +19,7 @@ if (isset($_POST['logout'])) {
     session_destroy();
 
     // Redirigir al usuario a la página de inicio de sesión u otra página deseada
-    header("Location: ../index.html");
+    header("Location: ../../index.html");
     exit();
   }
 }
@@ -35,8 +35,8 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/gerente.css">
-  <link rel="stylesheet" href="../css/gerentenav.css">
+  <link rel="stylesheet" href="../../css/gerente.css">
+  <link rel="stylesheet" href="../../css/gerentenav.css">
   <script src="https://kit.fontawesome.com/3052f95fc5.js" crossorigin="anonymous"></script>
   <title>Gerente</title>
   <script>
@@ -50,7 +50,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <?php
-    include "../module/conexion.php";
+    include "../../module/conexion.php";
     ?>
     <div class="container-fluid">
 
@@ -63,7 +63,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
         <br>
         <div class="text-center" style="margin-top: -120px;">
           <div class="floating-container">
-            <img src="../img/food-and-restaurant.png" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 140px; height: 140px; border: 2px solid rgb(141, 141, 141);">
+            <img src="../../img/food-and-restaurant.png" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 140px; height: 140px; border: 2px solid rgb(141, 141, 141);">
           </div>
         </div>
 
@@ -74,11 +74,11 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
             </li>
           </div>
           <div class="link-container">
-            <a href="../views/gerente.php" class="btn "><i class="fa-solid fa-users-between-lines" style="color: #000000;"></i>AGREGAR EMPLEADOS</a>
+            <a href="gerente.php" class="btn "><i class="fa-solid fa-users-between-lines" style="color: #000000;"></i>AGREGAR EMPLEADOS</a>
           </div>
 
           <div class="link-container">
-            <a href="../views/cajero/productos.php" class="btn"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
+            <a href="productos.php" class="btn"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
           </div>
 
           <div style="display: flex; justify-content: center;">
@@ -121,7 +121,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
     </div>
   </nav>
 
-  <script src="../js/gerente.js"></script>
+  <script src="../../js/gerente.js"></script>
 
 
   <!-- Modal Agregar -->
@@ -321,7 +321,7 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 
 
 
-      <script src="../js/buscador.js"></script>
+      <script src="../../js/buscador.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
       <script>

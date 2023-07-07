@@ -1,6 +1,6 @@
 <?php
 
-include_once "funciones.php";
+include_once "./funciones.php";
 
 $codigo = generarCodigo();
 
@@ -12,4 +12,4 @@ crearTiket($codigo);
 
 eliminarordenes();
 
-header("Location: terminar_compra.php?cod=".$codigo);
+header("Location: ../views/cajero/terminar_compra.php?cod=".$codigo);

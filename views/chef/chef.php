@@ -66,7 +66,7 @@
                 <div class="myespacio">
                     <?php
                     //prueba 2
-                    include_once "funciones.php";
+                    include_once "../../controller/funciones.php";
                     $ordenes = obtenerTikets();
 
                     $grupos = []; // Array para almacenar los grupos de registros
@@ -123,9 +123,6 @@
         <div class="right">
             <ul class="list-group">
                 <?php
-                // include_once "funciones.php";
-                // $ordenes = obtenerTikets();
-
                 $html = '';
                 if (!empty($ordenes)) {
                     $primerOrden = $ordenes[0]; // Obtener el primer elemento del array de órdenes
@@ -133,9 +130,6 @@
                     $html .= '<div class="card border-primary m-2">';
                     $html .= '<div class="card-body">';
                     $html .= '<h4 class="card-title">Tiket #' . $primerOrden->num_tiket . '- Hora:' . date("g:i A", strtotime($primerOrden->hora)) . '</h4>';
-                    // $html .= '<p class="card-text">' . $primerOrden->nombre . '</p>';
-                    // $html .= '<p class="card-text">' . $primerOrden->extras . '</p>';
-                    // $html .= '<p class="card-text">' . $primerOrden->descripcion . '</p>';
                     $html .= '<hr>';
 
                     // Mostrar otros elementos con el mismo num_tiket
@@ -166,9 +160,6 @@
                 }
 
                 echo $html;
-                // foreach ($grupos as $numTiket => $grupo) {
-                // echo '<li class="list-group-item">Tiket ' . $numTiket . '</li>';
-                // }
                 ?>
             </ul>
         </div>

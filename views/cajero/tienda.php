@@ -6,7 +6,7 @@ include_once "head.php";
 
 <section class="col1">
     <?php
-    include_once "funciones.php";
+    include_once "../../controller/funciones.php";
     $productos = obtenerProductos();
     ?>
     <style>
@@ -84,7 +84,7 @@ include_once "head.php";
                 </div>
                 <!-- contenido -->
                 <?php
-                include_once "funciones.php";
+                include_once "../../controller/funciones.php";
                 $productos = obtenerProductosEnCarrito();
                 if (count($productos) <= 0) {
                 ?>
@@ -160,7 +160,7 @@ include_once "head.php";
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <a href="generar_cod.php" target="_blank" class="btn btn-outline-primary m-2" onclick="reloadPage()"><i class="fa fa-check"></i>&nbsp;Enviar Orden</a>
+                        <a href="../../controller/generar_cod.php" target="_blank" class="btn btn-outline-primary m-2" onclick="reloadPage()"><i class="fa fa-check"></i>&nbsp;Enviar Orden</a>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 <?php } ?>

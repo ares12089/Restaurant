@@ -1,11 +1,13 @@
-function getTikets() {
+
+// Función para obtener y mostrar las órdenes actualizadas
+function getOrdenes() {
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "tikets.php", true);
+    xhr.open("GET", "../views/chef/chef.php", true);
     xhr.onload = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 let data = xhr.responseText;
-                document.querySelector(".table").innerHTML = data; //el query selector cambia dependiendo del contenido en el php
+                document.querySelector(".bod").innerHTML = data; //el query selector cambia dependiendo del contenido en el php
             }
         }
     }
@@ -13,9 +15,9 @@ function getTikets() {
 }
 
 // Llama a la función getOrdenes para obtener las órdenes iniciales
-getTikets();
+getOrdenes();
 
 // Configura la actualización periódica de las órdenes
 setInterval(() => {
-    getTikets();
+    getOrdenes();
 }, 1000);

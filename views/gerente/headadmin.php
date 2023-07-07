@@ -3,7 +3,7 @@
 
 <head>
   <?php
-  include_once './funciones.php';
+  include_once '../../controller/funciones.php';
 
   // Verificar si el usuario ha iniciado sesión
   if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
@@ -30,8 +30,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="stylesnav.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../../css/stylesnav.css">
+  <link rel="stylesheet" href="../../css/styles.css">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
@@ -39,7 +39,7 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 
-  <script src="script.js"></script>
+  <script src="../../js/script.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <!-- sweetAlert -->
@@ -53,7 +53,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/gerente.css">
+  <link rel="stylesheet" href="../../css/gerente.css">
   <script src="https://kit.fontawesome.com/3052f95fc5.js" crossorigin="anonymous"></script>
   <title>Gerente</title>
   <script>
@@ -89,11 +89,11 @@
           <div style="text-align: center;">
           </div>
           <div class="link-container">
-            <a href="../gerente.php"><i class="fa-solid fa-users-between-lines" style="color: #000000;"></i>AGREGAR EMPLEADOS</a>
+            <a href="./gerente.php"><i class="fa-solid fa-users-between-lines" style="color: #000000;"></i>AGREGAR EMPLEADOS</a>
           </div>
 
           <div class="link-container">
-            <a href="/Restaurant/views/cajero/productos.php"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
+            <a href="/Restaurant/views/gerente/productos.php"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
           </div>
           <div style="display: flex; justify-content: center;">
             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">

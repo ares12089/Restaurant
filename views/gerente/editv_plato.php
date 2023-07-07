@@ -51,7 +51,7 @@ if (!isset($_POST["id_plato"])) {
     exit("No hay datos");
 }
 
-include_once "funciones.php";
+include_once "../../controller/funciones.php";
 $productoedit = obtenerUnProducto($_POST["id_plato"]);
 ?>
 
@@ -117,5 +117,5 @@ $productoedit = obtenerUnProducto($_POST["id_plato"]);
 <?php } ?>
 </body>
 <?php
-include 'pie.php'
+include '../Cajero/pie.php'
 ?>

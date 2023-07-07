@@ -14,7 +14,7 @@ if (!empty($_POST["btnregistrar"])) {
 
         $sql=$conexion->query(" update usuarios set nombre='$nombre', cedula='$cedula', usuario='$usuario', contraseña='$contraseña', telefono='$telefono', correo='$correo', id_cargo='$id_cargo' where id=$id ");
         if ($sql==1) {
-            header("location:../views/gerente.php");
+            header("location:../views/gerente/gerente.php");
         } else {
             echo '<div class="alert alert-danger"><i class="fa-solid fa-circle-exclamation me-2" style="color: #000000;"></i>Error al modificar</div>';
         }
