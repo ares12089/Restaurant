@@ -4,31 +4,9 @@ include_once "funciones.php";
 $productos = obtenerProductos();
 ?>
 
-<!-- <button id="alertw">Abrir Alerta</button> -->
-<?php
-// echo '<script type="text/javascript">';
-// echo 'Swal.fire({';
-// echo '  title: "¡Alerta personalizada!",';
-// echo '  text: "Este es un mensaje de alerta personalizado.",';
-// echo '  icon: "warning",';
-// echo '  confirmButtonText: "Aceptar"';
-// echo '});';
-// echo '</script>';
-?>
-<!-- <script>
-    document.getElementById("alertw").addEventListener("click", function() {
-        Swal.fire({
-            position: 'top',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
-        })
-    })
-</script> -->
 
-<!-- <h2 id="contador">0</h2>
-<button onclick="aumentarContador()">Aumentar</button> -->
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 
 <div class="columns">
@@ -50,8 +28,6 @@ $productos = obtenerProductos();
                     </div>
                     <div class="modal-body">
                         <!-- Contenido -->
-                        <!-- <div class="columns"> -->
-                        <!-- <div class="column is-one-third"> -->
                         <h2 class="is-size-2">Nuevo producto</h2>
                         <form action="guardar_platos.php" method="post" enctype="multipart/form-data">
                             <div class="field">
@@ -99,7 +75,8 @@ $productos = obtenerProductos();
                 </div>
             </div>
         </div>
-        <!-- Ventana emergente add -->
+
+      
 
         <style>
             #tablepr {

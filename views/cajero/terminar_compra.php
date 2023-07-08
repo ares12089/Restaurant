@@ -1,69 +1,17 @@
 <?php
-//mostrar errores en el navegador
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
-//aumentar memoria para la generacion del PDF
-// ini_set('memory_limit', '256M');
-//new
-// $codigoValue = $_GET['codigoValue'];
-
-// Realizar cualquier procesamiento adicional con $codigoValue
-
-// Imprimir el valor recibido
-// echo $codigoValue;
 
 ob_start();
 
 // que hacer con los productos
 include_once "funciones.php";
-// $productos = obtenerProductosEnCarrito();
 
-//mod
-// Archivo 2: recibir.php
-// $variable = $_GET['var'];
-// echo $variable; // Muestra "Hola mundo"
-
-//mod
-// $var = $_POST['var'];
-// echo $var;
-
-// $codigo = generarCodigo();
-// //new
-// if (!isset($codigo)) {
-//     exit("No hay numero de tiket");
-// }
 
 // crearTiket($codigo);
 $productos = obtenerPlatosTiket($_GET['cod']);
 
-// eliminarordenes();
-
-// obtenerPlatosTiket($_GET['var']);
-
-
-
-//new
-// var_dump($productos);
-//eliminarOrden();
-
 ?>
-<!-- <div class="columns">
-    <div class="column">
-        <h2 class="is-size-2">Mi carrito de compras</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Extras</th>
-                    <th>Precio</th>
-                    <th>TIKET</th>
-                </tr>
-            </thead>
-            <tbody>
                 <?php
-                // $total = 0;
-                // foreach ($productos as $producto) {
-                //     $total += $producto->precio;
+               
                 ?>
                     <tr>
                         <td><?php //echo $producto->nombre ?></td>
@@ -141,7 +89,7 @@ $productos = obtenerPlatosTiket($_GET['cod']);
 
 <?php
 $html = ob_get_clean();
-// echo $html;
+
 
 //incluir la libreria dompdf que se encuentra:
 require_once 'dompdf/autoload.inc.php';
@@ -162,8 +110,7 @@ $dompdf->loadHtml($html);
 
 //formato de la hoja
 $dompdf->setPaper('A5', 'landscape');
-//$dompdf->setPaper('letter');
-//$dompdf->setPaper('A4','landscape');
+
 
 //poner todo lo ya indica en el obj visible
 $dompdf->render();
@@ -172,7 +119,6 @@ $dompdf->render();
 //se genera el pdf con el nombre asignado y despues se elije si este se descarga directamente(false-no,true-si)
 $dompdf->stream("Recivo_" . $producto->num_tiket . ".pdf", array("Attachment" => false));
 
-// header("Location: tienda.php")
 
 
 ?>

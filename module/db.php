@@ -20,6 +20,8 @@ function obtenerVariableDelEntorno($key)
 }
 function obtenerConexion()
 {
+    //para prevenir sqlinyection
+    
     $password = obtenerVariableDelEntorno("MYSQL_PASSWORD");
     $user = obtenerVariableDelEntorno("MYSQL_USER");
     $dbName = obtenerVariableDelEntorno("MYSQL_DATABASE_NAME");

@@ -46,37 +46,46 @@
     </style>
 </head>
 <?php
-
 if (!isset($_POST["id_plato"])) {
-    exit("No hay datos");
+    exit("No hay datos"); // Si no se ha enviado el parámetro "id_plato", muestra un mensaje y finaliza la ejecución del script
 }
 
-include_once "funciones.php";
-$productoedit = obtenerUnProducto($_POST["id_plato"]);
+include_once "funciones.php"; // Incluye el archivo "funciones.php" que contiene las funciones necesarias
+
+$productoedit = obtenerUnProducto($_POST["id_plato"]); // Llama a la función obtenerUnProducto() pasando el valor del parámetro "id_plato" para obtener los datos del producto correspondiente y guarda el resultado en la variable $productoedit
 ?>
+
 
 <?php foreach ($productoedit as $productoe) { ?>
 
 <body>
-    <div class="columns">
-        <div class="form-column">
-            <h2 class="is-size-2 col-6 p-5 mx-auto">Editar producto</h2>
-            <form action="editar_plato.php" method="post" enctype="multipart/form-data" class="col-10 p-0 mx-auto">
-                <div class="field">
-                    <label for="nombre">Nombre:</label>
-                    <div class="control">
-                        <input required id="nombre" class="input" type="text" name="nombre" value="<?php echo $productoe->nombre ?>">
-                    </div>
+<div class="columns">
+    <div class="form-column">
+        <!-- Encabezado del formulario -->
+        <h2 class="is-size-2 col-6 p-5 mx-auto">Editar producto</h2>
+        
+        <!-- Formulario de edición del producto -->
+        <form action="editar_plato.php" method="post" enctype="multipart/form-data" class="col-10 p-0 mx-auto">
+            <div class="field">
+                <label for="nombre">Nombre:</label>
+                <div class="control">
+                    <!-- Campo de entrada para el nombre del producto -->
+                    <input required id="nombre" class="input" type="text" name="nombre" value="<?php echo $productoe->nombre ?>">
+                </div>
+
                 </div>
                 <div class="field">
                     <label for="descripcion">Descripción:</label>
                     <div class="control">
+                        <!-- Campo de entrada para la descripción del producto -->
                         <textarea name="descripcion" class="textarea" id="descripcion" cols="10" rows="5" placeholder="Descripción" required><?php echo $productoe->descripcion ?></textarea>
                     </div>
                 </div>
+
                 <div class="field">
-                    <label for="nombre">Adicion:</label>
+                    <label for="nombre">Adición:</label>
                     <div class="control">
+                        <!-- Campo de selección para las adiciones -->
                         <select required name="tipo" id="tipo">
                             <option disabled value="">Selecciona las adiciones</option>
                             <option value="1" <?php if ($productoe->tipo == "salsas") echo 'selected' ?>>Salsas</option>
@@ -84,22 +93,33 @@ $productoedit = obtenerUnProducto($_POST["id_plato"]);
                         </select>
                     </div>
                 </div>
+
                 <div class="field">
                     <label for="precio">Precio:</label>
                     <div class="control">
+                        <!-- Campo de entrada para el precio del producto -->
                         <input required id="precio" name="precio" class="input" type="number" value="<?php echo $productoe->precio ?>">
                     </div>
                 </div>
+
                 <div class="field">
                     <label for="imagen">Nueva Imagen:</label>
                     <div class="control">
+                        <!-- Campo de entrada de tipo file para seleccionar una nueva imagen -->
                         <input type="file" name="imagen" id="imagen">
                     </div>
                 </div>
+
+
                 <div class="field">
                     <div class="control">
+                        <!-- Campo oculto para enviar el ID del producto -->
                         <input type="hidden" name="id_plato" value="<?php echo $productoe->id ?>">
+                        
+                        <!-- Botón para actualizar el producto -->
                         <button class="btn btn-warning">Actualizar</button>
+                        
+                        <!-- Enlace para volver a la página de productos -->
                         <a href="productos.php" class="btn btn-secondary">Volver</a>
                     </div>
                 </div>
@@ -109,10 +129,12 @@ $productoedit = obtenerUnProducto($_POST["id_plato"]);
             <div class="field">
                 <label for="precio">Imagen:</label>
                 <div class="control">
+                    <!-- Mostrar la imagen del producto -->
                     <?php echo '<img class="tbl_img" src="data:' . $productoe->tipo . ';base64,' . base64_encode($productoe->img) . '"/>' ?>
                 </div>
             </div>
         </div>
+
     </div>
 <?php } ?>
 </body>
