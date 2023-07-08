@@ -7,7 +7,7 @@ if (!empty($_POST["id"])) {
  
     if ($sql == 1) {
         // Empleado eliminado con éxito
-        header("Location: ../views/gerente/gerente.php");
+        header("Location: ../views/gerente.php");
     } else {
         // Error al eliminar al empleado
     }

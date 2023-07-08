@@ -9,7 +9,7 @@ sesion();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chef</title>
 
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="styles.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
@@ -23,7 +23,7 @@ sesion();
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- sweetAlert -->
 
-    <script src="../../js/archivo.js"></script>
+    <script src="archivo.js"></script>
 </head>
 
 <body>

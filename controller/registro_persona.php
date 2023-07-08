@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if ($conn->query($sql) === TRUE) {
         // Redireccionar después de la inserción exitosa
-        header("Location: ../views/gerente/gerente.php");
+        header("Location:../views/gerente.php");
         exit();
     } else {
         echo "Error al insertar los datos: " . $conn->error;

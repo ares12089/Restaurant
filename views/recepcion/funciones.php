@@ -1,28 +1,36 @@
 <?php
-session_start();
-
-include "../module/db.php";
+ include "../../module/db.php";
 
 function obtenerProductosEnCarrito()
 {
     $bd = obtenerConexion();
-    // iniciarSesionSiNoEstaIniciada();
+    iniciarSesionSiNoEstaIniciada();
+    // $sentencia = $bd->prepare("SELECT platos.id, platos.nombre, platos.descripcion, platos.tipo, platos.precio
+    // FROM platos
+    // INNER JOIN ordenes
+    // ON platos.id = ordenes.id_plato
+    // WHERE ordenes.id_sesion = ?");
     $sentencia = $bd->prepare("SELECT ordenes.id_orden, ordenes.id_sesion, ordenes.id_plato, ordenes.extras, platos.nombre, platos.precio 
     FROM ordenes 
     INNER JOIN platos 
     ON ordenes.id_plato = platos.id
     WHERE ordenes.id_sesion = ?");
-    // $idSesion = session_id();
-    $idSesion = $_SESSION['userId'];
+    // $sentencia = $bd->prepare("SELECT ordenes.id_orden, ordenes.id_sesion, ordenes.id_plato, ordenes.extras, platos.nombre, platos.precio, ordenes.id_tiket
+    // FROM ordenes 
+    // INNER JOIN platos 
+    // ON ordenes.id_plato = platos.id
+    // INNER JOIN tikets 
+    // ON ordenes.id_tiket = tikets.id_tiket
+    // WHERE ordenes.id_sesion = ?");
+    $idSesion = session_id();
     $sentencia->execute([$idSesion]);
     return $sentencia->fetchAll();
 }
 function quitarProductoDelCarrito($idOrden)
 {
     $bd = obtenerConexion();
-    // iniciarSesionSiNoEstaIniciada();
-    // $idSesion = session_id();
-    $idSesion = $_SESSION['userId'];
+    iniciarSesionSiNoEstaIniciada();
+    $idSesion = session_id();
     $sentencia = $bd->prepare("DELETE FROM ordenes WHERE id_sesion = ? AND id_orden = ?");
     return $sentencia->execute([$idSesion, $idOrden]);
 }
@@ -37,10 +45,9 @@ function obtenerProductos()
 function obtenerIdsDeProductosEnCarrito()
 {
     $bd = obtenerConexion();
-    // iniciarSesionSiNoEstaIniciada();
-    $idSesion = $_SESSION['userId'];
+    iniciarSesionSiNoEstaIniciada();
     $sentencia = $bd->prepare("SELECT id_plato FROM ordenes WHERE id_sesion = ?");
-    // $idSesion = session_id();
+    $idSesion = session_id();
     $sentencia->execute([$idSesion]);
     return $sentencia->fetchAll(PDO::FETCH_COLUMN);
 }
@@ -59,7 +66,6 @@ function generarCodigo()
 {
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
-    // sesion();
     $sentencia = $bd->prepare("SELECT generar_codigo() AS codigo");
     $sentencia->execute();
     $result = $sentencia->fetch(PDO::FETCH_ASSOC);
@@ -69,14 +75,13 @@ function generarCodigo()
 function obtenerPlatosTiket($num_tiket)
 {
     $bd = obtenerConexion();
-    // iniciarSesionSiNoEstaIniciada();
+    iniciarSesionSiNoEstaIniciada();
     $sentencia = $bd->prepare("SELECT tikets.id_tiket, tikets.extras, platos.nombre, platos.precio, tikets.num_tiket
     FROM tikets 
     INNER JOIN platos 
     ON tikets.id_plato = platos.id
     WHERE tikets.num_tiket = ? AND tikets.id_sesion = ?");
-    // $idSesion = session_id();
-    $idSesion = $_SESSION['userId'];
+    $idSesion = session_id();
     $sentencia->execute([$num_tiket, $idSesion]);
     return $sentencia->fetchAll();
 }
@@ -84,8 +89,7 @@ function obtenerPlatosTiket($num_tiket)
 function obtenerTikets()
 {
     $bd = obtenerConexion();
-    // iniciarSesionSiNoEstaIniciada();
-    // sesion();
+    iniciarSesionSiNoEstaIniciada();
     $sentencia = $bd->prepare("SELECT tikets.id_tiket, tikets.extras, platos.nombre, platos.precio, platos.descripcion, tikets.num_tiket, tikets.hora 
     FROM tikets
     INNER JOIN platos 
@@ -109,7 +113,6 @@ function mostrarTiketEnv()
 {
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
-    // sesion();
     $sentencia = $bd->prepare("SELECT id_tiket, num_tiket, hora FROM tikets WHERE estado = 'inac' ORDER BY id_tiket DESC;");
     // $idSesion = session_id();
     $sentencia->execute();
@@ -119,51 +122,22 @@ function mostrarTiketEnv()
 function eliminarordenes()
 {
     $bd = obtenerConexion();
-    $idSesion = $_SESSION['userId'];
-    $sentencia = $bd->prepare("DELETE FROM ordenes where id_sesion = ?");
-    return $sentencia->execute([$idSesion]);
+    $sentencia = $bd->prepare("DELETE FROM ordenes");
+    return $sentencia->execute();
 }
 
 function agregarProductoAlCarrito($idProducto, $extra)
 {
     // Ligar el id del producto con el usuario a través de la sesión
     $bd = obtenerConexion();
-    // iniciarSesionSiNoEstaIniciada();
-    // $idSesion = session_id();
-    $idSesion = $_SESSION['userId'];
+    iniciarSesionSiNoEstaIniciada();
+    $idSesion = session_id();
     $idOrden = null;
     $sentencia = $bd->prepare("INSERT INTO ordenes(id_orden, id_sesion, extras, id_plato) VALUES (?, ?, ?, ?)");
     return $sentencia->execute([$idOrden, $idSesion, $extra, $idProducto]);
 }
 
-function sesion()
-{
-    $_SESSION['userId'];
-    
-    // Verificar si el usuario ha iniciado sesión
-    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-        header("Location: ../index.html");
-        exit();
-    }
 
-    // Verificar si se ha enviado la solicitud de cierre de sesión
-    if (isset($_POST['logout'])) {
-        if ($_SESSION['userId'] === $_POST['id_us']) {
-        // Eliminar todas las variables de sesión
-        session_unset();
-
-        // Destruir la sesión
-        session_destroy();
-
-        // Redirigir al usuario a la página de inicio de sesión
-        header("Location: ../index.html");
-        exit();
-        }
-    }
-
-    $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
-
-}
 function iniciarSesionSiNoEstaIniciada()
 {
     if (session_status() !== PHP_SESSION_ACTIVE) {
@@ -209,6 +183,8 @@ function eliminarProducto($id)
 
 function guardarProducto($nombre, $tipo, $precio, $descripcion, $imagen)
 {
+    //img
+    //$contenidoImagen = file_get_contents($imagen['tmp_name']);
     $imagen = $_FILES['imagen']['tmp_name'];
     $imagenNombre = $_FILES['imagen']['name'];
     $imagenTipo = $_FILES['imagen']['type'];

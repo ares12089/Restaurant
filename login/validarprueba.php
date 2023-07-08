@@ -47,10 +47,10 @@ if ($result->num_rows == 1) {
     // Redireccionar a la página correspondiente según el cargo
     switch ($cargo) {
         case 'Gerente':
-            header("Location: ../views/gerente/gerente.php");
+            header("Location:../views/gerente.php");
             break;
         case 'Cajero':
-            header("Location: ../views/cajero/tienda.php");
+            header("Location:../views/cajero/tienda.php");
             break;
         case 'Chef':
             header("Location: ../views/chef/chef.php");
@@ -62,7 +62,7 @@ if ($result->num_rows == 1) {
     }
 } else {
     // Autenticación fallida
-    header("Location: ../index.html");
+    header("Location: ../../index.html");
     exit();
 }
 

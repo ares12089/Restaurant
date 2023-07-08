@@ -1,8 +1,34 @@
-<?php include_once "./headadmin.php" ?>
+<?php include_once "headadmin.php" ?>
 <?php
-include_once "../../controller/funciones.php";
+include_once "funciones.php";
 $productos = obtenerProductos();
 ?>
+
+<!-- <button id="alertw">Abrir Alerta</button> -->
+<?php
+// echo '<script type="text/javascript">';
+// echo 'Swal.fire({';
+// echo '  title: "¡Alerta personalizada!",';
+// echo '  text: "Este es un mensaje de alerta personalizado.",';
+// echo '  icon: "warning",';
+// echo '  confirmButtonText: "Aceptar"';
+// echo '});';
+// echo '</script>';
+?>
+<!-- <script>
+    document.getElementById("alertw").addEventListener("click", function() {
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    })
+</script> -->
+
+<!-- <h2 id="contador">0</h2>
+<button onclick="aumentarContador()">Aumentar</button> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 
 <div class="columns">
@@ -193,4 +219,4 @@ $productos = obtenerProductos();
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-<?php include '../Cajero/pie.php' ?>
+<?php include 'pie.php' ?>
