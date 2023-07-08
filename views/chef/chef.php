@@ -2,6 +2,9 @@
 <html lang="es">
 <?php include_once './headchef.php' ?>
 
+
+    <!-- Estilos -->
+
     <style>
         body {
             margin: 0;
@@ -93,7 +96,7 @@
                                     $html .= '<div class="card border-primary ms-5 me-5 mt-4">';
                                     $html .= '<div class="card-body">';
                                     $html .= '<h4 class="card-title text-center">Tiket #' . $orden->num_tiket . '- Hora:' . date("g:i A", strtotime($orden->hora)) . '</h4>';
-                                    // $html .= '<p class="card-text"></p>';
+                                    
 
                                     $primerRegistro = false;
                                 }
@@ -123,8 +126,7 @@
         <div class="right">
             <ul class="list-group">
                 <?php
-                // include_once "funciones.php";
-                // $ordenes = obtenerTikets();
+                
 
                 $html = '';
                 if (!empty($ordenes)) {
@@ -133,9 +135,6 @@
                     $html .= '<div class="card border-primary m-2">';
                     $html .= '<div class="card-body">';
                     $html .= '<h4 class="card-title">Tiket #' . $primerOrden->num_tiket . '- Hora:' . date("g:i A", strtotime($primerOrden->hora)) . '</h4>';
-                    // $html .= '<p class="card-text">' . $primerOrden->nombre . '</p>';
-                    // $html .= '<p class="card-text">' . $primerOrden->extras . '</p>';
-                    // $html .= '<p class="card-text">' . $primerOrden->descripcion . '</p>';
                     $html .= '<hr>';
 
                     // Mostrar otros elementos con el mismo num_tiket
@@ -166,9 +165,6 @@
                 }
 
                 echo $html;
-                // foreach ($grupos as $numTiket => $grupo) {
-                // echo '<li class="list-group-item">Tiket ' . $numTiket . '</li>';
-                // }
                 ?>
             </ul>
         </div>

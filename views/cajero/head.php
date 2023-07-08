@@ -58,7 +58,7 @@ sesion();
                                                     if ($conteo > 0) {
                                                         printf("(%d)", $conteo);
                                                     }
-                                                    // echo $conteo;
+                                                   
                                                     ?>
                     </span>&nbsp;<i class="fa fa-shopping-cart"></i>
                 </button>

@@ -6,9 +6,14 @@ include_once "head.php";
 
 <section class="col1">
     <?php
+    // Se incluye el archivo "funciones.php" que contiene la función obtenerProductos()
     include_once "funciones.php";
+    // Se llama a la función obtenerProductos() y se guarda el resultado en la variable $productos
     $productos = obtenerProductos();
     ?>
+
+    <!-- Estilos -->
+
     <style>
         h1 {
             text-align: center;
@@ -26,43 +31,44 @@ include_once "head.php";
             margin-left: 10%;
             border-radius: 50%;
             margin-top: 5%;
-            /* margin: center; */
-            /* Agrega aquí otros estilos para la imagen */
         }
 
         .card {
             border-radius: 5%;
-            /* width: 200px; */
-            /* height: 200px; */
             width: 15rem;
             height: 25rem;
             margin: auto auto 0.5rem 0;
-            /* margin-bottom: 1rem; */
         }
     </style>
 
-    <?php foreach ($productos as $producto) { ?>
-        <div class="card m-1 fixed-card">
-            <?php echo '<img class="card-img-top" src="data:' . $producto->tipo . ';base64,' . base64_encode($producto->img) . '"/>' ?>
-            <div class="card-body">
-                <h5 class="card-title"><?php echo $producto->nombre ?></h5>
-                <p class="card-text">Extra:</p>
-                <div class="control">
-                    <form action="agregar_orden.php" method="post">
-                        <?php if ($producto->tipo == "salsas") {
-                            echo ("
-                <select required name='extra' id='extra' class='select-css'>
-                    <option value='Habanero'>Habanero</option>
-                    <option value='BBQ'>BBQ</option>
-                    <option value='Mayonesa'>Mayonesa</option>
-                    <option value='Piña'>Piña</option>
-                </select>
-                ");
-                        } else {
-                            echo ("<p class='card-text'>No-aplica</p>");
-                            echo ("<input type='hidden' class='text_body' name='extra' value='no-aplica'>");
-                        } ?>
-                </div>
+<?php foreach ($productos as $producto) { ?>
+    <div class="card m-1 fixed-card">
+        <?php echo '<img class="card-img-top" src="data:' . $producto->tipo . ';base64,' . base64_encode($producto->img) . '"/>' ?>
+        <div class="card-body">
+            <h5 class="card-title"><?php echo $producto->nombre ?></h5>
+            <p class="card-text">Extra:</p>
+            <div class="control">
+                <form action="agregar_orden.php" method="post">
+                    <?php
+                    // Verificar si el tipo de producto es "salsas" para mostrar opciones de selección de extra
+                    if ($producto->tipo == "salsas") {
+                        echo ("
+                            <select required name='extra' id='extra' class='select-css'>
+                                <option value='Habanero'>Habanero</option>
+                                <option value='BBQ'>BBQ</option>
+                                <option value='Mayonesa'>Mayonesa</option>
+                                <option value='Piña'>Piña</option>
+                            </select>
+                        ");
+                    } else {
+                        // Mostrar mensaje de "No aplica" en caso contrario
+                        echo ("<p class='card-text'>No aplica</p>");
+                        echo ("<input type='hidden' class='text_body' name='extra' value='no-aplica'>");
+                    }
+                    ?>
+                </form>
+            </div>
+
                 <input type="hidden" name="id_plato" value="<?php echo $producto->id ?>">
                 <button class="btn btn-primary">
                     <span>$ <?php echo number_format($producto->precio, 2)

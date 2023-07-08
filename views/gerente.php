@@ -40,86 +40,112 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
   <script src="https://kit.fontawesome.com/3052f95fc5.js" crossorigin="anonymous"></script>
   <title>Gerente</title>
   <script>
+    // Reemplaza la URL actual en el historial del navegador sin recargar la página
     if (window.history.replaceState) {
-      window.history.replaceState(null, null, window.location.href);
+        window.history.replaceState(null, null, window.location.href);
     }
-  </script>
+</script>
+
 
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <?php
+  <?php
+    // Incluye el archivo de conexión para utilizar sus funcionalidades
     include "../module/conexion.php";
-    ?>
-    <div class="container-fluid">
+  ?>
 
-      <div class="sidebar" id="sidebar">
+<div class="container-fluid">
+
+<div class="sidebar" id="sidebar">
+  <!-- Secciones de espacio vacío -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <!-- Contenedor de imagen flotante -->
+  <div class="text-center" style="margin-top: -120px;">
+    <div class="floating-container">
+      <!-- Imagen de un restaurante -->
+      <img src="../img/food-and-restaurant.png" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 140px; height: 140px; border: 2px solid rgb(141, 141, 141);">
+    </div>
+  </div>
+
+  <!-- Lista de opciones -->
+  <ul>
+    <!-- Título del restaurante -->
+    <div style="text-align: center;">
+      <li>
+        <h4>Restaurant<i class="fa-solid fa-martini-glass-citrus ms-2"></i></h4>
+      </li>
+    </div>
+
+    <!-- Enlace para agregar empleados -->
+    <div class="link-container">
+      <a href="../views/gerente.php" class="btn "><i class="fa-solid fa-users-between-lines" style="color: #000000;"></i>AGREGAR EMPLEADOS</a>
+    </div>
+
+    <!-- Enlace para agregar platos -->
+    <div class="link-container">
+      <a href="../views/cajero/productos.php" class="btn"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
+    </div>
+
+    <!-- Formulario para cerrar sesión -->
+    <div style="display: flex; justify-content: center;">
+      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <!-- Espacios en blanco -->
         <br>
         <br>
         <br>
         <br>
         <br>
         <br>
-        <div class="text-center" style="margin-top: -120px;">
-          <div class="floating-container">
-            <img src="../img/food-and-restaurant.png" alt="" class="rounded-circle img-thumbnail mx-auto" style="width: 140px; height: 140px; border: 2px solid rgb(141, 141, 141);">
-          </div>
+
+        <!-- Botón de cerrar sesión -->
+        <input type="hidden" name="id_us" value="<?php echo $_SESSION['userId'] ?>">
+        <button type="submit" name="logout" class="btn btn-small btn-outline-danger" style="background-color: #f9f9f9;">
+          <span class="me-1">Cerrar Sesión</span>
+          <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>
+        </button>
+      </form>
+    </div>
+  </ul>
+</div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <!-- Botón del menú para mostrar/ocultar la barra lateral -->
+        <div class="menu-button" onclick="toggleSidebar()">&#9776;</div>
+
+        <!-- Script para mostrar/ocultar la barra lateral -->
+        <script>
+            function toggleSidebar() {
+                var sidebar = document.getElementById("sidebar");
+                sidebar.classList.toggle("open");
+            }
+        </script>
+
+        <!-- Marca del navbar -->
+        <div class="d-flex justify-content-center align-items-center">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-door-open me-2" style="color: #000000;"></i>BIENVENIDO</a>
         </div>
 
-        <ul>
-          <div style="text-align: center;">
-            <li>
-              <h4>Restaurant<i class="fa-solid fa-martini-glass-citrus ms-2"></i></h4>
-            </li>
-          </div>
-          <div class="link-container">
-            <a href="../views/gerente.php" class="btn "><i class="fa-solid fa-users-between-lines" style="color: #000000;"></i>AGREGAR EMPLEADOS</a>
-          </div>
-
-          <div class="link-container">
-            <a href="../views/cajero/productos.php" class="btn"><i class="fa-solid fa-utensils ms-2" style="color: #000000;"></i> AGREGAR PLATOS</a>
-          </div>
-
-          <div style="display: flex; justify-content: center;">
-            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-              <br>
-
-              <!--Boton cerrar sesion-->
-              <input type="hidden" name="id_us" value="<?php echo $_SESSION['userId'] ?>">
-              <button type="submit" name="logout" class="btn btn-small btn-outline-danger" style="background-color: #f9f9f9;">
-                <span class="me-1">Cerrar Sesión</span>
-                <i class="fa-solid fa-power-off" style="color: #000000; margin-left: 1.5px;"></i>
-              </button>
-            </form>
-          </div>
-
-        </ul>
-      </div>
-      <div class="menu-button" onclick="toggleSidebar()">&#9776;</div>
-      <script>
-        function toggleSidebar() {
-          var sidebar = document.getElementById("sidebar");
-          sidebar.classList.toggle("open");
-        }
-      </script>
-
-      <div class="d-flex justify-content-center align-items-center">
-        <a class="navbar-brand" href="#"><i class="fa-solid fa-door-open me-2" style="color: #000000;"></i>BIENVENIDO</a>
-      </div>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-          </li>
-        </ul>
-      </div>
+        <!-- Contenido del navbar -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <!-- Elementos de navegación (nav-items) se pueden agregar aquí -->
+                <li class="nav-item">
+                </li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>
+
 
   <script src="../js/gerente.js"></script>
 
@@ -187,15 +213,19 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
 
   <div class="container-fluid row">
     <div class="col-10 p-5" style="margin: center;">
-      <div class="container">
-        <div style="position: relative; top: 20px;">
-          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
-            <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Agregar Usuario
-          </button>
-          <input class="form-control-sm col-4 col-sm-3 me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
+        <div class="container">
+            <div style="position: relative; top: 20px;">
+                <!-- Botón para agregar usuario con un ícono -->
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarUsuarioModal">
+                    <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Agregar Usuario
+                </button>
+
+                <!-- Campo de búsqueda -->
+                <input class="form-control-sm col-4 col-sm-3 me-2 light-table-filter" data-table="table_id" type="text" placeholder="Buscar">
+            </div>
+            <br>
         </div>
-        <br>
-      </div>
+
 
       <table id="table1" class="table custom-table table_id">
         <thead>
@@ -275,6 +305,9 @@ $nombreBD = isset($_POST['nombre']) ? $_POST['nombre'] : '';
         </tbody>
       </table>
 
+
+      <!-- Estilos  -->
+      
       <style>
         #table1 {
           background-color: #ffffff;

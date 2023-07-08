@@ -28,40 +28,53 @@ sesion();
 
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-light sticky-nav" style="position: sticky; top: 0; z-index: 100;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="../../img/food-and-restaurant.png" alt="Logo" width="35" height="35" class="d-inline-block align-text-top">
-                Restaurant
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="chef.php">Chef</a>
-                    </li>
-                </ul>
-                <!--  -->
-                <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<nav class="navbar navbar-expand-lg bg-light sticky-nav" style="position: sticky; top: 0; z-index: 100;">
+    <div class="container-fluid">
+        <!-- Logo del restaurante -->
+        <a class="navbar-brand" href="#">
+            <img src="../../img/food-and-restaurant.png" alt="Logo" width="35" height="35" class="d-inline-block align-text-top">
+            Restaurant
+        </a>
+        
+        <!-- Botón para desplegar la barra de navegación en pantallas pequeñas -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- Enlace a la página del chef -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="chef.php">Chef</a>
+                </li>
+            </ul>
+            
+            <!-- Formulario para cerrar sesión -->
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <input type="hidden" name="id_us" value="<?php echo $_SESSION['userId'] ?>">
-                    <button type="submit" name="logout" class="btn btn-outline-danger">
-                        <span class="me-1">Cerrar Sesión</span>
-                        <i class="fa-solid fa-power-off"></i>
-                    </button>
-                </form>
-            </div>
+                <!-- Botón para cerrar sesión -->
+                <button type="submit" name="logout" class="btn btn-outline-danger">
+                    <span class="me-1">Cerrar Sesión</span>
+                    <i class="fa-solid fa-power-off"></i>
+                </button>
+            </form>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", () => {
-            const boton = document.querySelector(".navbar-burger");
-            const menu = document.querySelector(".navbar-menu");
-            boton.onclick = () => {
-                menu.classList.toggle("is-active");
-                boton.classList.toggle("is-active");
-            };
-        });
-    </script>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+        // Obtiene la referencia al botón de la barra de navegación
+        const boton = document.querySelector(".navbar-burger");
+        // Obtiene la referencia al menú de la barra de navegación
+        const menu = document.querySelector(".navbar-menu");
+        
+        // Asigna una función al evento "click" del botón
+        boton.onclick = () => {
+            // Alterna la clase "is-active" del menú y el botón
+            menu.classList.toggle("is-active");
+            boton.classList.toggle("is-active");
+        };
+    });
+</script>
